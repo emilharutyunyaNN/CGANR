@@ -1,0 +1,2161 @@
+2024-06-11 14:31:12,401: INFO: ------------------------------NEW RUN------------------------------
+2024-06-11 14:31:12,779: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-11 14:31:13,815: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-11 14:31:14,386: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-11 14:31:14,436: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-11 14:31:14,447: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-11 14:31:14,458: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-11 14:31:33,878: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:31:33,878: INFO: Validation G total loss: 22544.82421875
+2024-06-11 14:31:33,878: INFO: Validation G L1 loss: 22532.2890625
+2024-06-11 14:31:33,878: INFO: Validation G SSIM loss: 2.6415509069011023e-07
+2024-06-11 14:31:33,878: INFO: Validation G PSNR loss: -46.202171325683594
+2024-06-11 14:31:33,878: INFO: Validation G NCC loss mean: 0.9860076785087586
+2024-06-11 14:31:33,878: INFO: Validation G NCC loss std: 0.024773287935035405
+2024-06-11 14:31:33,878: INFO: Validation D real loss: 0.2509879171848297
+2024-06-11 14:31:33,878: INFO: Validation D fake loss: 0.24980060756206512
+2024-06-11 14:31:33,878: INFO: Validation R total loss: 2.2351741790771484e-08
+2024-06-11 14:31:33,878: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:32:02,167: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:32:02,167: INFO: Validation G total loss: 21126.44921875
+2024-06-11 14:32:02,167: INFO: Validation G L1 loss: 21113.94921875
+2024-06-11 14:32:02,167: INFO: Validation G SSIM loss: 5.996196819069155e-07
+2024-06-11 14:32:02,167: INFO: Validation G PSNR loss: -45.7540283203125
+2024-06-11 14:32:02,167: INFO: Validation G NCC loss mean: 0.9844063282012939
+2024-06-11 14:32:02,167: INFO: Validation G NCC loss std: 0.025936646143082078
+2024-06-11 14:32:02,167: INFO: Validation D real loss: 0.2523479461669922
+2024-06-11 14:32:02,167: INFO: Validation D fake loss: 0.24996571242809296
+2024-06-11 14:32:02,167: INFO: Validation R total loss: 1.3411044719191523e-08
+2024-06-11 14:32:02,167: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:32:30,248: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:32:30,248: INFO: Validation G total loss: 18778.36328125
+2024-06-11 14:32:30,248: INFO: Validation G L1 loss: 18765.880859375
+2024-06-11 14:32:30,248: INFO: Validation G SSIM loss: 4.880125743511599e-07
+2024-06-11 14:32:30,248: INFO: Validation G PSNR loss: -45.734413146972656
+2024-06-11 14:32:30,248: INFO: Validation G NCC loss mean: 0.9713294506072998
+2024-06-11 14:32:30,248: INFO: Validation G NCC loss std: 0.03734906796220006
+2024-06-11 14:32:30,249: INFO: Validation D real loss: 0.24805407226085663
+2024-06-11 14:32:30,249: INFO: Validation D fake loss: 0.24946829676628113
+2024-06-11 14:32:30,249: INFO: Validation R total loss: 1.4901161193847656e-08
+2024-06-11 14:32:30,249: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:32:58,473: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:32:58,473: INFO: Validation G total loss: 15789.8408203125
+2024-06-11 14:32:58,473: INFO: Validation G L1 loss: 15777.380859375
+2024-06-11 14:32:58,474: INFO: Validation G SSIM loss: 3.171731748352613e-07
+2024-06-11 14:32:58,474: INFO: Validation G PSNR loss: -45.95732879638672
+2024-06-11 14:32:58,474: INFO: Validation G NCC loss mean: 0.982235586643219
+2024-06-11 14:32:58,474: INFO: Validation G NCC loss std: 0.02542715227853774
+2024-06-11 14:32:58,474: INFO: Validation D real loss: 0.25041571259498596
+2024-06-11 14:32:58,474: INFO: Validation D fake loss: 0.2507428526878357
+2024-06-11 14:32:58,474: INFO: Validation R total loss: 1.9371508841459217e-08
+2024-06-11 14:32:58,474: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:33:26,447: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:33:26,447: INFO: Validation G total loss: 17528.306640625
+2024-06-11 14:33:26,447: INFO: Validation G L1 loss: 17515.76953125
+2024-06-11 14:33:26,447: INFO: Validation G SSIM loss: 2.9219739872132777e-07
+2024-06-11 14:33:26,447: INFO: Validation G PSNR loss: -45.921165466308594
+2024-06-11 14:33:26,447: INFO: Validation G NCC loss mean: 0.9846884667873382
+2024-06-11 14:33:26,448: INFO: Validation G NCC loss std: 0.014156261543553351
+2024-06-11 14:33:26,448: INFO: Validation D real loss: 0.2494572103023529
+2024-06-11 14:33:26,448: INFO: Validation D fake loss: 0.24946871399879456
+2024-06-11 14:33:26,448: INFO: Validation R total loss: 2.2351741790771484e-08
+2024-06-11 14:33:26,448: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:33:54,371: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:33:54,371: INFO: Validation G total loss: 20511.537109375
+2024-06-11 14:33:54,371: INFO: Validation G L1 loss: 20499.01953125
+2024-06-11 14:33:54,371: INFO: Validation G SSIM loss: 4.095898873401893e-07
+2024-06-11 14:33:54,371: INFO: Validation G PSNR loss: -46.00904083251953
+2024-06-11 14:33:54,371: INFO: Validation G NCC loss mean: 0.9490430295467377
+2024-06-11 14:33:54,371: INFO: Validation G NCC loss std: 0.07942988781799633
+2024-06-11 14:33:54,371: INFO: Validation D real loss: 0.2504051923751831
+2024-06-11 14:33:54,371: INFO: Validation D fake loss: 0.25053346157073975
+2024-06-11 14:33:54,372: INFO: Validation R total loss: 1.1175870895385742e-08
+2024-06-11 14:33:54,372: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:34:22,382: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:34:22,382: INFO: Validation G total loss: 9343.5986328125
+2024-06-11 14:34:22,382: INFO: Validation G L1 loss: 9331.0830078125
+2024-06-11 14:34:22,382: INFO: Validation G SSIM loss: 9.052825475919235e-07
+2024-06-11 14:34:22,382: INFO: Validation G PSNR loss: -45.263633728027344
+2024-06-11 14:34:22,382: INFO: Validation G NCC loss mean: 0.944238793849945
+2024-06-11 14:34:22,382: INFO: Validation G NCC loss std: 0.05217032336744206
+2024-06-11 14:34:22,382: INFO: Validation D real loss: 0.24993884563446045
+2024-06-11 14:34:22,382: INFO: Validation D fake loss: 0.24960407614707947
+2024-06-11 14:34:22,382: INFO: Validation R total loss: 1.1920929132713809e-08
+2024-06-11 14:34:22,382: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:34:50,322: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:34:50,322: INFO: Validation G total loss: 18809.111328125
+2024-06-11 14:34:50,322: INFO: Validation G L1 loss: 18796.576171875
+2024-06-11 14:34:50,323: INFO: Validation G SSIM loss: 3.137073179004801e-07
+2024-06-11 14:34:50,323: INFO: Validation G PSNR loss: -45.73743438720703
+2024-06-11 14:34:50,323: INFO: Validation G NCC loss mean: 0.9430432796478272
+2024-06-11 14:34:50,323: INFO: Validation G NCC loss std: 0.09104956526186637
+2024-06-11 14:34:50,323: INFO: Validation D real loss: 0.24910619854927063
+2024-06-11 14:34:50,323: INFO: Validation D fake loss: 0.25010982155799866
+2024-06-11 14:34:50,323: INFO: Validation R total loss: 1.2665987370041876e-08
+2024-06-11 14:34:50,323: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:35:18,271: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:35:18,271: INFO: Validation G total loss: 15536.740234375
+2024-06-11 14:35:18,271: INFO: Validation G L1 loss: 15524.283203125
+2024-06-11 14:35:18,272: INFO: Validation G SSIM loss: 1.3254278883323423e-06
+2024-06-11 14:35:18,272: INFO: Validation G PSNR loss: -45.23810958862305
+2024-06-11 14:35:18,272: INFO: Validation G NCC loss mean: 0.9735739171504975
+2024-06-11 14:35:18,272: INFO: Validation G NCC loss std: 0.02716943655512056
+2024-06-11 14:35:18,272: INFO: Validation D real loss: 0.24946212768554688
+2024-06-11 14:35:18,272: INFO: Validation D fake loss: 0.24992600083351135
+2024-06-11 14:35:18,272: INFO: Validation R total loss: 1.1920929132713809e-08
+2024-06-11 14:35:18,272: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:35:46,204: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:35:46,204: INFO: Validation G total loss: 23413.931640625
+2024-06-11 14:35:46,204: INFO: Validation G L1 loss: 23401.41796875
+2024-06-11 14:35:46,204: INFO: Validation G SSIM loss: 4.5302596163310227e-07
+2024-06-11 14:35:46,204: INFO: Validation G PSNR loss: -46.08449172973633
+2024-06-11 14:35:46,204: INFO: Validation G NCC loss mean: 0.9910116374492646
+2024-06-11 14:35:46,204: INFO: Validation G NCC loss std: 0.01321053981380886
+2024-06-11 14:35:46,204: INFO: Validation D real loss: 0.2509433627128601
+2024-06-11 14:35:46,204: INFO: Validation D fake loss: 0.2488616704940796
+2024-06-11 14:35:46,204: INFO: Validation R total loss: 6.705522359595761e-09
+2024-06-11 14:35:46,204: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:36:14,067: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:36:14,067: INFO: Validation G total loss: 16807.52734375
+2024-06-11 14:36:14,067: INFO: Validation G L1 loss: 16795.03515625
+2024-06-11 14:36:14,067: INFO: Validation G SSIM loss: 3.4551425187601126e-07
+2024-06-11 14:36:14,067: INFO: Validation G PSNR loss: -45.70602798461914
+2024-06-11 14:36:14,067: INFO: Validation G NCC loss mean: 0.9654004871845245
+2024-06-11 14:36:14,067: INFO: Validation G NCC loss std: 0.038265523737339595
+2024-06-11 14:36:14,067: INFO: Validation D real loss: 0.24874691665172577
+2024-06-11 14:36:14,068: INFO: Validation D fake loss: 0.2500229775905609
+2024-06-11 14:36:14,068: INFO: Validation R total loss: 1.2665987370041876e-08
+2024-06-11 14:36:14,068: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:36:41,943: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:36:41,943: INFO: Validation G total loss: 18820.44140625
+2024-06-11 14:36:41,943: INFO: Validation G L1 loss: 18807.927734375
+2024-06-11 14:36:41,943: INFO: Validation G SSIM loss: 7.246582640618726e-07
+2024-06-11 14:36:41,943: INFO: Validation G PSNR loss: -46.108375549316406
+2024-06-11 14:36:41,943: INFO: Validation G NCC loss mean: 0.9824436187744141
+2024-06-11 14:36:41,943: INFO: Validation G NCC loss std: 0.021080723542348193
+2024-06-11 14:36:41,943: INFO: Validation D real loss: 0.2485816925764084
+2024-06-11 14:36:41,943: INFO: Validation D fake loss: 0.2496127188205719
+2024-06-11 14:36:41,944: INFO: Validation R total loss: 1.5646218542997303e-08
+2024-06-11 14:36:41,944: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:37:10,086: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:37:10,087: INFO: Validation G total loss: 13897.2451171875
+2024-06-11 14:37:10,087: INFO: Validation G L1 loss: 13884.7578125
+2024-06-11 14:37:10,087: INFO: Validation G SSIM loss: 4.6784106189079466e-07
+2024-06-11 14:37:10,087: INFO: Validation G PSNR loss: -45.4207878112793
+2024-06-11 14:37:10,087: INFO: Validation G NCC loss mean: 0.9564863562583923
+2024-06-11 14:37:10,087: INFO: Validation G NCC loss std: 0.02965163312303022
+2024-06-11 14:37:10,087: INFO: Validation D real loss: 0.24932530522346497
+2024-06-11 14:37:10,087: INFO: Validation D fake loss: 0.24997055530548096
+2024-06-11 14:37:10,087: INFO: Validation R total loss: 1.4901161193847656e-08
+2024-06-11 14:37:10,087: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:37:38,035: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:37:38,036: INFO: Validation G total loss: 17965.40234375
+2024-06-11 14:37:38,036: INFO: Validation G L1 loss: 17952.958984375
+2024-06-11 14:37:38,036: INFO: Validation G SSIM loss: 9.416027637598745e-07
+2024-06-11 14:37:38,036: INFO: Validation G PSNR loss: -45.78942108154297
+2024-06-11 14:37:38,036: INFO: Validation G NCC loss mean: 0.976663863658905
+2024-06-11 14:37:38,036: INFO: Validation G NCC loss std: 0.021228776523141084
+2024-06-11 14:37:38,036: INFO: Validation D real loss: 0.2499525099992752
+2024-06-11 14:37:38,036: INFO: Validation D fake loss: 0.2496289312839508
+2024-06-11 14:37:38,036: INFO: Validation R total loss: 1.4901161193847656e-08
+2024-06-11 14:37:38,036: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:38:06,119: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:38:06,119: INFO: Validation G total loss: 17564.49609375
+2024-06-11 14:38:06,119: INFO: Validation G L1 loss: 17552.037109375
+2024-06-11 14:38:06,119: INFO: Validation G SSIM loss: 1.0172529982810374e-06
+2024-06-11 14:38:06,119: INFO: Validation G PSNR loss: -45.38066864013672
+2024-06-11 14:38:06,119: INFO: Validation G NCC loss mean: 0.9730060696601868
+2024-06-11 14:38:06,119: INFO: Validation G NCC loss std: 0.023166491412186484
+2024-06-11 14:38:06,119: INFO: Validation D real loss: 0.24947038292884827
+2024-06-11 14:38:06,120: INFO: Validation D fake loss: 0.2498849630355835
+2024-06-11 14:38:06,120: INFO: Validation R total loss: 1.415610295651959e-08
+2024-06-11 14:38:06,120: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:38:15,924: INFO: -------------------TRAINING LOSSES-------------------
+2024-06-11 14:38:15,924: INFO: Total loss for G: 16912.888671875
+2024-06-11 14:38:15,925: INFO: L1 loss for G: 16900.380859375
+2024-06-11 14:38:27,690: INFO: Total loss for R: -1.2218952178955078e-05
+2024-06-11 14:38:31,238: INFO: ------------------------VALIDATION------------------------
+2024-06-11 14:38:31,238: INFO: Validation G total loss: 21406.642578125
+2024-06-11 14:38:31,239: INFO: Validation G L1 loss: 21394.20703125
+2024-06-11 14:38:31,239: INFO: Validation G SSIM loss: 5.610892799268186e-07
+2024-06-11 14:38:31,239: INFO: Validation G PSNR loss: -45.711952209472656
+2024-06-11 14:38:31,239: INFO: Validation G NCC loss mean: 0.9768178939819336
+2024-06-11 14:38:31,239: INFO: Validation G NCC loss std: 0.03518405710827918
+2024-06-11 14:38:31,239: INFO: Validation D real loss: 0.25005611777305603
+2024-06-11 14:38:31,239: INFO: Validation D fake loss: 0.2498304396867752
+2024-06-11 14:38:31,239: INFO: Validation R total loss: 2.413988227090158e-07
+2024-06-11 14:38:49,705: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:38:49,705: INFO: Validation G total loss: 22474.970703125
+2024-06-11 14:38:49,705: INFO: Validation G L1 loss: 22462.453125
+2024-06-11 14:38:49,705: INFO: Validation G SSIM loss: 3.8410780689446256e-07
+2024-06-11 14:38:49,705: INFO: Validation G PSNR loss: -46.19942855834961
+2024-06-11 14:38:49,705: INFO: Validation G NCC loss mean: 0.9931822896003724
+2024-06-11 14:38:49,705: INFO: Validation G NCC loss std: 0.00696898371311024
+2024-06-11 14:38:49,705: INFO: Validation D real loss: 0.2513655722141266
+2024-06-11 14:38:49,705: INFO: Validation D fake loss: 0.2504296600818634
+2024-06-11 14:38:49,705: INFO: Validation R total loss: 2.391636257925711e-07
+2024-06-11 14:38:49,706: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:39:17,831: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:39:17,831: INFO: Validation G total loss: 9207.697265625
+2024-06-11 14:39:17,831: INFO: Validation G L1 loss: 9195.1708984375
+2024-06-11 14:39:17,831: INFO: Validation G SSIM loss: 3.3674777455416915e-07
+2024-06-11 14:39:17,831: INFO: Validation G PSNR loss: -45.790557861328125
+2024-06-11 14:39:17,831: INFO: Validation G NCC loss mean: 0.9660424649715423
+2024-06-11 14:39:17,831: INFO: Validation G NCC loss std: 0.04144631713932365
+2024-06-11 14:39:17,831: INFO: Validation D real loss: 0.2501189112663269
+2024-06-11 14:39:17,831: INFO: Validation D fake loss: 0.25029635429382324
+2024-06-11 14:39:17,832: INFO: Validation R total loss: 5.62518835067749e-07
+2024-06-11 14:39:17,832: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:39:45,916: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:39:45,916: INFO: Validation G total loss: 10402.228515625
+2024-06-11 14:39:45,916: INFO: Validation G L1 loss: 10389.712890625
+2024-06-11 14:39:45,916: INFO: Validation G SSIM loss: 6.295209686868475e-07
+2024-06-11 14:39:45,916: INFO: Validation G PSNR loss: -45.58351135253906
+2024-06-11 14:39:45,916: INFO: Validation G NCC loss mean: 0.9681535422801971
+2024-06-11 14:39:45,916: INFO: Validation G NCC loss std: 0.02753855720909907
+2024-06-11 14:39:45,917: INFO: Validation D real loss: 0.2506403625011444
+2024-06-11 14:39:45,917: INFO: Validation D fake loss: 0.24991783499717712
+2024-06-11 14:39:45,917: INFO: Validation R total loss: 4.641711655040126e-07
+2024-06-11 14:39:45,917: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:40:13,928: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:40:13,929: INFO: Validation G total loss: inf
+2024-06-11 14:40:13,929: INFO: Validation G L1 loss: inf
+2024-06-11 14:40:13,929: INFO: Validation G SSIM loss: 9.026211046148092e-05
+2024-06-11 14:40:13,929: INFO: Validation G PSNR loss: -40.47266387939453
+2024-06-11 14:40:13,929: INFO: Validation G NCC loss mean: 0.879197805399599
+2024-06-11 14:40:13,929: INFO: Validation G NCC loss std: 0.294574519798704
+2024-06-11 14:40:13,929: INFO: Validation D real loss: 0.25213971734046936
+2024-06-11 14:40:13,929: INFO: Validation D fake loss: 0.24990081787109375
+2024-06-11 14:40:13,929: INFO: Validation R total loss: 4.6491624061673065e-07
+2024-06-11 14:40:13,929: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:40:41,922: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:40:41,922: INFO: Validation G total loss: 17130.62109375
+2024-06-11 14:40:41,922: INFO: Validation G L1 loss: 17118.08984375
+2024-06-11 14:40:41,922: INFO: Validation G SSIM loss: 2.827511252689874e-06
+2024-06-11 14:40:41,923: INFO: Validation G PSNR loss: -45.70412826538086
+2024-06-11 14:40:41,923: INFO: Validation G NCC loss mean: 0.9412397921085358
+2024-06-11 14:40:41,923: INFO: Validation G NCC loss std: 0.10412687384427902
+2024-06-11 14:40:41,923: INFO: Validation D real loss: 0.24790063500404358
+2024-06-11 14:40:41,923: INFO: Validation D fake loss: 0.2496134340763092
+2024-06-11 14:40:41,923: INFO: Validation R total loss: 4.1052697952181916e-07
+2024-06-11 14:40:41,923: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:41:09,890: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:41:09,890: INFO: Validation G total loss: 14898.609375
+2024-06-11 14:41:09,890: INFO: Validation G L1 loss: 14886.0546875
+2024-06-11 14:41:09,890: INFO: Validation G SSIM loss: 7.452599675161764e-06
+2024-06-11 14:41:09,890: INFO: Validation G PSNR loss: -46.036983489990234
+2024-06-11 14:41:09,890: INFO: Validation G NCC loss mean: 0.9747005105018616
+2024-06-11 14:41:09,890: INFO: Validation G NCC loss std: 0.02270562776485537
+2024-06-11 14:41:09,890: INFO: Validation D real loss: 0.2495189607143402
+2024-06-11 14:41:09,890: INFO: Validation D fake loss: 0.25054317712783813
+2024-06-11 14:41:09,891: INFO: Validation R total loss: 4.552304631033621e-07
+2024-06-11 14:41:09,891: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:41:37,872: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:41:37,872: INFO: Validation G total loss: 13147.7919921875
+2024-06-11 14:41:37,872: INFO: Validation G L1 loss: 13135.248046875
+2024-06-11 14:41:37,872: INFO: Validation G SSIM loss: 5.361760599953413e-07
+2024-06-11 14:41:37,872: INFO: Validation G PSNR loss: -45.33043670654297
+2024-06-11 14:41:37,872: INFO: Validation G NCC loss mean: 0.944815731048584
+2024-06-11 14:41:37,872: INFO: Validation G NCC loss std: 0.055227569258721305
+2024-06-11 14:41:37,872: INFO: Validation D real loss: 0.25107139348983765
+2024-06-11 14:41:37,872: INFO: Validation D fake loss: 0.25135427713394165
+2024-06-11 14:41:37,872: INFO: Validation R total loss: 4.462897891244211e-07
+2024-06-11 14:41:37,872: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:42:05,925: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:42:05,925: INFO: Validation G total loss: 12160.185546875
+2024-06-11 14:42:05,925: INFO: Validation G L1 loss: 12147.6826171875
+2024-06-11 14:42:05,925: INFO: Validation G SSIM loss: 6.489349289040547e-07
+2024-06-11 14:42:05,925: INFO: Validation G PSNR loss: -45.50630187988281
+2024-06-11 14:42:05,925: INFO: Validation G NCC loss mean: 0.9428943872451783
+2024-06-11 14:42:05,926: INFO: Validation G NCC loss std: 0.09148762158604917
+2024-06-11 14:42:05,926: INFO: Validation D real loss: 0.2510066032409668
+2024-06-11 14:42:05,926: INFO: Validation D fake loss: 0.2506706416606903
+2024-06-11 14:42:05,926: INFO: Validation R total loss: 5.654990786752023e-07
+2024-06-11 14:42:05,926: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:42:33,938: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:42:33,939: INFO: Validation G total loss: 21073.212890625
+2024-06-11 14:42:33,939: INFO: Validation G L1 loss: 21060.6953125
+2024-06-11 14:42:33,939: INFO: Validation G SSIM loss: 4.462337130917149e-07
+2024-06-11 14:42:33,939: INFO: Validation G PSNR loss: -46.199180603027344
+2024-06-11 14:42:33,939: INFO: Validation G NCC loss mean: 0.9517248511314392
+2024-06-11 14:42:33,939: INFO: Validation G NCC loss std: 0.10105763214377873
+2024-06-11 14:42:33,939: INFO: Validation D real loss: 0.2504216730594635
+2024-06-11 14:42:33,939: INFO: Validation D fake loss: 0.24928629398345947
+2024-06-11 14:42:33,939: INFO: Validation R total loss: 3.561377468486171e-07
+2024-06-11 14:42:33,939: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:43:01,926: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:43:01,926: INFO: Validation G total loss: 16793.404296875
+2024-06-11 14:43:01,926: INFO: Validation G L1 loss: 16780.90234375
+2024-06-11 14:43:01,926: INFO: Validation G SSIM loss: 7.795914598318632e-07
+2024-06-11 14:43:01,926: INFO: Validation G PSNR loss: -45.50316619873047
+2024-06-11 14:43:01,926: INFO: Validation G NCC loss mean: 0.9538123548030853
+2024-06-11 14:43:01,926: INFO: Validation G NCC loss std: 0.09959195498831461
+2024-06-11 14:43:01,927: INFO: Validation D real loss: 0.24934804439544678
+2024-06-11 14:43:01,927: INFO: Validation D fake loss: 0.25007206201553345
+2024-06-11 14:43:01,927: INFO: Validation R total loss: 3.948807716369629e-07
+2024-06-11 14:43:01,927: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:43:29,921: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:43:29,921: INFO: Validation G total loss: 18102.236328125
+2024-06-11 14:43:29,921: INFO: Validation G L1 loss: 18089.712890625
+2024-06-11 14:43:29,921: INFO: Validation G SSIM loss: 1.2318794233578956e-06
+2024-06-11 14:43:29,921: INFO: Validation G PSNR loss: -45.64771270751953
+2024-06-11 14:43:29,921: INFO: Validation G NCC loss mean: 0.9276927292346955
+2024-06-11 14:43:29,921: INFO: Validation G NCC loss std: 0.09652473523632879
+2024-06-11 14:43:29,921: INFO: Validation D real loss: 0.24978700280189514
+2024-06-11 14:43:29,921: INFO: Validation D fake loss: 0.25037989020347595
+2024-06-11 14:43:29,922: INFO: Validation R total loss: 3.620982056418143e-07
+2024-06-11 14:43:29,922: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:43:57,906: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:43:57,906: INFO: Validation G total loss: 19935.177734375
+2024-06-11 14:43:57,906: INFO: Validation G L1 loss: 19922.69921875
+2024-06-11 14:43:57,906: INFO: Validation G SSIM loss: 5.431502358987927e-07
+2024-06-11 14:43:57,907: INFO: Validation G PSNR loss: -46.0483283996582
+2024-06-11 14:43:57,907: INFO: Validation G NCC loss mean: 0.9735845744609832
+2024-06-11 14:43:57,907: INFO: Validation G NCC loss std: 0.024776245737530025
+2024-06-11 14:43:57,907: INFO: Validation D real loss: 0.24908581376075745
+2024-06-11 14:43:57,907: INFO: Validation D fake loss: 0.24960020184516907
+2024-06-11 14:43:57,907: INFO: Validation R total loss: 6.265938168326102e-07
+2024-06-11 14:43:57,907: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:44:26,110: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:44:26,110: INFO: Validation G total loss: 18756.048828125
+2024-06-11 14:44:26,111: INFO: Validation G L1 loss: 18743.611328125
+2024-06-11 14:44:26,111: INFO: Validation G SSIM loss: 5.493678827406256e-07
+2024-06-11 14:44:26,111: INFO: Validation G PSNR loss: -45.359954833984375
+2024-06-11 14:44:26,111: INFO: Validation G NCC loss mean: 0.9693116843700409
+2024-06-11 14:44:26,111: INFO: Validation G NCC loss std: 0.029380369319052684
+2024-06-11 14:44:26,111: INFO: Validation D real loss: 0.25162431597709656
+2024-06-11 14:44:26,111: INFO: Validation D fake loss: 0.24982723593711853
+2024-06-11 14:44:26,111: INFO: Validation R total loss: 4.7460198970838974e-07
+2024-06-11 14:44:26,111: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:44:54,462: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:44:54,463: INFO: Validation G total loss: 11829.091796875
+2024-06-11 14:44:54,463: INFO: Validation G L1 loss: 11816.603515625
+2024-06-11 14:44:54,463: INFO: Validation G SSIM loss: 4.914353439744445e-07
+2024-06-11 14:44:54,463: INFO: Validation G PSNR loss: -45.256919860839844
+2024-06-11 14:44:54,463: INFO: Validation G NCC loss mean: 0.9413602173328399
+2024-06-11 14:44:54,463: INFO: Validation G NCC loss std: 0.05470947690745074
+2024-06-11 14:44:54,463: INFO: Validation D real loss: 0.2501712739467621
+2024-06-11 14:44:54,463: INFO: Validation D fake loss: 0.2501930892467499
+2024-06-11 14:44:54,463: INFO: Validation R total loss: 1.5795231433912704e-07
+2024-06-11 14:44:54,463: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:45:22,698: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:45:22,698: INFO: Validation G total loss: 14907.6298828125
+2024-06-11 14:45:22,698: INFO: Validation G L1 loss: 14895.1376953125
+2024-06-11 14:45:22,698: INFO: Validation G SSIM loss: 4.159146556048654e-07
+2024-06-11 14:45:22,698: INFO: Validation G PSNR loss: -45.877132415771484
+2024-06-11 14:45:22,698: INFO: Validation G NCC loss mean: 0.9550437450408935
+2024-06-11 14:45:22,698: INFO: Validation G NCC loss std: 0.06768843580600606
+2024-06-11 14:45:22,698: INFO: Validation D real loss: 0.25188544392585754
+2024-06-11 14:45:22,698: INFO: Validation D fake loss: 0.2498149424791336
+2024-06-11 14:45:22,698: INFO: Validation R total loss: 3.166496753692627e-07
+2024-06-11 14:45:22,698: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:45:32,552: INFO: -------------------TRAINING LOSSES-------------------
+2024-06-11 14:45:32,552: INFO: Total loss for G: 17977.548828125
+2024-06-11 14:45:32,552: INFO: L1 loss for G: 17965.046875
+2024-06-11 14:45:44,144: INFO: Total loss for R: -0.0001952648162841797
+2024-06-11 14:45:47,577: INFO: ------------------------VALIDATION------------------------
+2024-06-11 14:45:47,577: INFO: Validation G total loss: 16909.1640625
+2024-06-11 14:45:47,577: INFO: Validation G L1 loss: 16896.63671875
+2024-06-11 14:45:47,577: INFO: Validation G SSIM loss: 5.300947805153555e-07
+2024-06-11 14:45:47,577: INFO: Validation G PSNR loss: -45.86581802368164
+2024-06-11 14:45:47,577: INFO: Validation G NCC loss mean: 0.9049967348575592
+2024-06-11 14:45:47,577: INFO: Validation G NCC loss std: 0.12495494955918875
+2024-06-11 14:45:47,578: INFO: Validation D real loss: 0.24875712394714355
+2024-06-11 14:45:47,578: INFO: Validation D fake loss: 0.24914440512657166
+2024-06-11 14:45:47,578: INFO: Validation R total loss: 2.481043281932216e-07
+2024-06-11 14:46:06,100: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:46:06,100: INFO: Validation G total loss: 15746.9091796875
+2024-06-11 14:46:06,101: INFO: Validation G L1 loss: 15734.376953125
+2024-06-11 14:46:06,101: INFO: Validation G SSIM loss: 3.110961301899806e-07
+2024-06-11 14:46:06,101: INFO: Validation G PSNR loss: -45.75934982299805
+2024-06-11 14:46:06,101: INFO: Validation G NCC loss mean: 0.9150623559951783
+2024-06-11 14:46:06,101: INFO: Validation G NCC loss std: 0.10072510405474003
+2024-06-11 14:46:06,101: INFO: Validation D real loss: 0.2514975070953369
+2024-06-11 14:46:06,101: INFO: Validation D fake loss: 0.24955233931541443
+2024-06-11 14:46:06,101: INFO: Validation R total loss: 1.9520521732374618e-07
+2024-06-11 14:46:06,101: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:46:34,069: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:46:34,069: INFO: Validation G total loss: 19129.0078125
+2024-06-11 14:46:34,069: INFO: Validation G L1 loss: 19116.54296875
+2024-06-11 14:46:34,069: INFO: Validation G SSIM loss: 1.602409582801556e-07
+2024-06-11 14:46:34,069: INFO: Validation G PSNR loss: -45.61012268066406
+2024-06-11 14:46:34,069: INFO: Validation G NCC loss mean: 0.9499436020851135
+2024-06-11 14:46:34,069: INFO: Validation G NCC loss std: 0.0876522394261293
+2024-06-11 14:46:34,069: INFO: Validation D real loss: 0.250126451253891
+2024-06-11 14:46:34,069: INFO: Validation D fake loss: 0.25045275688171387
+2024-06-11 14:46:34,069: INFO: Validation R total loss: 3.069639262776036e-07
+2024-06-11 14:46:34,069: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:47:02,268: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:47:02,268: INFO: Validation G total loss: 12574.263671875
+2024-06-11 14:47:02,268: INFO: Validation G L1 loss: 12561.783203125
+2024-06-11 14:47:02,268: INFO: Validation G SSIM loss: 1.060995964508038e-05
+2024-06-11 14:47:02,268: INFO: Validation G PSNR loss: -46.05168914794922
+2024-06-11 14:47:02,268: INFO: Validation G NCC loss mean: 0.9164207845926284
+2024-06-11 14:47:02,268: INFO: Validation G NCC loss std: 0.1591401695347158
+2024-06-11 14:47:02,268: INFO: Validation D real loss: 0.2509293556213379
+2024-06-11 14:47:02,268: INFO: Validation D fake loss: 0.24980691075325012
+2024-06-11 14:47:02,268: INFO: Validation R total loss: 2.1830200580552628e-07
+2024-06-11 14:47:02,268: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:47:30,211: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:47:30,212: INFO: Validation G total loss: 26187.66015625
+2024-06-11 14:47:30,212: INFO: Validation G L1 loss: 26175.150390625
+2024-06-11 14:47:30,212: INFO: Validation G SSIM loss: 3.442915783580247e-07
+2024-06-11 14:47:30,212: INFO: Validation G PSNR loss: -46.346923828125
+2024-06-11 14:47:30,212: INFO: Validation G NCC loss mean: 0.9234270930290223
+2024-06-11 14:47:30,212: INFO: Validation G NCC loss std: 0.1192179285008024
+2024-06-11 14:47:30,212: INFO: Validation D real loss: 0.2490304410457611
+2024-06-11 14:47:30,212: INFO: Validation D fake loss: 0.24929432570934296
+2024-06-11 14:47:30,212: INFO: Validation R total loss: 1.236796407511065e-07
+2024-06-11 14:47:30,212: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:47:58,170: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:47:58,170: INFO: Validation G total loss: 16783.68359375
+2024-06-11 14:47:58,170: INFO: Validation G L1 loss: 16771.203125
+2024-06-11 14:47:58,170: INFO: Validation G SSIM loss: 3.315977892270894e-07
+2024-06-11 14:47:58,170: INFO: Validation G PSNR loss: -45.61695098876953
+2024-06-11 14:47:58,170: INFO: Validation G NCC loss mean: 0.9611376166343689
+2024-06-11 14:47:58,170: INFO: Validation G NCC loss std: 0.057742401240959154
+2024-06-11 14:47:58,171: INFO: Validation D real loss: 0.2501569092273712
+2024-06-11 14:47:58,171: INFO: Validation D fake loss: 0.250640332698822
+2024-06-11 14:47:58,171: INFO: Validation R total loss: 1.668930025289228e-07
+2024-06-11 14:47:58,171: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:48:26,244: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:48:26,244: INFO: Validation G total loss: 15274.0751953125
+2024-06-11 14:48:26,244: INFO: Validation G L1 loss: 15261.583984375
+2024-06-11 14:48:26,244: INFO: Validation G SSIM loss: 4.3776111624538316e-07
+2024-06-11 14:48:26,244: INFO: Validation G PSNR loss: -45.61930465698242
+2024-06-11 14:48:26,244: INFO: Validation G NCC loss mean: 0.9437973439693451
+2024-06-11 14:48:26,245: INFO: Validation G NCC loss std: 0.09128682179259695
+2024-06-11 14:48:26,245: INFO: Validation D real loss: 0.24957406520843506
+2024-06-11 14:48:26,245: INFO: Validation D fake loss: 0.25046154856681824
+2024-06-11 14:48:26,245: INFO: Validation R total loss: 2.4363399120375107e-07
+2024-06-11 14:48:26,245: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:48:54,186: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:48:54,186: INFO: Validation G total loss: 21455.80859375
+2024-06-11 14:48:54,186: INFO: Validation G L1 loss: 21443.265625
+2024-06-11 14:48:54,186: INFO: Validation G SSIM loss: 3.2812096151246806e-07
+2024-06-11 14:48:54,186: INFO: Validation G PSNR loss: -46.16661071777344
+2024-06-11 14:48:54,186: INFO: Validation G NCC loss mean: 0.9495998322963715
+2024-06-11 14:48:54,186: INFO: Validation G NCC loss std: 0.09788203824291615
+2024-06-11 14:48:54,187: INFO: Validation D real loss: 0.2506735324859619
+2024-06-11 14:48:54,187: INFO: Validation D fake loss: 0.25069984793663025
+2024-06-11 14:48:54,187: INFO: Validation R total loss: 1.7806887342430855e-07
+2024-06-11 14:48:54,187: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:49:22,078: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:49:22,079: INFO: Validation G total loss: 14344.7373046875
+2024-06-11 14:49:22,079: INFO: Validation G L1 loss: 14332.208984375
+2024-06-11 14:49:22,079: INFO: Validation G SSIM loss: 4.0152781366487034e-07
+2024-06-11 14:49:22,079: INFO: Validation G PSNR loss: -45.624061584472656
+2024-06-11 14:49:22,079: INFO: Validation G NCC loss mean: 0.9870440900325775
+2024-06-11 14:49:22,079: INFO: Validation G NCC loss std: 0.016035848831500076
+2024-06-11 14:49:22,079: INFO: Validation D real loss: 0.25095224380493164
+2024-06-11 14:49:22,079: INFO: Validation D fake loss: 0.24949240684509277
+2024-06-11 14:49:22,079: INFO: Validation R total loss: 1.3262032894090225e-07
+2024-06-11 14:49:22,079: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:49:50,041: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:49:50,041: INFO: Validation G total loss: 23367.130859375
+2024-06-11 14:49:50,042: INFO: Validation G L1 loss: 23354.609375
+2024-06-11 14:49:50,042: INFO: Validation G SSIM loss: 7.264080977620324e-06
+2024-06-11 14:49:50,042: INFO: Validation G PSNR loss: -46.316707611083984
+2024-06-11 14:49:50,042: INFO: Validation G NCC loss mean: 0.9137331783771515
+2024-06-11 14:49:50,042: INFO: Validation G NCC loss std: 0.19395032650169197
+2024-06-11 14:49:50,042: INFO: Validation D real loss: 0.24990732967853546
+2024-06-11 14:49:50,042: INFO: Validation D fake loss: 0.25001490116119385
+2024-06-11 14:49:50,042: INFO: Validation R total loss: 1.1995435045264458e-07
+2024-06-11 14:49:50,042: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:50:18,286: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:50:18,286: INFO: Validation G total loss: 21747.69921875
+2024-06-11 14:50:18,286: INFO: Validation G L1 loss: 21735.251953125
+2024-06-11 14:50:18,287: INFO: Validation G SSIM loss: 3.5326823422110465e-07
+2024-06-11 14:50:18,287: INFO: Validation G PSNR loss: -46.1963996887207
+2024-06-11 14:50:18,287: INFO: Validation G NCC loss mean: 0.9561405837535858
+2024-06-11 14:50:18,287: INFO: Validation G NCC loss std: 0.06728240569312656
+2024-06-11 14:50:18,287: INFO: Validation D real loss: 0.24895238876342773
+2024-06-11 14:50:18,287: INFO: Validation D fake loss: 0.2490612268447876
+2024-06-11 14:50:18,287: INFO: Validation R total loss: 2.689659481802664e-07
+2024-06-11 14:50:18,287: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:50:46,590: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:50:46,591: INFO: Validation G total loss: 12389.56640625
+2024-06-11 14:50:46,591: INFO: Validation G L1 loss: 12377.091796875
+2024-06-11 14:50:46,591: INFO: Validation G SSIM loss: 3.3854820458145696e-07
+2024-06-11 14:50:46,591: INFO: Validation G PSNR loss: -45.34171676635742
+2024-06-11 14:50:46,591: INFO: Validation G NCC loss mean: 0.9435042619705201
+2024-06-11 14:50:46,591: INFO: Validation G NCC loss std: 0.07900936166623862
+2024-06-11 14:50:46,591: INFO: Validation D real loss: 0.24910922348499298
+2024-06-11 14:50:46,591: INFO: Validation D fake loss: 0.25016292929649353
+2024-06-11 14:50:46,591: INFO: Validation R total loss: 1.7732381252244522e-07
+2024-06-11 14:50:46,591: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:51:14,641: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:51:14,641: INFO: Validation G total loss: 13827.638671875
+2024-06-11 14:51:14,641: INFO: Validation G L1 loss: 13815.1328125
+2024-06-11 14:51:14,641: INFO: Validation G SSIM loss: 9.80327740762732e-07
+2024-06-11 14:51:14,641: INFO: Validation G PSNR loss: -45.45664978027344
+2024-06-11 14:51:14,641: INFO: Validation G NCC loss mean: 0.9291894674301148
+2024-06-11 14:51:14,642: INFO: Validation G NCC loss std: 0.10603297830425976
+2024-06-11 14:51:14,642: INFO: Validation D real loss: 0.2500251233577728
+2024-06-11 14:51:14,642: INFO: Validation D fake loss: 0.24836194515228271
+2024-06-11 14:51:14,642: INFO: Validation R total loss: 2.153217764089277e-07
+2024-06-11 14:51:14,642: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:51:42,837: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:51:42,837: INFO: Validation G total loss: 13296.3310546875
+2024-06-11 14:51:42,837: INFO: Validation G L1 loss: 13283.7998046875
+2024-06-11 14:51:42,837: INFO: Validation G SSIM loss: 9.584906592863263e-07
+2024-06-11 14:51:42,837: INFO: Validation G PSNR loss: -45.33643341064453
+2024-06-11 14:51:42,838: INFO: Validation G NCC loss mean: 0.9339910626411438
+2024-06-11 14:51:42,838: INFO: Validation G NCC loss std: 0.08015986842182943
+2024-06-11 14:51:42,838: INFO: Validation D real loss: 0.25021153688430786
+2024-06-11 14:51:42,838: INFO: Validation D fake loss: 0.24995362758636475
+2024-06-11 14:51:42,838: INFO: Validation R total loss: 2.7939677238464355e-07
+2024-06-11 14:51:42,838: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:52:10,997: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 14:52:10,997: INFO: Validation G total loss: 16695.48828125
+2024-06-11 14:52:10,997: INFO: Validation G L1 loss: 16682.939453125
+2024-06-11 14:52:10,997: INFO: Validation G SSIM loss: 2.94718034865582e-07
+2024-06-11 14:52:10,997: INFO: Validation G PSNR loss: -45.849796295166016
+2024-06-11 14:52:10,998: INFO: Validation G NCC loss mean: 0.9502379119396209
+2024-06-11 14:52:10,998: INFO: Validation G NCC loss std: 0.07444478125705324
+2024-06-11 14:52:10,998: INFO: Validation D real loss: 0.25121527910232544
+2024-06-11 14:52:10,998: INFO: Validation D fake loss: 0.25020167231559753
+2024-06-11 14:52:10,998: INFO: Validation R total loss: 8.419156216632473e-08
+2024-06-11 14:52:10,998: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:23:15,600: INFO: ------------------------------NEW RUN------------------------------
+2024-06-11 16:23:16,638: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-11 16:23:19,575: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-11 16:23:20,867: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-11 16:23:21,043: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-11 16:23:21,077: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-11 16:23:21,106: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-11 16:23:40,422: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:23:40,422: INFO: Validation G total loss: 19278.265625
+2024-06-11 16:23:40,422: INFO: Validation G L1 loss: 19265.76953125
+2024-06-11 16:23:40,422: INFO: Validation G SSIM loss: 0.018279381096363068
+2024-06-11 16:23:40,422: INFO: Validation G PSNR loss: -42.00986099243164
+2024-06-11 16:23:40,422: INFO: Validation G NCC loss mean: 0.9471850216388702
+2024-06-11 16:23:40,422: INFO: Validation G NCC loss std: 0.09719154787236328
+2024-06-11 16:23:40,422: INFO: Validation D real loss: 0.24993951618671417
+2024-06-11 16:23:40,422: INFO: Validation D fake loss: 0.24951986968517303
+2024-06-11 16:23:40,422: INFO: Validation R total loss: 1.862645149230957e-08
+2024-06-11 16:23:40,422: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:24:08,417: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:24:08,417: INFO: Validation G total loss: 15011.0126953125
+2024-06-11 16:24:08,417: INFO: Validation G L1 loss: 14998.4921875
+2024-06-11 16:24:08,417: INFO: Validation G SSIM loss: 0.0011314635630697012
+2024-06-11 16:24:08,418: INFO: Validation G PSNR loss: -43.10549545288086
+2024-06-11 16:24:08,418: INFO: Validation G NCC loss mean: 0.9352800786495209
+2024-06-11 16:24:08,418: INFO: Validation G NCC loss std: 0.07058901360648893
+2024-06-11 16:24:08,418: INFO: Validation D real loss: 0.25115543603897095
+2024-06-11 16:24:08,418: INFO: Validation D fake loss: 0.24978569149971008
+2024-06-11 16:24:08,418: INFO: Validation R total loss: 1.415610295651959e-08
+2024-06-11 16:24:08,418: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:24:36,593: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:24:36,593: INFO: Validation G total loss: 19131.857421875
+2024-06-11 16:24:36,594: INFO: Validation G L1 loss: 19119.357421875
+2024-06-11 16:24:36,594: INFO: Validation G SSIM loss: 3.248001121392008e-07
+2024-06-11 16:24:36,594: INFO: Validation G PSNR loss: -45.7984619140625
+2024-06-11 16:24:36,594: INFO: Validation G NCC loss mean: 0.9859515309333802
+2024-06-11 16:24:36,594: INFO: Validation G NCC loss std: 0.01117617803637296
+2024-06-11 16:24:36,594: INFO: Validation D real loss: 0.2504475712776184
+2024-06-11 16:24:36,594: INFO: Validation D fake loss: 0.24969616532325745
+2024-06-11 16:24:36,594: INFO: Validation R total loss: 9.685754420729609e-09
+2024-06-11 16:24:36,594: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:25:04,727: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:25:04,727: INFO: Validation G total loss: 19230.54296875
+2024-06-11 16:25:04,727: INFO: Validation G L1 loss: 19218.03125
+2024-06-11 16:25:04,727: INFO: Validation G SSIM loss: 0.0011137868277728558
+2024-06-11 16:25:04,727: INFO: Validation G PSNR loss: -45.28221893310547
+2024-06-11 16:25:04,727: INFO: Validation G NCC loss mean: 0.9590107858181
+2024-06-11 16:25:04,727: INFO: Validation G NCC loss std: 0.031969592684970856
+2024-06-11 16:25:04,727: INFO: Validation D real loss: 0.2511723041534424
+2024-06-11 16:25:04,727: INFO: Validation D fake loss: 0.2501516342163086
+2024-06-11 16:25:04,727: INFO: Validation R total loss: 1.1175870895385742e-08
+2024-06-11 16:25:04,727: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:25:32,807: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:25:32,807: INFO: Validation G total loss: 17811.00390625
+2024-06-11 16:25:32,807: INFO: Validation G L1 loss: 17798.51953125
+2024-06-11 16:25:32,807: INFO: Validation G SSIM loss: 0.010738575831055641
+2024-06-11 16:25:32,807: INFO: Validation G PSNR loss: -42.346336364746094
+2024-06-11 16:25:32,807: INFO: Validation G NCC loss mean: 0.9437792062759399
+2024-06-11 16:25:32,808: INFO: Validation G NCC loss std: 0.08382532030117762
+2024-06-11 16:25:32,808: INFO: Validation D real loss: 0.25094759464263916
+2024-06-11 16:25:32,808: INFO: Validation D fake loss: 0.25031524896621704
+2024-06-11 16:25:32,808: INFO: Validation R total loss: 1.0430812658057675e-08
+2024-06-11 16:25:32,808: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:26:00,956: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:26:00,956: INFO: Validation G total loss: 17299.23828125
+2024-06-11 16:26:00,956: INFO: Validation G L1 loss: 17286.712890625
+2024-06-11 16:26:00,956: INFO: Validation G SSIM loss: 6.313450739980908e-07
+2024-06-11 16:26:00,956: INFO: Validation G PSNR loss: -45.501502990722656
+2024-06-11 16:26:00,956: INFO: Validation G NCC loss mean: 0.9771712481975555
+2024-06-11 16:26:00,956: INFO: Validation G NCC loss std: 0.026281853193933703
+2024-06-11 16:26:00,956: INFO: Validation D real loss: 0.2503814995288849
+2024-06-11 16:26:00,957: INFO: Validation D fake loss: 0.24888396263122559
+2024-06-11 16:26:00,957: INFO: Validation R total loss: 9.685754420729609e-09
+2024-06-11 16:26:00,957: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:26:29,103: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:26:29,103: INFO: Validation G total loss: 19681.359375
+2024-06-11 16:26:29,103: INFO: Validation G L1 loss: 19668.83984375
+2024-06-11 16:26:29,104: INFO: Validation G SSIM loss: 4.5718553565166076e-07
+2024-06-11 16:26:29,104: INFO: Validation G PSNR loss: -45.81619644165039
+2024-06-11 16:26:29,104: INFO: Validation G NCC loss mean: 0.966514128446579
+2024-06-11 16:26:29,104: INFO: Validation G NCC loss std: 0.024366650376946235
+2024-06-11 16:26:29,104: INFO: Validation D real loss: 0.24975915253162384
+2024-06-11 16:26:29,104: INFO: Validation D fake loss: 0.2504224181175232
+2024-06-11 16:26:29,104: INFO: Validation R total loss: 1.2665987370041876e-08
+2024-06-11 16:26:29,104: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:26:57,176: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:26:57,176: INFO: Validation G total loss: 18009.017578125
+2024-06-11 16:26:57,176: INFO: Validation G L1 loss: 17996.54296875
+2024-06-11 16:26:57,176: INFO: Validation G SSIM loss: 2.1873536582006636e-07
+2024-06-11 16:26:57,176: INFO: Validation G PSNR loss: -45.44040298461914
+2024-06-11 16:26:57,176: INFO: Validation G NCC loss mean: 0.904277503490448
+2024-06-11 16:26:57,176: INFO: Validation G NCC loss std: 0.11802291929181022
+2024-06-11 16:26:57,176: INFO: Validation D real loss: 0.2496061772108078
+2024-06-11 16:26:57,176: INFO: Validation D fake loss: 0.25037479400634766
+2024-06-11 16:26:57,176: INFO: Validation R total loss: 5.9604645663569045e-09
+2024-06-11 16:26:57,176: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:27:25,230: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:27:25,230: INFO: Validation G total loss: 15297.7470703125
+2024-06-11 16:27:25,230: INFO: Validation G L1 loss: 15285.228515625
+2024-06-11 16:27:25,230: INFO: Validation G SSIM loss: 1.1662952204005705e-07
+2024-06-11 16:27:25,230: INFO: Validation G PSNR loss: -45.66584396362305
+2024-06-11 16:27:25,230: INFO: Validation G NCC loss mean: 0.9643500626087189
+2024-06-11 16:27:25,230: INFO: Validation G NCC loss std: 0.03543607560366729
+2024-06-11 16:27:25,230: INFO: Validation D real loss: 0.24911975860595703
+2024-06-11 16:27:25,230: INFO: Validation D fake loss: 0.2500908076763153
+2024-06-11 16:27:25,230: INFO: Validation R total loss: 1.2665987370041876e-08
+2024-06-11 16:27:25,230: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:27:53,175: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:27:53,175: INFO: Validation G total loss: 13259.318359375
+2024-06-11 16:27:53,175: INFO: Validation G L1 loss: 13246.8251953125
+2024-06-11 16:27:53,175: INFO: Validation G SSIM loss: 9.712114660942461e-06
+2024-06-11 16:27:53,175: INFO: Validation G PSNR loss: -45.4499626159668
+2024-06-11 16:27:53,175: INFO: Validation G NCC loss mean: 0.9425956904888153
+2024-06-11 16:27:53,175: INFO: Validation G NCC loss std: 0.1232333794891902
+2024-06-11 16:27:53,176: INFO: Validation D real loss: 0.25093916058540344
+2024-06-11 16:27:53,176: INFO: Validation D fake loss: 0.2508377134799957
+2024-06-11 16:27:53,176: INFO: Validation R total loss: 1.5646218542997303e-08
+2024-06-11 16:27:53,176: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:28:21,149: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:28:21,149: INFO: Validation G total loss: 20837.64453125
+2024-06-11 16:28:21,149: INFO: Validation G L1 loss: 20825.1484375
+2024-06-11 16:28:21,149: INFO: Validation G SSIM loss: 5.531463784791413e-07
+2024-06-11 16:28:21,149: INFO: Validation G PSNR loss: -45.90139389038086
+2024-06-11 16:28:21,150: INFO: Validation G NCC loss mean: 0.9856543838977814
+2024-06-11 16:28:21,150: INFO: Validation G NCC loss std: 0.02219497067203913
+2024-06-11 16:28:21,150: INFO: Validation D real loss: 0.2500132620334625
+2024-06-11 16:28:21,150: INFO: Validation D fake loss: 0.24954691529273987
+2024-06-11 16:28:21,150: INFO: Validation R total loss: 9.685754420729609e-09
+2024-06-11 16:28:21,150: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:28:49,325: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:28:49,325: INFO: Validation G total loss: 15098.689453125
+2024-06-11 16:28:49,325: INFO: Validation G L1 loss: 15086.1982421875
+2024-06-11 16:28:49,325: INFO: Validation G SSIM loss: 2.874204199088126e-07
+2024-06-11 16:28:49,325: INFO: Validation G PSNR loss: -45.94461441040039
+2024-06-11 16:28:49,325: INFO: Validation G NCC loss mean: 0.9344337821006775
+2024-06-11 16:28:49,326: INFO: Validation G NCC loss std: 0.10642186602851758
+2024-06-11 16:28:49,326: INFO: Validation D real loss: 0.2501884698867798
+2024-06-11 16:28:49,326: INFO: Validation D fake loss: 0.2501121461391449
+2024-06-11 16:28:49,326: INFO: Validation R total loss: 1.1175870895385742e-08
+2024-06-11 16:28:49,326: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:29:17,700: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:29:17,700: INFO: Validation G total loss: 19342.95703125
+2024-06-11 16:29:17,701: INFO: Validation G L1 loss: 19330.43359375
+2024-06-11 16:29:17,701: INFO: Validation G SSIM loss: 3.1441817327504396e-07
+2024-06-11 16:29:17,701: INFO: Validation G PSNR loss: -46.06983184814453
+2024-06-11 16:29:17,701: INFO: Validation G NCC loss mean: 0.9778082311153412
+2024-06-11 16:29:17,701: INFO: Validation G NCC loss std: 0.04016511513653275
+2024-06-11 16:29:17,701: INFO: Validation D real loss: 0.24938111007213593
+2024-06-11 16:29:17,701: INFO: Validation D fake loss: 0.24884763360023499
+2024-06-11 16:29:17,701: INFO: Validation R total loss: 8.195638834251895e-09
+2024-06-11 16:29:17,701: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:29:45,982: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:29:45,982: INFO: Validation G total loss: 13964.181640625
+2024-06-11 16:29:45,982: INFO: Validation G L1 loss: 13951.677734375
+2024-06-11 16:29:45,982: INFO: Validation G SSIM loss: 0.01146511361002922
+2024-06-11 16:29:45,982: INFO: Validation G PSNR loss: -44.16682815551758
+2024-06-11 16:29:45,982: INFO: Validation G NCC loss mean: 0.8979712128639221
+2024-06-11 16:29:45,982: INFO: Validation G NCC loss std: 0.09835918659276212
+2024-06-11 16:29:45,982: INFO: Validation D real loss: 0.25026071071624756
+2024-06-11 16:29:45,983: INFO: Validation D fake loss: 0.24908952414989471
+2024-06-11 16:29:45,983: INFO: Validation R total loss: 1.1920929132713809e-08
+2024-06-11 16:29:45,983: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:30:14,353: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:30:14,353: INFO: Validation G total loss: 12162.8056640625
+2024-06-11 16:30:14,353: INFO: Validation G L1 loss: 12150.326171875
+2024-06-11 16:30:14,353: INFO: Validation G SSIM loss: 0.0002517180982977152
+2024-06-11 16:30:14,353: INFO: Validation G PSNR loss: -45.2430305480957
+2024-06-11 16:30:14,353: INFO: Validation G NCC loss mean: 0.9564015865325928
+2024-06-11 16:30:14,353: INFO: Validation G NCC loss std: 0.04549091889080579
+2024-06-11 16:30:14,353: INFO: Validation D real loss: 0.25061944127082825
+2024-06-11 16:30:14,353: INFO: Validation D fake loss: 0.25025123357772827
+2024-06-11 16:30:14,353: INFO: Validation R total loss: 1.1175870895385742e-08
+2024-06-11 16:30:14,353: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:30:24,296: INFO: -------------------TRAINING LOSSES-------------------
+2024-06-11 16:30:24,296: INFO: Total loss for G: 17020.263671875
+2024-06-11 16:30:24,296: INFO: L1 loss for G: 17007.7578125
+2024-06-11 16:30:36,107: INFO: Total loss for R: 0.0
+2024-06-11 16:30:40,146: INFO: ------------------------VALIDATION------------------------
+2024-06-11 16:30:40,146: INFO: Validation G total loss: 18448.162109375
+2024-06-11 16:30:40,146: INFO: Validation G L1 loss: 18435.662109375
+2024-06-11 16:30:40,146: INFO: Validation G SSIM loss: 2.679326769339241e-07
+2024-06-11 16:30:40,146: INFO: Validation G PSNR loss: -46.06587219238281
+2024-06-11 16:30:40,146: INFO: Validation G NCC loss mean: 0.9616276800632477
+2024-06-11 16:30:40,146: INFO: Validation G NCC loss std: 0.03812780785363921
+2024-06-11 16:30:40,146: INFO: Validation D real loss: 0.24811354279518127
+2024-06-11 16:30:40,146: INFO: Validation D fake loss: 0.2505459189414978
+2024-06-11 16:30:40,147: INFO: Validation R total loss: 5.908310640734271e-07
+2024-06-11 16:30:58,783: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:30:58,783: INFO: Validation G total loss: 12732.4111328125
+2024-06-11 16:30:58,783: INFO: Validation G L1 loss: 12719.900390625
+2024-06-11 16:30:58,783: INFO: Validation G SSIM loss: 8.69253053679131e-05
+2024-06-11 16:30:58,783: INFO: Validation G PSNR loss: -45.224037170410156
+2024-06-11 16:30:58,784: INFO: Validation G NCC loss mean: 0.9459916710853576
+2024-06-11 16:30:58,784: INFO: Validation G NCC loss std: 0.07673383544623857
+2024-06-11 16:30:58,784: INFO: Validation D real loss: 0.2496788501739502
+2024-06-11 16:30:58,784: INFO: Validation D fake loss: 0.2498703896999359
+2024-06-11 16:30:58,784: INFO: Validation R total loss: 6.221234798431396e-07
+2024-06-11 16:30:58,784: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:31:26,706: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:31:26,706: INFO: Validation G total loss: 24851.224609375
+2024-06-11 16:31:26,706: INFO: Validation G L1 loss: 24838.73046875
+2024-06-11 16:31:26,707: INFO: Validation G SSIM loss: 3.4848343943849613e-07
+2024-06-11 16:31:26,707: INFO: Validation G PSNR loss: -46.37263107299805
+2024-06-11 16:31:26,707: INFO: Validation G NCC loss mean: 0.9794202744960785
+2024-06-11 16:31:26,707: INFO: Validation G NCC loss std: 0.02031839282667508
+2024-06-11 16:31:26,707: INFO: Validation D real loss: 0.2507104277610779
+2024-06-11 16:31:26,707: INFO: Validation D fake loss: 0.2492857426404953
+2024-06-11 16:31:26,707: INFO: Validation R total loss: 2.2128224941297958e-07
+2024-06-11 16:31:26,707: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:31:54,712: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:31:54,712: INFO: Validation G total loss: 14461.3232421875
+2024-06-11 16:31:54,712: INFO: Validation G L1 loss: 14448.8388671875
+2024-06-11 16:31:54,712: INFO: Validation G SSIM loss: 2.667304670467274e-07
+2024-06-11 16:31:54,712: INFO: Validation G PSNR loss: -45.80175018310547
+2024-06-11 16:31:54,713: INFO: Validation G NCC loss mean: 0.9621343374252319
+2024-06-11 16:31:54,713: INFO: Validation G NCC loss std: 0.033106255446555655
+2024-06-11 16:31:54,713: INFO: Validation D real loss: 0.24962341785430908
+2024-06-11 16:31:54,713: INFO: Validation D fake loss: 0.25073355436325073
+2024-06-11 16:31:54,713: INFO: Validation R total loss: 3.7774444194837997e-07
+2024-06-11 16:31:54,713: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:32:22,673: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:32:22,673: INFO: Validation G total loss: 12977.5400390625
+2024-06-11 16:32:22,673: INFO: Validation G L1 loss: 12965.0859375
+2024-06-11 16:32:22,673: INFO: Validation G SSIM loss: 1.0995638604072155e-06
+2024-06-11 16:32:22,673: INFO: Validation G PSNR loss: -45.583045959472656
+2024-06-11 16:32:22,673: INFO: Validation G NCC loss mean: 0.9371049225330352
+2024-06-11 16:32:22,674: INFO: Validation G NCC loss std: 0.11514753885277867
+2024-06-11 16:32:22,674: INFO: Validation D real loss: 0.2487410306930542
+2024-06-11 16:32:22,674: INFO: Validation D fake loss: 0.2507287859916687
+2024-06-11 16:32:22,674: INFO: Validation R total loss: 2.5406478698641877e-07
+2024-06-11 16:32:22,674: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:32:50,571: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:32:50,571: INFO: Validation G total loss: 14889.712890625
+2024-06-11 16:32:50,571: INFO: Validation G L1 loss: 14877.1748046875
+2024-06-11 16:32:50,571: INFO: Validation G SSIM loss: 3.635980192484567e-07
+2024-06-11 16:32:50,571: INFO: Validation G PSNR loss: -45.65802764892578
+2024-06-11 16:32:50,572: INFO: Validation G NCC loss mean: 0.9082061350345612
+2024-06-11 16:32:50,572: INFO: Validation G NCC loss std: 0.10936983700120528
+2024-06-11 16:32:50,572: INFO: Validation D real loss: 0.25019705295562744
+2024-06-11 16:32:50,572: INFO: Validation D fake loss: 0.24951207637786865
+2024-06-11 16:32:50,572: INFO: Validation R total loss: 7.219612712106027e-07
+2024-06-11 16:32:50,572: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:33:18,521: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:33:18,521: INFO: Validation G total loss: 17790.458984375
+2024-06-11 16:33:18,521: INFO: Validation G L1 loss: 17777.91796875
+2024-06-11 16:33:18,521: INFO: Validation G SSIM loss: 2.793746602947067e-07
+2024-06-11 16:33:18,521: INFO: Validation G PSNR loss: -45.78948974609375
+2024-06-11 16:33:18,521: INFO: Validation G NCC loss mean: 0.9159852504730225
+2024-06-11 16:33:18,521: INFO: Validation G NCC loss std: 0.11489796369744316
+2024-06-11 16:33:18,521: INFO: Validation D real loss: 0.2492855340242386
+2024-06-11 16:33:18,521: INFO: Validation D fake loss: 0.2509099245071411
+2024-06-11 16:33:18,521: INFO: Validation R total loss: 2.31713059406502e-07
+2024-06-11 16:33:18,521: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:33:46,501: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:33:46,501: INFO: Validation G total loss: 19605.857421875
+2024-06-11 16:33:46,501: INFO: Validation G L1 loss: 19593.32421875
+2024-06-11 16:33:46,502: INFO: Validation G SSIM loss: 3.3780295893848233e-07
+2024-06-11 16:33:46,502: INFO: Validation G PSNR loss: -46.06592559814453
+2024-06-11 16:33:46,502: INFO: Validation G NCC loss mean: 0.9540182948112488
+2024-06-11 16:33:46,502: INFO: Validation G NCC loss std: 0.08777587325674863
+2024-06-11 16:33:46,502: INFO: Validation D real loss: 0.24894146621227264
+2024-06-11 16:33:46,502: INFO: Validation D fake loss: 0.25071537494659424
+2024-06-11 16:33:46,502: INFO: Validation R total loss: 4.671514091114659e-07
+2024-06-11 16:33:46,502: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:34:14,474: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:34:14,475: INFO: Validation G total loss: 15033.5703125
+2024-06-11 16:34:14,475: INFO: Validation G L1 loss: 15021.064453125
+2024-06-11 16:34:14,475: INFO: Validation G SSIM loss: 4.563474067253992e-05
+2024-06-11 16:34:14,475: INFO: Validation G PSNR loss: -45.48556900024414
+2024-06-11 16:34:14,475: INFO: Validation G NCC loss mean: 0.8443862468004226
+2024-06-11 16:34:14,475: INFO: Validation G NCC loss std: 0.17270113471479848
+2024-06-11 16:34:14,475: INFO: Validation D real loss: 0.24927130341529846
+2024-06-11 16:34:14,475: INFO: Validation D fake loss: 0.24999003112316132
+2024-06-11 16:34:14,475: INFO: Validation R total loss: 9.618700005376013e-07
+2024-06-11 16:34:14,475: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:34:42,409: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:34:42,409: INFO: Validation G total loss: 15783.541015625
+2024-06-11 16:34:42,409: INFO: Validation G L1 loss: 15771.0498046875
+2024-06-11 16:34:42,409: INFO: Validation G SSIM loss: 7.64101628192293e-07
+2024-06-11 16:34:42,410: INFO: Validation G PSNR loss: -45.58066940307617
+2024-06-11 16:34:42,410: INFO: Validation G NCC loss mean: 0.9594334125518799
+2024-06-11 16:34:42,410: INFO: Validation G NCC loss std: 0.05376409502062353
+2024-06-11 16:34:42,410: INFO: Validation D real loss: 0.2504820227622986
+2024-06-11 16:34:42,410: INFO: Validation D fake loss: 0.25071534514427185
+2024-06-11 16:34:42,410: INFO: Validation R total loss: 1.7508864402770996e-07
+2024-06-11 16:34:42,410: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:35:10,454: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:35:10,454: INFO: Validation G total loss: 17802.37890625
+2024-06-11 16:35:10,454: INFO: Validation G L1 loss: 17789.869140625
+2024-06-11 16:35:10,455: INFO: Validation G SSIM loss: 0.0009981658076867461
+2024-06-11 16:35:10,455: INFO: Validation G PSNR loss: -45.26355743408203
+2024-06-11 16:35:10,455: INFO: Validation G NCC loss mean: 0.8833964377641678
+2024-06-11 16:35:10,455: INFO: Validation G NCC loss std: 0.18029277363525964
+2024-06-11 16:35:10,455: INFO: Validation D real loss: 0.25067028403282166
+2024-06-11 16:35:10,455: INFO: Validation D fake loss: 0.24863854050636292
+2024-06-11 16:35:10,455: INFO: Validation R total loss: 3.8370490074157715e-07
+2024-06-11 16:35:10,455: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:35:38,447: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:35:38,447: INFO: Validation G total loss: 15459.8701171875
+2024-06-11 16:35:38,447: INFO: Validation G L1 loss: 15447.333984375
+2024-06-11 16:35:38,447: INFO: Validation G SSIM loss: 2.2938077393064304e-07
+2024-06-11 16:35:38,447: INFO: Validation G PSNR loss: -45.677337646484375
+2024-06-11 16:35:38,448: INFO: Validation G NCC loss mean: 0.9423046469688415
+2024-06-11 16:35:38,448: INFO: Validation G NCC loss std: 0.0920798832462301
+2024-06-11 16:35:38,448: INFO: Validation D real loss: 0.2499953806400299
+2024-06-11 16:35:38,448: INFO: Validation D fake loss: 0.25004592537879944
+2024-06-11 16:35:38,448: INFO: Validation R total loss: 4.537403697213449e-07
+2024-06-11 16:35:38,448: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:36:06,459: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:36:06,459: INFO: Validation G total loss: 19103.982421875
+2024-06-11 16:36:06,459: INFO: Validation G L1 loss: 19091.5
+2024-06-11 16:36:06,459: INFO: Validation G SSIM loss: 0.007262713275849819
+2024-06-11 16:36:06,459: INFO: Validation G PSNR loss: -45.74281692504883
+2024-06-11 16:36:06,459: INFO: Validation G NCC loss mean: 0.9259066045284271
+2024-06-11 16:36:06,459: INFO: Validation G NCC loss std: 0.15411584796166078
+2024-06-11 16:36:06,459: INFO: Validation D real loss: 0.24910271167755127
+2024-06-11 16:36:06,459: INFO: Validation D fake loss: 0.24971547722816467
+2024-06-11 16:36:06,460: INFO: Validation R total loss: 4.835426921090402e-07
+2024-06-11 16:36:06,460: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:36:34,543: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:36:34,543: INFO: Validation G total loss: 13984.427734375
+2024-06-11 16:36:34,543: INFO: Validation G L1 loss: 13971.90625
+2024-06-11 16:36:34,543: INFO: Validation G SSIM loss: 0.016633756458759308
+2024-06-11 16:36:34,543: INFO: Validation G PSNR loss: -40.977725982666016
+2024-06-11 16:36:34,543: INFO: Validation G NCC loss mean: 0.9393696069717408
+2024-06-11 16:36:34,543: INFO: Validation G NCC loss std: 0.09493326435483732
+2024-06-11 16:36:34,543: INFO: Validation D real loss: 0.2504880428314209
+2024-06-11 16:36:34,543: INFO: Validation D fake loss: 0.24963656067848206
+2024-06-11 16:36:34,544: INFO: Validation R total loss: 6.139278525552072e-07
+2024-06-11 16:36:34,544: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:37:03,681: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:37:03,681: INFO: Validation G total loss: 12713.64453125
+2024-06-11 16:37:03,681: INFO: Validation G L1 loss: 12701.146484375
+2024-06-11 16:37:03,681: INFO: Validation G SSIM loss: 5.689293516297766e-07
+2024-06-11 16:37:03,681: INFO: Validation G PSNR loss: -45.05258560180664
+2024-06-11 16:37:03,681: INFO: Validation G NCC loss mean: 0.9563155114650727
+2024-06-11 16:37:03,681: INFO: Validation G NCC loss std: 0.05077733535374554
+2024-06-11 16:37:03,681: INFO: Validation D real loss: 0.24941018223762512
+2024-06-11 16:37:03,681: INFO: Validation D fake loss: 0.25016143918037415
+2024-06-11 16:37:03,681: INFO: Validation R total loss: 4.04566520728622e-07
+2024-06-11 16:37:03,681: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:37:32,380: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:37:32,380: INFO: Validation G total loss: 18139.59765625
+2024-06-11 16:37:32,381: INFO: Validation G L1 loss: 18127.11328125
+2024-06-11 16:37:32,381: INFO: Validation G SSIM loss: 0.006277953274548054
+2024-06-11 16:37:32,381: INFO: Validation G PSNR loss: -45.87891387939453
+2024-06-11 16:37:32,381: INFO: Validation G NCC loss mean: 0.8933200389146805
+2024-06-11 16:37:32,381: INFO: Validation G NCC loss std: 0.1998669474719469
+2024-06-11 16:37:32,381: INFO: Validation D real loss: 0.25037890672683716
+2024-06-11 16:37:32,381: INFO: Validation D fake loss: 0.2505020499229431
+2024-06-11 16:37:32,381: INFO: Validation R total loss: 5.558133011618338e-07
+2024-06-11 16:37:32,381: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:37:42,224: INFO: -------------------TRAINING LOSSES-------------------
+2024-06-11 16:37:42,224: INFO: Total loss for G: 17695.861328125
+2024-06-11 16:37:42,224: INFO: L1 loss for G: 17683.34765625
+2024-06-11 16:37:53,459: INFO: Total loss for R: 0.0
+2024-06-11 16:37:56,975: INFO: ------------------------VALIDATION------------------------
+2024-06-11 16:37:56,975: INFO: Validation G total loss: 15626.3955078125
+2024-06-11 16:37:56,976: INFO: Validation G L1 loss: 15613.9013671875
+2024-06-11 16:37:56,976: INFO: Validation G SSIM loss: 2.8739080448758614e-07
+2024-06-11 16:37:56,976: INFO: Validation G PSNR loss: -45.801368713378906
+2024-06-11 16:37:56,976: INFO: Validation G NCC loss mean: 0.8967377305030823
+2024-06-11 16:37:56,976: INFO: Validation G NCC loss std: 0.170592201768853
+2024-06-11 16:37:56,976: INFO: Validation D real loss: 0.25074344873428345
+2024-06-11 16:37:56,976: INFO: Validation D fake loss: 0.25031930208206177
+2024-06-11 16:37:56,976: INFO: Validation R total loss: 1.112371705858095e-06
+2024-06-11 16:38:15,934: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:38:15,934: INFO: Validation G total loss: 18226.75390625
+2024-06-11 16:38:15,934: INFO: Validation G L1 loss: 18214.2109375
+2024-06-11 16:38:15,934: INFO: Validation G SSIM loss: 6.640472633989702e-07
+2024-06-11 16:38:15,934: INFO: Validation G PSNR loss: -45.82706832885742
+2024-06-11 16:38:15,934: INFO: Validation G NCC loss mean: 0.972232174873352
+2024-06-11 16:38:15,935: INFO: Validation G NCC loss std: 0.036358635673482166
+2024-06-11 16:38:15,935: INFO: Validation D real loss: 0.25027933716773987
+2024-06-11 16:38:15,935: INFO: Validation D fake loss: 0.2507784962654114
+2024-06-11 16:38:15,935: INFO: Validation R total loss: 2.4586915969848633e-07
+2024-06-11 16:38:15,935: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:38:44,927: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:38:44,927: INFO: Validation G total loss: 16025.337890625
+2024-06-11 16:38:44,927: INFO: Validation G L1 loss: 16012.849609375
+2024-06-11 16:38:44,927: INFO: Validation G SSIM loss: 2.6830247179532307e-07
+2024-06-11 16:38:44,927: INFO: Validation G PSNR loss: -45.54603958129883
+2024-06-11 16:38:44,927: INFO: Validation G NCC loss mean: 0.9316826283931732
+2024-06-11 16:38:44,927: INFO: Validation G NCC loss std: 0.09293537531541934
+2024-06-11 16:38:44,927: INFO: Validation D real loss: 0.2508036196231842
+2024-06-11 16:38:44,927: INFO: Validation D fake loss: 0.25031691789627075
+2024-06-11 16:38:44,927: INFO: Validation R total loss: 7.10785400315217e-07
+2024-06-11 16:38:44,927: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:39:13,971: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:39:13,971: INFO: Validation G total loss: 17610.91015625
+2024-06-11 16:39:13,971: INFO: Validation G L1 loss: 17598.421875
+2024-06-11 16:39:13,971: INFO: Validation G SSIM loss: 0.0026210949290543795
+2024-06-11 16:39:13,971: INFO: Validation G PSNR loss: -45.732357025146484
+2024-06-11 16:39:13,971: INFO: Validation G NCC loss mean: 0.8739598363637924
+2024-06-11 16:39:13,971: INFO: Validation G NCC loss std: 0.1808008830912284
+2024-06-11 16:39:13,971: INFO: Validation D real loss: 0.249734565615654
+2024-06-11 16:39:13,971: INFO: Validation D fake loss: 0.25006088614463806
+2024-06-11 16:39:13,971: INFO: Validation R total loss: 3.9339064983323624e-07
+2024-06-11 16:39:13,971: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:39:41,854: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:39:41,854: INFO: Validation G total loss: 10774.107421875
+2024-06-11 16:39:41,854: INFO: Validation G L1 loss: 10761.630859375
+2024-06-11 16:39:41,854: INFO: Validation G SSIM loss: 8.942808449319273e-07
+2024-06-11 16:39:41,854: INFO: Validation G PSNR loss: -45.389259338378906
+2024-06-11 16:39:41,854: INFO: Validation G NCC loss mean: 0.8915198832750321
+2024-06-11 16:39:41,854: INFO: Validation G NCC loss std: 0.18559329741705696
+2024-06-11 16:39:41,854: INFO: Validation D real loss: 0.2494872808456421
+2024-06-11 16:39:41,855: INFO: Validation D fake loss: 0.2505262494087219
+2024-06-11 16:39:41,855: INFO: Validation R total loss: 4.7460198970838974e-07
+2024-06-11 16:39:41,855: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:40:09,916: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:40:09,916: INFO: Validation G total loss: 9867.578125
+2024-06-11 16:40:09,916: INFO: Validation G L1 loss: 9855.1103515625
+2024-06-11 16:40:09,916: INFO: Validation G SSIM loss: 6.436269904952496e-05
+2024-06-11 16:40:09,916: INFO: Validation G PSNR loss: -44.82086181640625
+2024-06-11 16:40:09,916: INFO: Validation G NCC loss mean: 0.8063184827566147
+2024-06-11 16:40:09,916: INFO: Validation G NCC loss std: 0.2374302338500999
+2024-06-11 16:40:09,916: INFO: Validation D real loss: 0.25048646330833435
+2024-06-11 16:40:09,916: INFO: Validation D fake loss: 0.2508980631828308
+2024-06-11 16:40:09,916: INFO: Validation R total loss: 3.002583923716884e-07
+2024-06-11 16:40:09,916: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:40:38,124: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:40:38,124: INFO: Validation G total loss: 15758.2314453125
+2024-06-11 16:40:38,124: INFO: Validation G L1 loss: 15745.712890625
+2024-06-11 16:40:38,124: INFO: Validation G SSIM loss: 2.881761815842765e-07
+2024-06-11 16:40:38,124: INFO: Validation G PSNR loss: -45.72101593017578
+2024-06-11 16:40:38,124: INFO: Validation G NCC loss mean: 0.9365439593791962
+2024-06-11 16:40:38,124: INFO: Validation G NCC loss std: 0.1094096269497948
+2024-06-11 16:40:38,124: INFO: Validation D real loss: 0.25011390447616577
+2024-06-11 16:40:38,124: INFO: Validation D fake loss: 0.24938508868217468
+2024-06-11 16:40:38,125: INFO: Validation R total loss: 1.060962631527218e-06
+2024-06-11 16:40:38,125: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:41:06,423: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:41:06,424: INFO: Validation G total loss: 14142.1689453125
+2024-06-11 16:41:06,424: INFO: Validation G L1 loss: 14129.6767578125
+2024-06-11 16:41:06,424: INFO: Validation G SSIM loss: 3.3009263233907404e-07
+2024-06-11 16:41:06,424: INFO: Validation G PSNR loss: -45.57037353515625
+2024-06-11 16:41:06,424: INFO: Validation G NCC loss mean: 0.974378764629364
+2024-06-11 16:41:06,424: INFO: Validation G NCC loss std: 0.026429430394385566
+2024-06-11 16:41:06,424: INFO: Validation D real loss: 0.2503754496574402
+2024-06-11 16:41:06,424: INFO: Validation D fake loss: 0.2504550516605377
+2024-06-11 16:41:06,424: INFO: Validation R total loss: 4.6864153091519256e-07
+2024-06-11 16:41:06,424: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:41:34,892: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:41:34,892: INFO: Validation G total loss: 21216.453125
+2024-06-11 16:41:34,892: INFO: Validation G L1 loss: 21203.939453125
+2024-06-11 16:41:34,892: INFO: Validation G SSIM loss: 2.0828463220823323e-07
+2024-06-11 16:41:34,892: INFO: Validation G PSNR loss: -45.975624084472656
+2024-06-11 16:41:34,892: INFO: Validation G NCC loss mean: 0.962721312046051
+2024-06-11 16:41:34,893: INFO: Validation G NCC loss std: 0.025228198210338497
+2024-06-11 16:41:34,893: INFO: Validation D real loss: 0.24856719374656677
+2024-06-11 16:41:34,893: INFO: Validation D fake loss: 0.2509531080722809
+2024-06-11 16:41:34,893: INFO: Validation R total loss: 7.234513645926199e-07
+2024-06-11 16:41:34,893: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:42:02,871: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:42:02,871: INFO: Validation G total loss: 15162.984375
+2024-06-11 16:42:02,871: INFO: Validation G L1 loss: 15150.5185546875
+2024-06-11 16:42:02,871: INFO: Validation G SSIM loss: 1.2485635352277313e-06
+2024-06-11 16:42:02,871: INFO: Validation G PSNR loss: -45.14014434814453
+2024-06-11 16:42:02,871: INFO: Validation G NCC loss mean: 0.9573812186717987
+2024-06-11 16:42:02,871: INFO: Validation G NCC loss std: 0.0341057362767379
+2024-06-11 16:42:02,871: INFO: Validation D real loss: 0.24948501586914062
+2024-06-11 16:42:02,871: INFO: Validation D fake loss: 0.25089049339294434
+2024-06-11 16:42:02,871: INFO: Validation R total loss: 1.3567507721745642e-06
+2024-06-11 16:42:02,871: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:42:31,271: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:42:31,271: INFO: Validation G total loss: 20666.01953125
+2024-06-11 16:42:31,271: INFO: Validation G L1 loss: 20653.5234375
+2024-06-11 16:42:31,272: INFO: Validation G SSIM loss: 4.507874837145209e-05
+2024-06-11 16:42:31,272: INFO: Validation G PSNR loss: -45.68716049194336
+2024-06-11 16:42:31,272: INFO: Validation G NCC loss mean: 0.88707355260849
+2024-06-11 16:42:31,272: INFO: Validation G NCC loss std: 0.15855345340085167
+2024-06-11 16:42:31,272: INFO: Validation D real loss: 0.248661071062088
+2024-06-11 16:42:31,272: INFO: Validation D fake loss: 0.24988433718681335
+2024-06-11 16:42:31,272: INFO: Validation R total loss: 4.1350722312927246e-07
+2024-06-11 16:42:31,272: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:42:59,179: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:42:59,179: INFO: Validation G total loss: 16074.8955078125
+2024-06-11 16:42:59,179: INFO: Validation G L1 loss: 16062.359375
+2024-06-11 16:42:59,179: INFO: Validation G SSIM loss: 7.321834232243418e-07
+2024-06-11 16:42:59,179: INFO: Validation G PSNR loss: -45.45182800292969
+2024-06-11 16:42:59,179: INFO: Validation G NCC loss mean: 0.9063536822795868
+2024-06-11 16:42:59,179: INFO: Validation G NCC loss std: 0.1150746290852025
+2024-06-11 16:42:59,179: INFO: Validation D real loss: 0.25008848309516907
+2024-06-11 16:42:59,179: INFO: Validation D fake loss: 0.2502024173736572
+2024-06-11 16:42:59,179: INFO: Validation R total loss: 3.0174851417541504e-07
+2024-06-11 16:42:59,179: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:43:27,155: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:43:27,155: INFO: Validation G total loss: 18229.41796875
+2024-06-11 16:43:27,156: INFO: Validation G L1 loss: 18216.935546875
+2024-06-11 16:43:27,156: INFO: Validation G SSIM loss: 0.00027788474108092487
+2024-06-11 16:43:27,156: INFO: Validation G PSNR loss: -44.939090728759766
+2024-06-11 16:43:27,156: INFO: Validation G NCC loss mean: 0.9415158808231354
+2024-06-11 16:43:27,156: INFO: Validation G NCC loss std: 0.07379649167503152
+2024-06-11 16:43:27,156: INFO: Validation D real loss: 0.25015226006507874
+2024-06-11 16:43:27,156: INFO: Validation D fake loss: 0.25048649311065674
+2024-06-11 16:43:27,156: INFO: Validation R total loss: 7.532536869803153e-07
+2024-06-11 16:43:27,156: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:43:55,216: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:43:55,216: INFO: Validation G total loss: 18758.98046875
+2024-06-11 16:43:55,216: INFO: Validation G L1 loss: 18746.44921875
+2024-06-11 16:43:55,216: INFO: Validation G SSIM loss: 5.090271884000686e-07
+2024-06-11 16:43:55,216: INFO: Validation G PSNR loss: -45.824302673339844
+2024-06-11 16:43:55,216: INFO: Validation G NCC loss mean: 0.885473757982254
+2024-06-11 16:43:55,216: INFO: Validation G NCC loss std: 0.12624081213019844
+2024-06-11 16:43:55,216: INFO: Validation D real loss: 0.249415785074234
+2024-06-11 16:43:55,216: INFO: Validation D fake loss: 0.2506580948829651
+2024-06-11 16:43:55,217: INFO: Validation R total loss: 2.1979212760925293e-07
+2024-06-11 16:43:55,217: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:44:23,302: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:44:23,302: INFO: Validation G total loss: 24209.669921875
+2024-06-11 16:44:23,303: INFO: Validation G L1 loss: 24197.15234375
+2024-06-11 16:44:23,303: INFO: Validation G SSIM loss: 4.4848690095022903e-07
+2024-06-11 16:44:23,303: INFO: Validation G PSNR loss: -46.151580810546875
+2024-06-11 16:44:23,303: INFO: Validation G NCC loss mean: 0.9191244065761566
+2024-06-11 16:44:23,303: INFO: Validation G NCC loss std: 0.12169474346957286
+2024-06-11 16:44:23,303: INFO: Validation D real loss: 0.2504739761352539
+2024-06-11 16:44:23,303: INFO: Validation D fake loss: 0.25082218647003174
+2024-06-11 16:44:23,303: INFO: Validation R total loss: 3.628432807545323e-07
+2024-06-11 16:44:23,303: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:44:51,617: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:44:51,617: INFO: Validation G total loss: 14467.8232421875
+2024-06-11 16:44:51,617: INFO: Validation G L1 loss: 14455.3154296875
+2024-06-11 16:44:51,617: INFO: Validation G SSIM loss: 6.518490408780053e-05
+2024-06-11 16:44:51,617: INFO: Validation G PSNR loss: -45.46595001220703
+2024-06-11 16:44:51,617: INFO: Validation G NCC loss mean: 0.9466034770011902
+2024-06-11 16:44:51,617: INFO: Validation G NCC loss std: 0.10090925161772381
+2024-06-11 16:44:51,617: INFO: Validation D real loss: 0.25004374980926514
+2024-06-11 16:44:51,617: INFO: Validation D fake loss: 0.24969902634620667
+2024-06-11 16:44:51,617: INFO: Validation R total loss: 1.0952353477478027e-06
+2024-06-11 16:44:51,617: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:45:01,489: INFO: -------------------TRAINING LOSSES-------------------
+2024-06-11 16:45:01,489: INFO: Total loss for G: 17369.2734375
+2024-06-11 16:45:01,489: INFO: L1 loss for G: 17356.76953125
+2024-06-11 16:45:13,088: INFO: Total loss for R: 0.0
+2024-06-11 16:45:16,707: INFO: ------------------------VALIDATION------------------------
+2024-06-11 16:45:16,707: INFO: Validation G total loss: 11236.142578125
+2024-06-11 16:45:16,707: INFO: Validation G L1 loss: 11223.642578125
+2024-06-11 16:45:16,708: INFO: Validation G SSIM loss: 6.119572617535596e-07
+2024-06-11 16:45:16,708: INFO: Validation G PSNR loss: -45.67204666137695
+2024-06-11 16:45:16,708: INFO: Validation G NCC loss mean: 0.8797570288181304
+2024-06-11 16:45:16,708: INFO: Validation G NCC loss std: 0.1225641370567206
+2024-06-11 16:45:16,708: INFO: Validation D real loss: 0.2515259087085724
+2024-06-11 16:45:16,708: INFO: Validation D fake loss: 0.24977950751781464
+2024-06-11 16:45:16,708: INFO: Validation R total loss: 7.67409815694009e-08
+2024-06-11 16:45:35,412: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:45:35,412: INFO: Validation G total loss: 12357.3876953125
+2024-06-11 16:45:35,412: INFO: Validation G L1 loss: 12344.8916015625
+2024-06-11 16:45:35,412: INFO: Validation G SSIM loss: 5.260900479697739e-07
+2024-06-11 16:45:35,412: INFO: Validation G PSNR loss: -45.285709381103516
+2024-06-11 16:45:35,412: INFO: Validation G NCC loss mean: 0.8271079301834107
+2024-06-11 16:45:35,412: INFO: Validation G NCC loss std: 0.22298638385944905
+2024-06-11 16:45:35,412: INFO: Validation D real loss: 0.25019681453704834
+2024-06-11 16:45:35,412: INFO: Validation D fake loss: 0.25026828050613403
+2024-06-11 16:45:35,413: INFO: Validation R total loss: 1.2889503864244034e-07
+2024-06-11 16:45:35,413: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:46:03,531: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:46:03,531: INFO: Validation G total loss: 12133.603515625
+2024-06-11 16:46:03,531: INFO: Validation G L1 loss: 12121.130859375
+2024-06-11 16:46:03,531: INFO: Validation G SSIM loss: 4.990008619643049e-07
+2024-06-11 16:46:03,532: INFO: Validation G PSNR loss: -45.68695831298828
+2024-06-11 16:46:03,532: INFO: Validation G NCC loss mean: 0.9611653804779052
+2024-06-11 16:46:03,532: INFO: Validation G NCC loss std: 0.03386740257894589
+2024-06-11 16:46:03,532: INFO: Validation D real loss: 0.25006526708602905
+2024-06-11 16:46:03,532: INFO: Validation D fake loss: 0.25008419156074524
+2024-06-11 16:46:03,532: INFO: Validation R total loss: 1.110136480519941e-07
+2024-06-11 16:46:03,532: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:46:31,710: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:46:31,711: INFO: Validation G total loss: 14876.8515625
+2024-06-11 16:46:31,711: INFO: Validation G L1 loss: 14864.3564453125
+2024-06-11 16:46:31,711: INFO: Validation G SSIM loss: 7.265620638463588e-07
+2024-06-11 16:46:31,711: INFO: Validation G PSNR loss: -45.469154357910156
+2024-06-11 16:46:31,711: INFO: Validation G NCC loss mean: 0.8844021916389465
+2024-06-11 16:46:31,711: INFO: Validation G NCC loss std: 0.11537660738668333
+2024-06-11 16:46:31,711: INFO: Validation D real loss: 0.24968180060386658
+2024-06-11 16:46:31,711: INFO: Validation D fake loss: 0.2491951435804367
+2024-06-11 16:46:31,711: INFO: Validation R total loss: 7.897615716956352e-08
+2024-06-11 16:46:31,711: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:47:00,035: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:47:00,035: INFO: Validation G total loss: 14034.2158203125
+2024-06-11 16:47:00,035: INFO: Validation G L1 loss: 14021.7001953125
+2024-06-11 16:47:00,035: INFO: Validation G SSIM loss: 9.825859024203965e-07
+2024-06-11 16:47:00,035: INFO: Validation G PSNR loss: -45.084693908691406
+2024-06-11 16:47:00,035: INFO: Validation G NCC loss mean: 0.9336521625518799
+2024-06-11 16:47:00,035: INFO: Validation G NCC loss std: 0.07415209972507598
+2024-06-11 16:47:00,035: INFO: Validation D real loss: 0.25078901648521423
+2024-06-11 16:47:00,035: INFO: Validation D fake loss: 0.2505492568016052
+2024-06-11 16:47:00,035: INFO: Validation R total loss: 8.717179156292332e-08
+2024-06-11 16:47:00,035: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:47:28,297: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:47:28,297: INFO: Validation G total loss: 14689.2158203125
+2024-06-11 16:47:28,297: INFO: Validation G L1 loss: 14676.7158203125
+2024-06-11 16:47:28,297: INFO: Validation G SSIM loss: 5.596539267571643e-07
+2024-06-11 16:47:28,297: INFO: Validation G PSNR loss: -45.5584716796875
+2024-06-11 16:47:28,297: INFO: Validation G NCC loss mean: 0.8565534710884094
+2024-06-11 16:47:28,297: INFO: Validation G NCC loss std: 0.20356545993396882
+2024-06-11 16:47:28,297: INFO: Validation D real loss: 0.24943336844444275
+2024-06-11 16:47:28,298: INFO: Validation D fake loss: 0.24957790970802307
+2024-06-11 16:47:28,298: INFO: Validation R total loss: 7.897615716956352e-08
+2024-06-11 16:47:28,298: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:47:56,461: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:47:56,462: INFO: Validation G total loss: inf
+2024-06-11 16:47:56,462: INFO: Validation G L1 loss: inf
+2024-06-11 16:47:56,462: INFO: Validation G SSIM loss: 0.00015111244283616543
+2024-06-11 16:47:56,462: INFO: Validation G PSNR loss: -39.513702392578125
+2024-06-11 16:47:56,462: INFO: Validation G NCC loss mean: 0.725393044856537
+2024-06-11 16:47:56,462: INFO: Validation G NCC loss std: 0.3305281274820983
+2024-06-11 16:47:56,462: INFO: Validation D real loss: 0.251028835773468
+2024-06-11 16:47:56,462: INFO: Validation D fake loss: 0.250434935092926
+2024-06-11 16:47:56,462: INFO: Validation R total loss: 1.1324882365215672e-07
+2024-06-11 16:47:56,462: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:48:24,295: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:48:24,295: INFO: Validation G total loss: 16534.828125
+2024-06-11 16:48:24,295: INFO: Validation G L1 loss: 16522.375
+2024-06-11 16:48:24,295: INFO: Validation G SSIM loss: 8.473299999423034e-07
+2024-06-11 16:48:24,295: INFO: Validation G PSNR loss: -45.37251281738281
+2024-06-11 16:48:24,295: INFO: Validation G NCC loss mean: 0.9670969784259796
+2024-06-11 16:48:24,295: INFO: Validation G NCC loss std: 0.03561861062758973
+2024-06-11 16:48:24,295: INFO: Validation D real loss: 0.25172385573387146
+2024-06-11 16:48:24,295: INFO: Validation D fake loss: 0.2503279447555542
+2024-06-11 16:48:24,295: INFO: Validation R total loss: 1.3634561923936417e-07
+2024-06-11 16:48:24,295: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:48:52,412: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:48:52,412: INFO: Validation G total loss: 16257.873046875
+2024-06-11 16:48:52,412: INFO: Validation G L1 loss: 16245.3642578125
+2024-06-11 16:48:52,412: INFO: Validation G SSIM loss: 3.419968948037422e-07
+2024-06-11 16:48:52,412: INFO: Validation G PSNR loss: -45.93162536621094
+2024-06-11 16:48:52,412: INFO: Validation G NCC loss mean: 0.9716972291469574
+2024-06-11 16:48:52,412: INFO: Validation G NCC loss std: 0.04095310630749562
+2024-06-11 16:48:52,412: INFO: Validation D real loss: 0.2503187954425812
+2024-06-11 16:48:52,412: INFO: Validation D fake loss: 0.2498399317264557
+2024-06-11 16:48:52,412: INFO: Validation R total loss: 1.7508864402770996e-07
+2024-06-11 16:48:52,413: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:49:20,290: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:49:20,291: INFO: Validation G total loss: 18111.92578125
+2024-06-11 16:49:20,291: INFO: Validation G L1 loss: 18099.4296875
+2024-06-11 16:49:20,291: INFO: Validation G SSIM loss: 3.8107173168100417e-06
+2024-06-11 16:49:20,291: INFO: Validation G PSNR loss: -45.63746643066406
+2024-06-11 16:49:20,291: INFO: Validation G NCC loss mean: 0.9622703492641449
+2024-06-11 16:49:20,291: INFO: Validation G NCC loss std: 0.06841167879647349
+2024-06-11 16:49:20,291: INFO: Validation D real loss: 0.2502287030220032
+2024-06-11 16:49:20,291: INFO: Validation D fake loss: 0.2502119541168213
+2024-06-11 16:49:20,291: INFO: Validation R total loss: 1.4007090953782608e-07
+2024-06-11 16:49:20,291: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:49:48,196: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:49:48,196: INFO: Validation G total loss: 14797.015625
+2024-06-11 16:49:48,196: INFO: Validation G L1 loss: 14784.529296875
+2024-06-11 16:49:48,196: INFO: Validation G SSIM loss: 7.718720735283569e-05
+2024-06-11 16:49:48,196: INFO: Validation G PSNR loss: -45.17903137207031
+2024-06-11 16:49:48,196: INFO: Validation G NCC loss mean: 0.8540292352437973
+2024-06-11 16:49:48,196: INFO: Validation G NCC loss std: 0.2379759896042141
+2024-06-11 16:49:48,196: INFO: Validation D real loss: 0.24962392449378967
+2024-06-11 16:49:48,197: INFO: Validation D fake loss: 0.24948957562446594
+2024-06-11 16:49:48,197: INFO: Validation R total loss: 1.0505318925879692e-07
+2024-06-11 16:49:48,197: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:50:16,139: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:50:16,139: INFO: Validation G total loss: 13776.0576171875
+2024-06-11 16:50:16,139: INFO: Validation G L1 loss: 13763.587890625
+2024-06-11 16:50:16,139: INFO: Validation G SSIM loss: 0.0002343863743590191
+2024-06-11 16:50:16,139: INFO: Validation G PSNR loss: -45.29615020751953
+2024-06-11 16:50:16,139: INFO: Validation G NCC loss mean: 0.9182830631732941
+2024-06-11 16:50:16,140: INFO: Validation G NCC loss std: 0.11765356269342496
+2024-06-11 16:50:16,140: INFO: Validation D real loss: 0.24999216198921204
+2024-06-11 16:50:16,140: INFO: Validation D fake loss: 0.24980561435222626
+2024-06-11 16:50:16,140: INFO: Validation R total loss: 7.748603536583687e-08
+2024-06-11 16:50:16,140: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:50:44,125: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:50:44,126: INFO: Validation G total loss: 13294.275390625
+2024-06-11 16:50:44,126: INFO: Validation G L1 loss: 13281.7607421875
+2024-06-11 16:50:44,126: INFO: Validation G SSIM loss: 6.858784217911307e-06
+2024-06-11 16:50:44,126: INFO: Validation G PSNR loss: -45.815189361572266
+2024-06-11 16:50:44,126: INFO: Validation G NCC loss mean: 0.8879454851150512
+2024-06-11 16:50:44,126: INFO: Validation G NCC loss std: 0.14481459989424914
+2024-06-11 16:50:44,126: INFO: Validation D real loss: 0.24912981688976288
+2024-06-11 16:50:44,126: INFO: Validation D fake loss: 0.25117069482803345
+2024-06-11 16:50:44,126: INFO: Validation R total loss: 2.2053718851111626e-07
+2024-06-11 16:50:44,126: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:51:12,098: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:51:12,098: INFO: Validation G total loss: 15173.208984375
+2024-06-11 16:51:12,098: INFO: Validation G L1 loss: 15160.673828125
+2024-06-11 16:51:12,098: INFO: Validation G SSIM loss: 2.924816158156318e-07
+2024-06-11 16:51:12,098: INFO: Validation G PSNR loss: -45.735565185546875
+2024-06-11 16:51:12,098: INFO: Validation G NCC loss mean: 0.9812921047210693
+2024-06-11 16:51:12,098: INFO: Validation G NCC loss std: 0.020427882258329123
+2024-06-11 16:51:12,098: INFO: Validation D real loss: 0.25078314542770386
+2024-06-11 16:51:12,099: INFO: Validation D fake loss: 0.2498813420534134
+2024-06-11 16:51:12,099: INFO: Validation R total loss: 1.110136480519941e-07
+2024-06-11 16:51:12,099: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:51:40,183: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:51:40,184: INFO: Validation G total loss: 11438.4033203125
+2024-06-11 16:51:40,184: INFO: Validation G L1 loss: 11425.9267578125
+2024-06-11 16:51:40,184: INFO: Validation G SSIM loss: 0.00031067655072547495
+2024-06-11 16:51:40,184: INFO: Validation G PSNR loss: -41.85989761352539
+2024-06-11 16:51:40,184: INFO: Validation G NCC loss mean: 0.6554990090429783
+2024-06-11 16:51:40,184: INFO: Validation G NCC loss std: 0.30226680757239965
+2024-06-11 16:51:40,184: INFO: Validation D real loss: 0.24936917424201965
+2024-06-11 16:51:40,184: INFO: Validation D fake loss: 0.2504539489746094
+2024-06-11 16:51:40,184: INFO: Validation R total loss: 1.236796407511065e-07
+2024-06-11 16:51:40,184: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:52:08,355: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:52:08,355: INFO: Validation G total loss: 11212.2763671875
+2024-06-11 16:52:08,355: INFO: Validation G L1 loss: 11199.7607421875
+2024-06-11 16:52:08,355: INFO: Validation G SSIM loss: 3.046345966595254e-07
+2024-06-11 16:52:08,355: INFO: Validation G PSNR loss: -45.34793472290039
+2024-06-11 16:52:08,355: INFO: Validation G NCC loss mean: 0.9118519842624664
+2024-06-11 16:52:08,355: INFO: Validation G NCC loss std: 0.11250567139878478
+2024-06-11 16:52:08,355: INFO: Validation D real loss: 0.24859300255775452
+2024-06-11 16:52:08,355: INFO: Validation D fake loss: 0.2503088414669037
+2024-06-11 16:52:08,356: INFO: Validation R total loss: 1.0579824305523289e-07
+2024-06-11 16:52:08,356: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:52:18,217: INFO: -------------------TRAINING LOSSES-------------------
+2024-06-11 16:52:18,217: INFO: Total loss for G: 16941.607421875
+2024-06-11 16:52:18,217: INFO: L1 loss for G: 16929.095703125
+2024-06-11 16:52:29,779: INFO: Total loss for R: 0.0
+2024-06-11 16:52:33,507: INFO: ------------------------VALIDATION------------------------
+2024-06-11 16:52:33,507: INFO: Validation G total loss: 19665.197265625
+2024-06-11 16:52:33,507: INFO: Validation G L1 loss: 19652.744140625
+2024-06-11 16:52:33,507: INFO: Validation G SSIM loss: 3.3594281489968125e-07
+2024-06-11 16:52:33,507: INFO: Validation G PSNR loss: -45.6842041015625
+2024-06-11 16:52:33,507: INFO: Validation G NCC loss mean: 0.9620590090751648
+2024-06-11 16:52:33,507: INFO: Validation G NCC loss std: 0.049702097836202545
+2024-06-11 16:52:33,507: INFO: Validation D real loss: 0.251044362783432
+2024-06-11 16:52:33,507: INFO: Validation D fake loss: 0.25024116039276123
+2024-06-11 16:52:33,508: INFO: Validation R total loss: 9.685754776000977e-08
+2024-06-11 16:52:52,015: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:52:52,015: INFO: Validation G total loss: 13192.689453125
+2024-06-11 16:52:52,015: INFO: Validation G L1 loss: 13180.1748046875
+2024-06-11 16:52:52,015: INFO: Validation G SSIM loss: 4.077179198702652e-07
+2024-06-11 16:52:52,015: INFO: Validation G PSNR loss: -45.95594024658203
+2024-06-11 16:52:52,015: INFO: Validation G NCC loss mean: 0.8743086695671082
+2024-06-11 16:52:52,015: INFO: Validation G NCC loss std: 0.17836300844659828
+2024-06-11 16:52:52,015: INFO: Validation D real loss: 0.2501072287559509
+2024-06-11 16:52:52,016: INFO: Validation D fake loss: 0.2490617036819458
+2024-06-11 16:52:52,016: INFO: Validation R total loss: 8.866190626122261e-08
+2024-06-11 16:52:52,016: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:53:20,088: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:53:20,088: INFO: Validation G total loss: 15380.9873046875
+2024-06-11 16:53:20,088: INFO: Validation G L1 loss: 15368.478515625
+2024-06-11 16:53:20,089: INFO: Validation G SSIM loss: 0.003035369561985135
+2024-06-11 16:53:20,089: INFO: Validation G PSNR loss: -44.59199523925781
+2024-06-11 16:53:20,089: INFO: Validation G NCC loss mean: 0.9539744675159454
+2024-06-11 16:53:20,089: INFO: Validation G NCC loss std: 0.06310347167388726
+2024-06-11 16:53:20,089: INFO: Validation D real loss: 0.24954912066459656
+2024-06-11 16:53:20,089: INFO: Validation D fake loss: 0.2500990033149719
+2024-06-11 16:53:20,089: INFO: Validation R total loss: 1.564621925354004e-07
+2024-06-11 16:53:20,089: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:53:48,793: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:53:48,793: INFO: Validation G total loss: 14451.017578125
+2024-06-11 16:53:48,793: INFO: Validation G L1 loss: 14438.486328125
+2024-06-11 16:53:48,793: INFO: Validation G SSIM loss: 3.364951339790423e-07
+2024-06-11 16:53:48,793: INFO: Validation G PSNR loss: -45.72724914550781
+2024-06-11 16:53:48,793: INFO: Validation G NCC loss mean: 0.9809510767459869
+2024-06-11 16:53:48,793: INFO: Validation G NCC loss std: 0.02248232283788485
+2024-06-11 16:53:48,793: INFO: Validation D real loss: 0.2512240409851074
+2024-06-11 16:53:48,793: INFO: Validation D fake loss: 0.24978742003440857
+2024-06-11 16:53:48,793: INFO: Validation R total loss: 9.536743306171047e-08
+2024-06-11 16:53:48,794: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:54:16,997: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:54:16,998: INFO: Validation G total loss: 24170.5546875
+2024-06-11 16:54:16,998: INFO: Validation G L1 loss: 24158.03515625
+2024-06-11 16:54:16,998: INFO: Validation G SSIM loss: 3.771790204609715e-07
+2024-06-11 16:54:16,998: INFO: Validation G PSNR loss: -46.36869430541992
+2024-06-11 16:54:16,998: INFO: Validation G NCC loss mean: 0.9012027859687806
+2024-06-11 16:54:16,998: INFO: Validation G NCC loss std: 0.18630160293244533
+2024-06-11 16:54:16,998: INFO: Validation D real loss: 0.2492678463459015
+2024-06-11 16:54:16,998: INFO: Validation D fake loss: 0.2504462003707886
+2024-06-11 16:54:16,998: INFO: Validation R total loss: 3.6507845635469494e-08
+2024-06-11 16:54:16,998: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:54:45,168: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:54:45,168: INFO: Validation G total loss: 20560.642578125
+2024-06-11 16:54:45,168: INFO: Validation G L1 loss: 20548.15625
+2024-06-11 16:54:45,169: INFO: Validation G SSIM loss: 6.905452210048679e-07
+2024-06-11 16:54:45,169: INFO: Validation G PSNR loss: -46.05376052856445
+2024-06-11 16:54:45,169: INFO: Validation G NCC loss mean: 0.9139292776584625
+2024-06-11 16:54:45,169: INFO: Validation G NCC loss std: 0.19388824616185577
+2024-06-11 16:54:45,169: INFO: Validation D real loss: 0.25095611810684204
+2024-06-11 16:54:45,169: INFO: Validation D fake loss: 0.2503501772880554
+2024-06-11 16:54:45,169: INFO: Validation R total loss: 1.3336538984276558e-07
+2024-06-11 16:54:45,169: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:55:13,193: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:55:13,194: INFO: Validation G total loss: 17086.2890625
+2024-06-11 16:55:13,194: INFO: Validation G L1 loss: 17073.71484375
+2024-06-11 16:55:13,194: INFO: Validation G SSIM loss: 0.0007587024592794478
+2024-06-11 16:55:13,194: INFO: Validation G PSNR loss: -44.07334518432617
+2024-06-11 16:55:13,194: INFO: Validation G NCC loss mean: 0.9205228388309479
+2024-06-11 16:55:13,194: INFO: Validation G NCC loss std: 0.10473773978650248
+2024-06-11 16:55:13,194: INFO: Validation D real loss: 0.2501380145549774
+2024-06-11 16:55:13,194: INFO: Validation D fake loss: 0.2489822804927826
+2024-06-11 16:55:13,194: INFO: Validation R total loss: 4.470348358154297e-08
+2024-06-11 16:55:13,194: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:55:41,095: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:55:41,095: INFO: Validation G total loss: 14541.140625
+2024-06-11 16:55:41,095: INFO: Validation G L1 loss: 14528.6220703125
+2024-06-11 16:55:41,095: INFO: Validation G SSIM loss: 4.400421403261134e-06
+2024-06-11 16:55:41,095: INFO: Validation G PSNR loss: -45.300079345703125
+2024-06-11 16:55:41,095: INFO: Validation G NCC loss mean: 0.8899435698986053
+2024-06-11 16:55:41,095: INFO: Validation G NCC loss std: 0.1341333007417476
+2024-06-11 16:55:41,095: INFO: Validation D real loss: 0.2501259446144104
+2024-06-11 16:55:41,095: INFO: Validation D fake loss: 0.2498277723789215
+2024-06-11 16:55:41,095: INFO: Validation R total loss: 1.2293457984924316e-07
+2024-06-11 16:55:41,095: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:56:09,097: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:56:09,098: INFO: Validation G total loss: 19811.3515625
+2024-06-11 16:56:09,098: INFO: Validation G L1 loss: 19798.84765625
+2024-06-11 16:56:09,098: INFO: Validation G SSIM loss: 1.1111138746855431e-06
+2024-06-11 16:56:09,098: INFO: Validation G PSNR loss: -45.315834045410156
+2024-06-11 16:56:09,098: INFO: Validation G NCC loss mean: 0.9626779675483703
+2024-06-11 16:56:09,098: INFO: Validation G NCC loss std: 0.026193309642610893
+2024-06-11 16:56:09,098: INFO: Validation D real loss: 0.24984808266162872
+2024-06-11 16:56:09,098: INFO: Validation D fake loss: 0.2500268816947937
+2024-06-11 16:56:09,098: INFO: Validation R total loss: 2.2649764730431343e-07
+2024-06-11 16:56:09,098: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:56:36,968: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:56:36,968: INFO: Validation G total loss: 15933.4951171875
+2024-06-11 16:56:36,968: INFO: Validation G L1 loss: 15920.974609375
+2024-06-11 16:56:36,969: INFO: Validation G SSIM loss: 6.12318103776488e-07
+2024-06-11 16:56:36,969: INFO: Validation G PSNR loss: -46.040985107421875
+2024-06-11 16:56:36,969: INFO: Validation G NCC loss mean: 0.9767164051532745
+2024-06-11 16:56:36,969: INFO: Validation G NCC loss std: 0.03245700139187814
+2024-06-11 16:56:36,969: INFO: Validation D real loss: 0.25112277269363403
+2024-06-11 16:56:36,969: INFO: Validation D fake loss: 0.2503816485404968
+2024-06-11 16:56:36,969: INFO: Validation R total loss: 3.6507845635469494e-08
+2024-06-11 16:56:36,969: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:57:04,901: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:57:04,902: INFO: Validation G total loss: 22827.06640625
+2024-06-11 16:57:04,902: INFO: Validation G L1 loss: 22814.56640625
+2024-06-11 16:57:04,902: INFO: Validation G SSIM loss: 3.2502310887139174e-07
+2024-06-11 16:57:04,902: INFO: Validation G PSNR loss: -46.30335235595703
+2024-06-11 16:57:04,902: INFO: Validation G NCC loss mean: 0.856078964471817
+2024-06-11 16:57:04,902: INFO: Validation G NCC loss std: 0.2005800419707055
+2024-06-11 16:57:04,902: INFO: Validation D real loss: 0.25061896443367004
+2024-06-11 16:57:04,902: INFO: Validation D fake loss: 0.25152483582496643
+2024-06-11 16:57:04,902: INFO: Validation R total loss: 1.0356306745507027e-07
+2024-06-11 16:57:04,902: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:57:32,798: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:57:32,798: INFO: Validation G total loss: 18001.43359375
+2024-06-11 16:57:32,798: INFO: Validation G L1 loss: 17988.91796875
+2024-06-11 16:57:32,798: INFO: Validation G SSIM loss: 5.539708354262984e-07
+2024-06-11 16:57:32,798: INFO: Validation G PSNR loss: -45.583927154541016
+2024-06-11 16:57:32,798: INFO: Validation G NCC loss mean: 0.8687169432640076
+2024-06-11 16:57:32,799: INFO: Validation G NCC loss std: 0.15072302440554686
+2024-06-11 16:57:32,799: INFO: Validation D real loss: 0.24870657920837402
+2024-06-11 16:57:32,799: INFO: Validation D fake loss: 0.24934783577919006
+2024-06-11 16:57:32,799: INFO: Validation R total loss: 1.0654330395709621e-07
+2024-06-11 16:57:32,799: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:58:00,948: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:58:00,948: INFO: Validation G total loss: 18783.58984375
+2024-06-11 16:58:00,948: INFO: Validation G L1 loss: 18771.103515625
+2024-06-11 16:58:00,949: INFO: Validation G SSIM loss: 3.084429636146524e-07
+2024-06-11 16:58:00,949: INFO: Validation G PSNR loss: -46.09482955932617
+2024-06-11 16:58:00,949: INFO: Validation G NCC loss mean: 0.9340605318546296
+2024-06-11 16:58:00,949: INFO: Validation G NCC loss std: 0.10856739854758284
+2024-06-11 16:58:00,949: INFO: Validation D real loss: 0.24951784312725067
+2024-06-11 16:58:00,949: INFO: Validation D fake loss: 0.2501949667930603
+2024-06-11 16:58:00,949: INFO: Validation R total loss: 8.270144746802544e-08
+2024-06-11 16:58:00,949: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:58:29,156: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:58:29,156: INFO: Validation G total loss: 22556.248046875
+2024-06-11 16:58:29,156: INFO: Validation G L1 loss: 22543.7421875
+2024-06-11 16:58:29,157: INFO: Validation G SSIM loss: 3.1571298109156487e-07
+2024-06-11 16:58:29,157: INFO: Validation G PSNR loss: -46.162315368652344
+2024-06-11 16:58:29,157: INFO: Validation G NCC loss mean: 0.9139549612998963
+2024-06-11 16:58:29,157: INFO: Validation G NCC loss std: 0.07910502860706486
+2024-06-11 16:58:29,157: INFO: Validation D real loss: 0.2509225606918335
+2024-06-11 16:58:29,157: INFO: Validation D fake loss: 0.24965333938598633
+2024-06-11 16:58:29,157: INFO: Validation R total loss: 8.270144746802544e-08
+2024-06-11 16:58:29,157: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:58:57,117: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:58:57,117: INFO: Validation G total loss: 15680.3828125
+2024-06-11 16:58:57,117: INFO: Validation G L1 loss: 15667.8935546875
+2024-06-11 16:58:57,117: INFO: Validation G SSIM loss: 2.7809937819256447e-07
+2024-06-11 16:58:57,118: INFO: Validation G PSNR loss: -45.4875602722168
+2024-06-11 16:58:57,118: INFO: Validation G NCC loss mean: 0.8640051692724228
+2024-06-11 16:58:57,118: INFO: Validation G NCC loss std: 0.19171083030737768
+2024-06-11 16:58:57,118: INFO: Validation D real loss: 0.24915102124214172
+2024-06-11 16:58:57,118: INFO: Validation D fake loss: 0.25038784742355347
+2024-06-11 16:58:57,118: INFO: Validation R total loss: 2.8610230629055877e-07
+2024-06-11 16:58:57,118: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:59:25,178: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:59:25,178: INFO: Validation G total loss: 19528.779296875
+2024-06-11 16:59:25,178: INFO: Validation G L1 loss: 19516.3125
+2024-06-11 16:59:25,178: INFO: Validation G SSIM loss: 3.534193524501461e-07
+2024-06-11 16:59:25,178: INFO: Validation G PSNR loss: -45.726993560791016
+2024-06-11 16:59:25,178: INFO: Validation G NCC loss mean: 0.9853527426719666
+2024-06-11 16:59:25,178: INFO: Validation G NCC loss std: 0.01751889250274935
+2024-06-11 16:59:25,178: INFO: Validation D real loss: 0.25037139654159546
+2024-06-11 16:59:25,178: INFO: Validation D fake loss: 0.250468909740448
+2024-06-11 16:59:25,178: INFO: Validation R total loss: 4.7534703639939835e-07
+2024-06-11 16:59:25,178: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 16:59:35,005: INFO: -------------------TRAINING LOSSES-------------------
+2024-06-11 16:59:35,005: INFO: Total loss for G: 16957.099609375
+2024-06-11 16:59:35,005: INFO: L1 loss for G: 16944.58984375
+2024-06-11 16:59:46,550: INFO: Total loss for R: 0.0
+2024-06-11 16:59:50,331: INFO: ------------------------VALIDATION------------------------
+2024-06-11 16:59:50,331: INFO: Validation G total loss: 17178.55078125
+2024-06-11 16:59:50,331: INFO: Validation G L1 loss: 17166.052734375
+2024-06-11 16:59:50,331: INFO: Validation G SSIM loss: 5.475394573295489e-07
+2024-06-11 16:59:50,331: INFO: Validation G PSNR loss: -45.315704345703125
+2024-06-11 16:59:50,331: INFO: Validation G NCC loss mean: 0.8797668993473053
+2024-06-11 16:59:50,331: INFO: Validation G NCC loss std: 0.15040270796643523
+2024-06-11 16:59:50,332: INFO: Validation D real loss: 0.25045138597488403
+2024-06-11 16:59:50,332: INFO: Validation D fake loss: 0.25009268522262573
+2024-06-11 16:59:50,332: INFO: Validation R total loss: 1.01327898960335e-07
+2024-06-11 17:00:08,827: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:00:08,827: INFO: Validation G total loss: 12368.7978515625
+2024-06-11 17:00:08,827: INFO: Validation G L1 loss: 12356.294921875
+2024-06-11 17:00:08,827: INFO: Validation G SSIM loss: 3.124814043076185e-07
+2024-06-11 17:00:08,827: INFO: Validation G PSNR loss: -45.48013687133789
+2024-06-11 17:00:08,827: INFO: Validation G NCC loss mean: 0.9510064005851746
+2024-06-11 17:00:08,827: INFO: Validation G NCC loss std: 0.06239823374408268
+2024-06-11 17:00:08,827: INFO: Validation D real loss: 0.2502603232860565
+2024-06-11 17:00:08,827: INFO: Validation D fake loss: 0.24954017996788025
+2024-06-11 17:00:08,827: INFO: Validation R total loss: 9.164214276324856e-08
+2024-06-11 17:00:08,827: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:00:36,738: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:00:36,738: INFO: Validation G total loss: 16655.333984375
+2024-06-11 17:00:36,738: INFO: Validation G L1 loss: 16642.90234375
+2024-06-11 17:00:36,738: INFO: Validation G SSIM loss: 4.795749077857181e-07
+2024-06-11 17:00:36,738: INFO: Validation G PSNR loss: -45.95545196533203
+2024-06-11 17:00:36,738: INFO: Validation G NCC loss mean: 0.9893769025802612
+2024-06-11 17:00:36,738: INFO: Validation G NCC loss std: 0.019518734024044738
+2024-06-11 17:00:36,738: INFO: Validation D real loss: 0.2507830858230591
+2024-06-11 17:00:36,738: INFO: Validation D fake loss: 0.25069016218185425
+2024-06-11 17:00:36,739: INFO: Validation R total loss: 6.109475947368992e-08
+2024-06-11 17:00:36,739: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:01:05,042: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:01:05,042: INFO: Validation G total loss: 16180.427734375
+2024-06-11 17:01:05,042: INFO: Validation G L1 loss: 16167.9140625
+2024-06-11 17:01:05,042: INFO: Validation G SSIM loss: 4.877323362961761e-07
+2024-06-11 17:01:05,042: INFO: Validation G PSNR loss: -45.74686050415039
+2024-06-11 17:01:05,043: INFO: Validation G NCC loss mean: 0.9819016993045807
+2024-06-11 17:01:05,043: INFO: Validation G NCC loss std: 0.021816637472455717
+2024-06-11 17:01:05,043: INFO: Validation D real loss: 0.2491133213043213
+2024-06-11 17:01:05,043: INFO: Validation D fake loss: 0.24932768940925598
+2024-06-11 17:01:05,043: INFO: Validation R total loss: 7.376074506737496e-08
+2024-06-11 17:01:05,043: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:01:32,937: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:01:32,937: INFO: Validation G total loss: 16672.50390625
+2024-06-11 17:01:32,937: INFO: Validation G L1 loss: 16660.00390625
+2024-06-11 17:01:32,937: INFO: Validation G SSIM loss: 5.190047522773966e-05
+2024-06-11 17:01:32,937: INFO: Validation G PSNR loss: -45.80232620239258
+2024-06-11 17:01:32,937: INFO: Validation G NCC loss mean: 0.8153255760669709
+2024-06-11 17:01:32,937: INFO: Validation G NCC loss std: 0.19458905834170417
+2024-06-11 17:01:32,937: INFO: Validation D real loss: 0.24948091804981232
+2024-06-11 17:01:32,937: INFO: Validation D fake loss: 0.2497103214263916
+2024-06-11 17:01:32,938: INFO: Validation R total loss: 7.376074506737496e-08
+2024-06-11 17:01:32,938: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:02:00,812: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:02:00,812: INFO: Validation G total loss: 18683.025390625
+2024-06-11 17:02:00,813: INFO: Validation G L1 loss: 18670.556640625
+2024-06-11 17:02:00,813: INFO: Validation G SSIM loss: 4.4557677369994053e-07
+2024-06-11 17:02:00,813: INFO: Validation G PSNR loss: -45.978355407714844
+2024-06-11 17:02:00,813: INFO: Validation G NCC loss mean: 0.9514516532421112
+2024-06-11 17:02:00,813: INFO: Validation G NCC loss std: 0.09732916198883727
+2024-06-11 17:02:00,813: INFO: Validation D real loss: 0.24984538555145264
+2024-06-11 17:02:00,813: INFO: Validation D fake loss: 0.25017595291137695
+2024-06-11 17:02:00,813: INFO: Validation R total loss: 2.9057265038545665e-08
+2024-06-11 17:02:00,813: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:02:28,735: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:02:28,735: INFO: Validation G total loss: 19160.3203125
+2024-06-11 17:02:28,735: INFO: Validation G L1 loss: 19147.85546875
+2024-06-11 17:02:28,735: INFO: Validation G SSIM loss: 0.012665878050029278
+2024-06-11 17:02:28,735: INFO: Validation G PSNR loss: -45.822425842285156
+2024-06-11 17:02:28,735: INFO: Validation G NCC loss mean: 0.8825987905263901
+2024-06-11 17:02:28,735: INFO: Validation G NCC loss std: 0.18164440480906938
+2024-06-11 17:02:28,735: INFO: Validation D real loss: 0.24929556250572205
+2024-06-11 17:02:28,735: INFO: Validation D fake loss: 0.24990646541118622
+2024-06-11 17:02:28,735: INFO: Validation R total loss: 7.152557657263969e-08
+2024-06-11 17:02:28,735: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:02:56,779: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:02:56,779: INFO: Validation G total loss: 16124.3095703125
+2024-06-11 17:02:56,779: INFO: Validation G L1 loss: 16111.763671875
+2024-06-11 17:02:56,779: INFO: Validation G SSIM loss: 1.4178882565829554e-06
+2024-06-11 17:02:56,780: INFO: Validation G PSNR loss: -45.658172607421875
+2024-06-11 17:02:56,780: INFO: Validation G NCC loss mean: 0.9224585771560669
+2024-06-11 17:02:56,780: INFO: Validation G NCC loss std: 0.10203720835042378
+2024-06-11 17:02:56,780: INFO: Validation D real loss: 0.2497297078371048
+2024-06-11 17:02:56,780: INFO: Validation D fake loss: 0.2505289316177368
+2024-06-11 17:02:56,780: INFO: Validation R total loss: 1.095235333536948e-07
+2024-06-11 17:02:56,780: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:03:25,392: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:03:25,392: INFO: Validation G total loss: 14468.25
+2024-06-11 17:03:25,392: INFO: Validation G L1 loss: 14455.703125
+2024-06-11 17:03:25,393: INFO: Validation G SSIM loss: 6.356061703627347e-07
+2024-06-11 17:03:25,393: INFO: Validation G PSNR loss: -45.73704147338867
+2024-06-11 17:03:25,393: INFO: Validation G NCC loss mean: 0.9201384067535401
+2024-06-11 17:03:25,393: INFO: Validation G NCC loss std: 0.12208946818151008
+2024-06-11 17:03:25,393: INFO: Validation D real loss: 0.24930529296398163
+2024-06-11 17:03:25,393: INFO: Validation D fake loss: 0.250690758228302
+2024-06-11 17:03:25,393: INFO: Validation R total loss: 1.3336538984276558e-07
+2024-06-11 17:03:25,393: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:03:53,294: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:03:53,294: INFO: Validation G total loss: 18767.400390625
+2024-06-11 17:03:53,294: INFO: Validation G L1 loss: 18754.8984375
+2024-06-11 17:03:53,294: INFO: Validation G SSIM loss: 3.1511214615420613e-07
+2024-06-11 17:03:53,295: INFO: Validation G PSNR loss: -46.11355209350586
+2024-06-11 17:03:53,295: INFO: Validation G NCC loss mean: 0.9111003309488297
+2024-06-11 17:03:53,295: INFO: Validation G NCC loss std: 0.18313223995539132
+2024-06-11 17:03:53,295: INFO: Validation D real loss: 0.2505665123462677
+2024-06-11 17:03:53,295: INFO: Validation D fake loss: 0.24985364079475403
+2024-06-11 17:03:53,295: INFO: Validation R total loss: 1.1846422864891792e-07
+2024-06-11 17:03:53,295: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:04:21,287: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:04:21,287: INFO: Validation G total loss: 12589.6875
+2024-06-11 17:04:21,288: INFO: Validation G L1 loss: 12577.1767578125
+2024-06-11 17:04:21,288: INFO: Validation G SSIM loss: 0.00011817965423688293
+2024-06-11 17:04:21,288: INFO: Validation G PSNR loss: -43.4208984375
+2024-06-11 17:04:21,288: INFO: Validation G NCC loss mean: 0.784109815955162
+2024-06-11 17:04:21,288: INFO: Validation G NCC loss std: 0.22470273742692126
+2024-06-11 17:04:21,288: INFO: Validation D real loss: 0.2491401731967926
+2024-06-11 17:04:21,288: INFO: Validation D fake loss: 0.24973101913928986
+2024-06-11 17:04:21,288: INFO: Validation R total loss: 1.1026859425555813e-07
+2024-06-11 17:04:21,288: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:04:49,164: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:04:49,165: INFO: Validation G total loss: 12918.255859375
+2024-06-11 17:04:49,165: INFO: Validation G L1 loss: 12905.783203125
+2024-06-11 17:04:49,165: INFO: Validation G SSIM loss: 0.00014002391253598034
+2024-06-11 17:04:49,165: INFO: Validation G PSNR loss: -42.91911315917969
+2024-06-11 17:04:49,165: INFO: Validation G NCC loss mean: 0.9135970354080201
+2024-06-11 17:04:49,165: INFO: Validation G NCC loss std: 0.15818787602059461
+2024-06-11 17:04:49,165: INFO: Validation D real loss: 0.250384658575058
+2024-06-11 17:04:49,165: INFO: Validation D fake loss: 0.25053757429122925
+2024-06-11 17:04:49,165: INFO: Validation R total loss: 1.7061829282738472e-07
+2024-06-11 17:04:49,165: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:05:17,062: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:05:17,063: INFO: Validation G total loss: 21561.796875
+2024-06-11 17:05:17,063: INFO: Validation G L1 loss: 21549.30078125
+2024-06-11 17:05:17,063: INFO: Validation G SSIM loss: 1.1731580116247642e-06
+2024-06-11 17:05:17,063: INFO: Validation G PSNR loss: -45.943260192871094
+2024-06-11 17:05:17,063: INFO: Validation G NCC loss mean: 0.9386797845363617
+2024-06-11 17:05:17,063: INFO: Validation G NCC loss std: 0.10880217530730248
+2024-06-11 17:05:17,063: INFO: Validation D real loss: 0.24992457032203674
+2024-06-11 17:05:17,063: INFO: Validation D fake loss: 0.2503085136413574
+2024-06-11 17:05:17,063: INFO: Validation R total loss: 7.972121096599949e-08
+2024-06-11 17:05:17,063: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:05:45,101: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:05:45,101: INFO: Validation G total loss: 16786.63671875
+2024-06-11 17:05:45,101: INFO: Validation G L1 loss: 16774.09765625
+2024-06-11 17:05:45,101: INFO: Validation G SSIM loss: 6.64318918097706e-07
+2024-06-11 17:05:45,102: INFO: Validation G PSNR loss: -45.62980651855469
+2024-06-11 17:05:45,102: INFO: Validation G NCC loss mean: 0.8969527333974838
+2024-06-11 17:05:45,102: INFO: Validation G NCC loss std: 0.1683452876541152
+2024-06-11 17:05:45,102: INFO: Validation D real loss: 0.2490944117307663
+2024-06-11 17:05:45,102: INFO: Validation D fake loss: 0.2492627650499344
+2024-06-11 17:05:45,102: INFO: Validation R total loss: 3.203749798785793e-08
+2024-06-11 17:05:45,102: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:06:13,654: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:06:13,654: INFO: Validation G total loss: 16289.7001953125
+2024-06-11 17:06:13,654: INFO: Validation G L1 loss: 16277.1953125
+2024-06-11 17:06:13,654: INFO: Validation G SSIM loss: 2.896636601690261e-07
+2024-06-11 17:06:13,655: INFO: Validation G PSNR loss: -45.590492248535156
+2024-06-11 17:06:13,655: INFO: Validation G NCC loss mean: 0.9367087602615356
+2024-06-11 17:06:13,655: INFO: Validation G NCC loss std: 0.10667200907587283
+2024-06-11 17:06:13,655: INFO: Validation D real loss: 0.24944570660591125
+2024-06-11 17:06:13,655: INFO: Validation D fake loss: 0.24948248267173767
+2024-06-11 17:06:13,655: INFO: Validation R total loss: 4.693865918170559e-08
+2024-06-11 17:06:13,655: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:06:41,849: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:06:41,850: INFO: Validation G total loss: 12457.447265625
+2024-06-11 17:06:41,850: INFO: Validation G L1 loss: 12445.03125
+2024-06-11 17:06:41,850: INFO: Validation G SSIM loss: 0.005271622445434332
+2024-06-11 17:06:41,850: INFO: Validation G PSNR loss: -45.11878967285156
+2024-06-11 17:06:41,850: INFO: Validation G NCC loss mean: 0.9194700837135314
+2024-06-11 17:06:41,850: INFO: Validation G NCC loss std: 0.16175244868806368
+2024-06-11 17:06:41,850: INFO: Validation D real loss: 0.24964459240436554
+2024-06-11 17:06:41,850: INFO: Validation D fake loss: 0.25039663910865784
+2024-06-11 17:06:41,850: INFO: Validation R total loss: 2.9057265038545665e-08
+2024-06-11 17:06:41,850: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:06:51,658: INFO: -------------------TRAINING LOSSES-------------------
+2024-06-11 17:06:51,658: INFO: Total loss for G: 16496.580078125
+2024-06-11 17:06:51,658: INFO: L1 loss for G: 16484.0859375
+2024-06-11 17:07:03,167: INFO: Total loss for R: 9.763240814208984e-05
+2024-06-11 17:07:06,774: INFO: ------------------------VALIDATION------------------------
+2024-06-11 17:07:06,774: INFO: Validation G total loss: 14550.779296875
+2024-06-11 17:07:06,775: INFO: Validation G L1 loss: 14538.3310546875
+2024-06-11 17:07:06,775: INFO: Validation G SSIM loss: 1.9913757114409236e-06
+2024-06-11 17:07:06,775: INFO: Validation G PSNR loss: -46.11775588989258
+2024-06-11 17:07:06,775: INFO: Validation G NCC loss mean: 0.9745859742164612
+2024-06-11 17:07:06,775: INFO: Validation G NCC loss std: 0.04261605897434617
+2024-06-11 17:07:06,775: INFO: Validation D real loss: 0.24865703284740448
+2024-06-11 17:07:06,775: INFO: Validation D fake loss: 0.2507550120353699
+2024-06-11 17:07:06,775: INFO: Validation R total loss: 4.0978193283081055e-08
+2024-06-11 17:07:25,253: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:07:25,253: INFO: Validation G total loss: 20278.619140625
+2024-06-11 17:07:25,253: INFO: Validation G L1 loss: 20266.08203125
+2024-06-11 17:07:25,253: INFO: Validation G SSIM loss: 8.622829227533657e-06
+2024-06-11 17:07:25,253: INFO: Validation G PSNR loss: -46.08158493041992
+2024-06-11 17:07:25,253: INFO: Validation G NCC loss mean: 0.8928151369094849
+2024-06-11 17:07:25,253: INFO: Validation G NCC loss std: 0.12099715529419475
+2024-06-11 17:07:25,253: INFO: Validation D real loss: 0.25182440876960754
+2024-06-11 17:07:25,254: INFO: Validation D fake loss: 0.24896959960460663
+2024-06-11 17:07:25,254: INFO: Validation R total loss: 5.21540641784668e-08
+2024-06-11 17:07:25,254: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:07:53,488: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:07:53,488: INFO: Validation G total loss: 22542.087890625
+2024-06-11 17:07:53,488: INFO: Validation G L1 loss: 22529.59765625
+2024-06-11 17:07:53,488: INFO: Validation G SSIM loss: 3.478351970898075e-07
+2024-06-11 17:07:53,488: INFO: Validation G PSNR loss: -46.365272521972656
+2024-06-11 17:07:53,488: INFO: Validation G NCC loss mean: 0.936388248205185
+2024-06-11 17:07:53,488: INFO: Validation G NCC loss std: 0.0927617434247152
+2024-06-11 17:07:53,488: INFO: Validation D real loss: 0.25062036514282227
+2024-06-11 17:07:53,488: INFO: Validation D fake loss: 0.24973304569721222
+2024-06-11 17:07:53,488: INFO: Validation R total loss: 5.21540641784668e-08
+2024-06-11 17:07:53,489: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:08:21,456: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:08:21,456: INFO: Validation G total loss: 22338.01953125
+2024-06-11 17:08:21,456: INFO: Validation G L1 loss: 22325.533203125
+2024-06-11 17:08:21,456: INFO: Validation G SSIM loss: 3.8719949202459247e-07
+2024-06-11 17:08:21,456: INFO: Validation G PSNR loss: -46.13085174560547
+2024-06-11 17:08:21,456: INFO: Validation G NCC loss mean: 0.9077649354934693
+2024-06-11 17:08:21,456: INFO: Validation G NCC loss std: 0.13875271578067652
+2024-06-11 17:08:21,457: INFO: Validation D real loss: 0.24980756640434265
+2024-06-11 17:08:21,457: INFO: Validation D fake loss: 0.25048744678497314
+2024-06-11 17:08:21,457: INFO: Validation R total loss: 6.183982037555324e-08
+2024-06-11 17:08:21,457: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:08:49,321: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:08:49,321: INFO: Validation G total loss: 23250.95703125
+2024-06-11 17:08:49,321: INFO: Validation G L1 loss: 23238.49609375
+2024-06-11 17:08:49,321: INFO: Validation G SSIM loss: 0.011726309545338154
+2024-06-11 17:08:49,321: INFO: Validation G PSNR loss: -41.7077522277832
+2024-06-11 17:08:49,321: INFO: Validation G NCC loss mean: 0.9031753987073898
+2024-06-11 17:08:49,321: INFO: Validation G NCC loss std: 0.17264563691863355
+2024-06-11 17:08:49,321: INFO: Validation D real loss: 0.24988940358161926
+2024-06-11 17:08:49,321: INFO: Validation D fake loss: 0.2506529986858368
+2024-06-11 17:08:49,321: INFO: Validation R total loss: 2.60770320892334e-08
+2024-06-11 17:08:49,321: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:09:17,439: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:09:17,439: INFO: Validation G total loss: 14093.439453125
+2024-06-11 17:09:17,439: INFO: Validation G L1 loss: 14080.974609375
+2024-06-11 17:09:17,439: INFO: Validation G SSIM loss: 3.3665736509647104e-07
+2024-06-11 17:09:17,439: INFO: Validation G PSNR loss: -45.8120231628418
+2024-06-11 17:09:17,439: INFO: Validation G NCC loss mean: 0.9298289060592652
+2024-06-11 17:09:17,439: INFO: Validation G NCC loss std: 0.16687636801822844
+2024-06-11 17:09:17,439: INFO: Validation D real loss: 0.2507879436016083
+2024-06-11 17:09:17,439: INFO: Validation D fake loss: 0.2497851550579071
+2024-06-11 17:09:17,439: INFO: Validation R total loss: 6.332993507385254e-08
+2024-06-11 17:09:17,439: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:09:45,731: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:09:45,731: INFO: Validation G total loss: 14684.283203125
+2024-06-11 17:09:45,732: INFO: Validation G L1 loss: 14671.775390625
+2024-06-11 17:09:45,732: INFO: Validation G SSIM loss: 8.193487701646518e-07
+2024-06-11 17:09:45,732: INFO: Validation G PSNR loss: -45.416595458984375
+2024-06-11 17:09:45,732: INFO: Validation G NCC loss mean: 0.9807259321212769
+2024-06-11 17:09:45,732: INFO: Validation G NCC loss std: 0.034131399879591975
+2024-06-11 17:09:45,732: INFO: Validation D real loss: 0.25062912702560425
+2024-06-11 17:09:45,732: INFO: Validation D fake loss: 0.24942882359027863
+2024-06-11 17:09:45,732: INFO: Validation R total loss: 1.8849968341783097e-07
+2024-06-11 17:09:45,732: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:10:13,746: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:10:13,746: INFO: Validation G total loss: 16434.82421875
+2024-06-11 17:10:13,746: INFO: Validation G L1 loss: 16422.333984375
+2024-06-11 17:10:13,747: INFO: Validation G SSIM loss: 1.0500552889425308e-05
+2024-06-11 17:10:13,747: INFO: Validation G PSNR loss: -45.988929748535156
+2024-06-11 17:10:13,747: INFO: Validation G NCC loss mean: 0.9338721215724946
+2024-06-11 17:10:13,747: INFO: Validation G NCC loss std: 0.12150229565577185
+2024-06-11 17:10:13,747: INFO: Validation D real loss: 0.2499963790178299
+2024-06-11 17:10:13,747: INFO: Validation D fake loss: 0.2493451088666916
+2024-06-11 17:10:13,747: INFO: Validation R total loss: 6.407499597571586e-08
+2024-06-11 17:10:13,747: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:10:42,348: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:10:42,348: INFO: Validation G total loss: 12520.6953125
+2024-06-11 17:10:42,348: INFO: Validation G L1 loss: 12508.2314453125
+2024-06-11 17:10:42,348: INFO: Validation G SSIM loss: 0.0001424855727236718
+2024-06-11 17:10:42,348: INFO: Validation G PSNR loss: -44.880489349365234
+2024-06-11 17:10:42,349: INFO: Validation G NCC loss mean: 0.8248245000839234
+2024-06-11 17:10:42,349: INFO: Validation G NCC loss std: 0.23857028398931224
+2024-06-11 17:10:42,349: INFO: Validation D real loss: 0.2494795024394989
+2024-06-11 17:10:42,349: INFO: Validation D fake loss: 0.2501963675022125
+2024-06-11 17:10:42,349: INFO: Validation R total loss: 8.270144746802544e-08
+2024-06-11 17:10:42,349: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:11:10,724: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:11:10,724: INFO: Validation G total loss: 12132.396484375
+2024-06-11 17:11:10,724: INFO: Validation G L1 loss: 12119.919921875
+2024-06-11 17:11:10,724: INFO: Validation G SSIM loss: 5.386447128330474e-07
+2024-06-11 17:11:10,724: INFO: Validation G PSNR loss: -45.04149627685547
+2024-06-11 17:11:10,724: INFO: Validation G NCC loss mean: 0.9675392389297486
+2024-06-11 17:11:10,724: INFO: Validation G NCC loss std: 0.026073559987030044
+2024-06-11 17:11:10,724: INFO: Validation D real loss: 0.2508094310760498
+2024-06-11 17:11:10,724: INFO: Validation D fake loss: 0.2504715919494629
+2024-06-11 17:11:10,724: INFO: Validation R total loss: 6.556511067401516e-08
+2024-06-11 17:11:10,724: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:11:38,995: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:11:38,995: INFO: Validation G total loss: 15891.2158203125
+2024-06-11 17:11:38,996: INFO: Validation G L1 loss: 15878.6591796875
+2024-06-11 17:11:38,996: INFO: Validation G SSIM loss: 0.0014071092009544373
+2024-06-11 17:11:38,996: INFO: Validation G PSNR loss: -44.05218505859375
+2024-06-11 17:11:38,996: INFO: Validation G NCC loss mean: 0.91514912545681
+2024-06-11 17:11:38,996: INFO: Validation G NCC loss std: 0.16348950728906006
+2024-06-11 17:11:38,996: INFO: Validation D real loss: 0.2500171661376953
+2024-06-11 17:11:38,996: INFO: Validation D fake loss: 0.24948382377624512
+2024-06-11 17:11:38,996: INFO: Validation R total loss: 4.470348358154297e-08
+2024-06-11 17:11:38,996: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:12:07,465: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:12:07,466: INFO: Validation G total loss: 19883.109375
+2024-06-11 17:12:07,466: INFO: Validation G L1 loss: 19870.580078125
+2024-06-11 17:12:07,466: INFO: Validation G SSIM loss: 3.261976360136032e-07
+2024-06-11 17:12:07,466: INFO: Validation G PSNR loss: -46.05255889892578
+2024-06-11 17:12:07,466: INFO: Validation G NCC loss mean: 0.8657661139965057
+2024-06-11 17:12:07,466: INFO: Validation G NCC loss std: 0.1597219268460134
+2024-06-11 17:12:07,466: INFO: Validation D real loss: 0.24991080164909363
+2024-06-11 17:12:07,466: INFO: Validation D fake loss: 0.24934032559394836
+2024-06-11 17:12:07,466: INFO: Validation R total loss: 5.2899121527616444e-08
+2024-06-11 17:12:07,466: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:12:35,868: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:12:35,868: INFO: Validation G total loss: 18494.21484375
+2024-06-11 17:12:35,868: INFO: Validation G L1 loss: 18481.68359375
+2024-06-11 17:12:35,868: INFO: Validation G SSIM loss: 6.223700620466843e-05
+2024-06-11 17:12:35,868: INFO: Validation G PSNR loss: -45.844329833984375
+2024-06-11 17:12:35,868: INFO: Validation G NCC loss mean: 0.85807486474514
+2024-06-11 17:12:35,868: INFO: Validation G NCC loss std: 0.2179828398475207
+2024-06-11 17:12:35,868: INFO: Validation D real loss: 0.2496509999036789
+2024-06-11 17:12:35,868: INFO: Validation D fake loss: 0.2499668151140213
+2024-06-11 17:12:35,868: INFO: Validation R total loss: 2.7567148563889532e-08
+2024-06-11 17:12:35,869: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:13:04,573: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:13:04,573: INFO: Validation G total loss: 15613.5263671875
+2024-06-11 17:13:04,579: INFO: Validation G L1 loss: 15601.0517578125
+2024-06-11 17:13:04,579: INFO: Validation G SSIM loss: 5.572730401581794e-07
+2024-06-11 17:13:04,579: INFO: Validation G PSNR loss: -45.63825225830078
+2024-06-11 17:13:04,579: INFO: Validation G NCC loss mean: 0.9095941960811615
+2024-06-11 17:13:04,579: INFO: Validation G NCC loss std: 0.163044246365528
+2024-06-11 17:13:04,580: INFO: Validation D real loss: 0.250458300113678
+2024-06-11 17:13:04,580: INFO: Validation D fake loss: 0.24917511641979218
+2024-06-11 17:13:04,580: INFO: Validation R total loss: 6.183982037555324e-08
+2024-06-11 17:13:04,580: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:13:32,853: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:13:32,853: INFO: Validation G total loss: 18864.892578125
+2024-06-11 17:13:32,853: INFO: Validation G L1 loss: 18852.4296875
+2024-06-11 17:13:32,853: INFO: Validation G SSIM loss: 1.7929032765096053e-06
+2024-06-11 17:13:32,853: INFO: Validation G PSNR loss: -45.6248664855957
+2024-06-11 17:13:32,853: INFO: Validation G NCC loss mean: 0.8992172122001648
+2024-06-11 17:13:32,854: INFO: Validation G NCC loss std: 0.14929269140786705
+2024-06-11 17:13:32,854: INFO: Validation D real loss: 0.2504657506942749
+2024-06-11 17:13:32,854: INFO: Validation D fake loss: 0.25025564432144165
+2024-06-11 17:13:32,854: INFO: Validation R total loss: 6.034970567725395e-08
+2024-06-11 17:13:32,854: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:14:00,840: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:14:00,840: INFO: Validation G total loss: 20019.5390625
+2024-06-11 17:14:00,840: INFO: Validation G L1 loss: 20007.048828125
+2024-06-11 17:14:00,840: INFO: Validation G SSIM loss: 7.203576387837529e-06
+2024-06-11 17:14:00,840: INFO: Validation G PSNR loss: -46.007347106933594
+2024-06-11 17:14:00,840: INFO: Validation G NCC loss mean: 0.9607517719268799
+2024-06-11 17:14:00,841: INFO: Validation G NCC loss std: 0.05913813568568596
+2024-06-11 17:14:00,841: INFO: Validation D real loss: 0.24959716200828552
+2024-06-11 17:14:00,841: INFO: Validation D fake loss: 0.25040215253829956
+2024-06-11 17:14:00,841: INFO: Validation R total loss: 7.599592066753758e-08
+2024-06-11 17:14:00,841: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:14:10,691: INFO: -------------------TRAINING LOSSES-------------------
+2024-06-11 17:14:10,692: INFO: Total loss for G: 16567.171875
+2024-06-11 17:14:10,692: INFO: L1 loss for G: 16554.673828125
+2024-06-11 17:14:22,194: INFO: Total loss for R: -0.00015866756439208984
+2024-06-11 17:14:25,580: INFO: ------------------------VALIDATION------------------------
+2024-06-11 17:14:25,580: INFO: Validation G total loss: 23339.84765625
+2024-06-11 17:14:25,580: INFO: Validation G L1 loss: 23327.38671875
+2024-06-11 17:14:25,581: INFO: Validation G SSIM loss: 3.23108309885356e-07
+2024-06-11 17:14:25,581: INFO: Validation G PSNR loss: -46.12885284423828
+2024-06-11 17:14:25,581: INFO: Validation G NCC loss mean: 0.9030524730682373
+2024-06-11 17:14:25,581: INFO: Validation G NCC loss std: 0.1495734202688525
+2024-06-11 17:14:25,581: INFO: Validation D real loss: 0.2500206232070923
+2024-06-11 17:14:25,581: INFO: Validation D fake loss: 0.25062060356140137
+2024-06-11 17:14:25,581: INFO: Validation R total loss: 2.831220591303918e-08
+2024-06-11 17:14:44,154: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:14:44,154: INFO: Validation G total loss: 19648.869140625
+2024-06-11 17:14:44,154: INFO: Validation G L1 loss: 19636.37890625
+2024-06-11 17:14:44,154: INFO: Validation G SSIM loss: 0.04298026114702225
+2024-06-11 17:14:44,154: INFO: Validation G PSNR loss: -45.628578186035156
+2024-06-11 17:14:44,154: INFO: Validation G NCC loss mean: 0.9056423246860504
+2024-06-11 17:14:44,154: INFO: Validation G NCC loss std: 0.16339940446149231
+2024-06-11 17:14:44,154: INFO: Validation D real loss: 0.2488362342119217
+2024-06-11 17:14:44,154: INFO: Validation D fake loss: 0.24955296516418457
+2024-06-11 17:14:44,154: INFO: Validation R total loss: 2.0116567966965704e-08
+2024-06-11 17:14:44,154: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:15:12,283: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:15:12,283: INFO: Validation G total loss: 15968.5625
+2024-06-11 17:15:12,283: INFO: Validation G L1 loss: 15956.103515625
+2024-06-11 17:15:12,283: INFO: Validation G SSIM loss: 3.2638354241498746e-07
+2024-06-11 17:15:12,283: INFO: Validation G PSNR loss: -45.715335845947266
+2024-06-11 17:15:12,283: INFO: Validation G NCC loss mean: 0.9555381298065185
+2024-06-11 17:15:12,283: INFO: Validation G NCC loss std: 0.04914734177217675
+2024-06-11 17:15:12,283: INFO: Validation D real loss: 0.25103315711021423
+2024-06-11 17:15:12,283: INFO: Validation D fake loss: 0.25025978684425354
+2024-06-11 17:15:12,283: INFO: Validation R total loss: 6.183982037555324e-08
+2024-06-11 17:15:12,283: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:15:40,441: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:15:40,441: INFO: Validation G total loss: 16214.8876953125
+2024-06-11 17:15:40,441: INFO: Validation G L1 loss: 16202.408203125
+2024-06-11 17:15:40,441: INFO: Validation G SSIM loss: 4.140461555834918e-07
+2024-06-11 17:15:40,441: INFO: Validation G PSNR loss: -45.949886322021484
+2024-06-11 17:15:40,442: INFO: Validation G NCC loss mean: 0.8817931652069092
+2024-06-11 17:15:40,442: INFO: Validation G NCC loss std: 0.20450870770418045
+2024-06-11 17:15:40,442: INFO: Validation D real loss: 0.24878761172294617
+2024-06-11 17:15:40,442: INFO: Validation D fake loss: 0.24940574169158936
+2024-06-11 17:15:40,442: INFO: Validation R total loss: 4.842877388000488e-08
+2024-06-11 17:15:40,442: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:16:08,361: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:16:08,361: INFO: Validation G total loss: 12706.8212890625
+2024-06-11 17:16:08,361: INFO: Validation G L1 loss: 12694.302734375
+2024-06-11 17:16:08,361: INFO: Validation G SSIM loss: 0.0005483803688548505
+2024-06-11 17:16:08,361: INFO: Validation G PSNR loss: -45.297996520996094
+2024-06-11 17:16:08,361: INFO: Validation G NCC loss mean: 0.9180915057659149
+2024-06-11 17:16:08,361: INFO: Validation G NCC loss std: 0.1472606978158668
+2024-06-11 17:16:08,361: INFO: Validation D real loss: 0.25078755617141724
+2024-06-11 17:16:08,362: INFO: Validation D fake loss: 0.2510983943939209
+2024-06-11 17:16:08,362: INFO: Validation R total loss: 4.246830798138035e-08
+2024-06-11 17:16:08,362: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:16:36,361: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:16:36,362: INFO: Validation G total loss: 13832.3310546875
+2024-06-11 17:16:36,362: INFO: Validation G L1 loss: 13819.849609375
+2024-06-11 17:16:36,362: INFO: Validation G SSIM loss: 0.00044804386561736465
+2024-06-11 17:16:36,362: INFO: Validation G PSNR loss: -43.24446487426758
+2024-06-11 17:16:36,362: INFO: Validation G NCC loss mean: 0.8758365482091903
+2024-06-11 17:16:36,362: INFO: Validation G NCC loss std: 0.2626951138664972
+2024-06-11 17:16:36,362: INFO: Validation D real loss: 0.25037631392478943
+2024-06-11 17:16:36,362: INFO: Validation D fake loss: 0.2510156035423279
+2024-06-11 17:16:36,362: INFO: Validation R total loss: 7.003545476891304e-08
+2024-06-11 17:16:36,362: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:17:04,296: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:17:04,296: INFO: Validation G total loss: 16593.37109375
+2024-06-11 17:17:04,302: INFO: Validation G L1 loss: 16580.87890625
+2024-06-11 17:17:04,302: INFO: Validation G SSIM loss: 5.7334160374011844e-05
+2024-06-11 17:17:04,302: INFO: Validation G PSNR loss: -45.41594696044922
+2024-06-11 17:17:04,303: INFO: Validation G NCC loss mean: 0.8218005508184433
+2024-06-11 17:17:04,303: INFO: Validation G NCC loss std: 0.19459825697199584
+2024-06-11 17:17:04,303: INFO: Validation D real loss: 0.2507614493370056
+2024-06-11 17:17:04,303: INFO: Validation D fake loss: 0.24974076449871063
+2024-06-11 17:17:04,303: INFO: Validation R total loss: 3.278255533700758e-08
+2024-06-11 17:17:04,303: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:17:32,366: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:17:32,366: INFO: Validation G total loss: 15469.4033203125
+2024-06-11 17:17:32,366: INFO: Validation G L1 loss: 15456.896484375
+2024-06-11 17:17:32,366: INFO: Validation G SSIM loss: -4.599459373366699e-07
+2024-06-11 17:17:32,366: INFO: Validation G PSNR loss: -45.680992126464844
+2024-06-11 17:17:32,366: INFO: Validation G NCC loss mean: 0.8692568421363831
+2024-06-11 17:17:32,366: INFO: Validation G NCC loss std: 0.17236455811748766
+2024-06-11 17:17:32,366: INFO: Validation D real loss: 0.2506959140300751
+2024-06-11 17:17:32,367: INFO: Validation D fake loss: 0.2503122389316559
+2024-06-11 17:17:32,367: INFO: Validation R total loss: 1.7136335017653437e-08
+2024-06-11 17:17:32,367: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:18:00,404: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:18:00,405: INFO: Validation G total loss: 20521.390625
+2024-06-11 17:18:00,405: INFO: Validation G L1 loss: 20508.919921875
+2024-06-11 17:18:00,405: INFO: Validation G SSIM loss: -1.5847544432290306e-07
+2024-06-11 17:18:00,405: INFO: Validation G PSNR loss: -45.97824478149414
+2024-06-11 17:18:00,405: INFO: Validation G NCC loss mean: 0.8746509194374085
+2024-06-11 17:18:00,405: INFO: Validation G NCC loss std: 0.1828037171035803
+2024-06-11 17:18:00,405: INFO: Validation D real loss: 0.24961766600608826
+2024-06-11 17:18:00,405: INFO: Validation D fake loss: 0.24925675988197327
+2024-06-11 17:18:00,405: INFO: Validation R total loss: 4.693865918170559e-08
+2024-06-11 17:18:00,405: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:18:28,349: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:18:28,349: INFO: Validation G total loss: 17390.34375
+2024-06-11 17:18:28,349: INFO: Validation G L1 loss: 17377.791015625
+2024-06-11 17:18:28,349: INFO: Validation G SSIM loss: 0.00014386128168553114
+2024-06-11 17:18:28,349: INFO: Validation G PSNR loss: -43.1425895690918
+2024-06-11 17:18:28,349: INFO: Validation G NCC loss mean: 0.8830897070467472
+2024-06-11 17:18:28,349: INFO: Validation G NCC loss std: 0.2707945247203709
+2024-06-11 17:18:28,349: INFO: Validation D real loss: 0.24967345595359802
+2024-06-11 17:18:28,349: INFO: Validation D fake loss: 0.24963891506195068
+2024-06-11 17:18:28,350: INFO: Validation R total loss: 2.2351741790771484e-08
+2024-06-11 17:18:28,350: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:18:56,319: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:18:56,319: INFO: Validation G total loss: 15712.943359375
+2024-06-11 17:18:56,319: INFO: Validation G L1 loss: 15700.435546875
+2024-06-11 17:18:56,319: INFO: Validation G SSIM loss: 2.600394850560406e-07
+2024-06-11 17:18:56,319: INFO: Validation G PSNR loss: -45.368797302246094
+2024-06-11 17:18:56,319: INFO: Validation G NCC loss mean: 0.911488515138626
+2024-06-11 17:18:56,319: INFO: Validation G NCC loss std: 0.07273134587802524
+2024-06-11 17:18:56,319: INFO: Validation D real loss: 0.2503502666950226
+2024-06-11 17:18:56,319: INFO: Validation D fake loss: 0.24999913573265076
+2024-06-11 17:18:56,320: INFO: Validation R total loss: 3.203749798785793e-08
+2024-06-11 17:18:56,320: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:19:24,202: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:19:24,202: INFO: Validation G total loss: 18606.734375
+2024-06-11 17:19:24,202: INFO: Validation G L1 loss: 18594.24609375
+2024-06-11 17:19:24,202: INFO: Validation G SSIM loss: 3.4565707096589904e-07
+2024-06-11 17:19:24,202: INFO: Validation G PSNR loss: -45.89881896972656
+2024-06-11 17:19:24,202: INFO: Validation G NCC loss mean: 0.8296789646148681
+2024-06-11 17:19:24,202: INFO: Validation G NCC loss std: 0.17770292744953944
+2024-06-11 17:19:24,203: INFO: Validation D real loss: 0.24837128818035126
+2024-06-11 17:19:24,203: INFO: Validation D fake loss: 0.25027304887771606
+2024-06-11 17:19:24,203: INFO: Validation R total loss: 2.831220591303918e-08
+2024-06-11 17:19:24,203: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:19:52,158: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:19:52,159: INFO: Validation G total loss: 15564.9296875
+2024-06-11 17:19:52,159: INFO: Validation G L1 loss: 15552.4404296875
+2024-06-11 17:19:52,159: INFO: Validation G SSIM loss: 8.582056580053177e-06
+2024-06-11 17:19:52,159: INFO: Validation G PSNR loss: -45.748165130615234
+2024-06-11 17:19:52,159: INFO: Validation G NCC loss mean: 0.9394499659538269
+2024-06-11 17:19:52,159: INFO: Validation G NCC loss std: 0.10533387242791592
+2024-06-11 17:19:52,159: INFO: Validation D real loss: 0.24957597255706787
+2024-06-11 17:19:52,159: INFO: Validation D fake loss: 0.2503892183303833
+2024-06-11 17:19:52,159: INFO: Validation R total loss: 3.203749798785793e-08
+2024-06-11 17:19:52,159: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:20:20,135: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-11 17:20:20,135: INFO: Validation G total loss: 16995.703125
+2024-06-11 17:20:20,135: INFO: Validation G L1 loss: 16983.14453125
+2024-06-11 17:20:20,136: INFO: Validation G SSIM loss: 2.799120863983262e-07
+2024-06-11 17:20:20,136: INFO: Validation G PSNR loss: -45.82469940185547
+2024-06-11 17:20:20,136: INFO: Validation G NCC loss mean: 0.9013921856880188
+2024-06-11 17:20:20,136: INFO: Validation G NCC loss std: 0.1379800236073473
+2024-06-11 17:20:20,136: INFO: Validation D real loss: 0.25017690658569336
+2024-06-11 17:20:20,136: INFO: Validation D fake loss: 0.25008198618888855
+2024-06-11 17:20:20,136: INFO: Validation R total loss: 3.4272670035306874e-08
+2024-06-11 17:20:20,136: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-12 12:15:52,786: INFO: ------------------------------NEW RUN------------------------------
+2024-06-12 12:15:53,582: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 12:15:55,676: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 12:15:56,637: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 12:15:56,706: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 12:15:56,732: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 12:15:56,762: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 12:17:26,821: INFO: ------------------------------NEW RUN------------------------------
+2024-06-12 12:17:27,627: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 12:17:29,707: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 12:17:30,690: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 12:17:30,760: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 12:17:30,788: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 12:17:30,817: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 13:35:48,752: INFO: ------------------------------NEW RUN------------------------------
+2024-06-12 13:35:49,912: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 13:35:52,968: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 13:35:54,414: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 13:35:54,543: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 13:35:54,598: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 13:35:54,648: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 13:36:41,020: INFO: ------------------------------NEW RUN------------------------------
+2024-06-12 13:36:42,242: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 13:36:45,338: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 13:36:46,797: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 13:36:46,913: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 13:36:46,964: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 13:36:47,007: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 13:42:15,241: INFO: ------------------------------NEW RUN------------------------------
+2024-06-12 13:42:16,444: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 13:42:19,561: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 13:42:21,036: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 13:42:21,140: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 13:42:21,191: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 13:42:21,234: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 13:46:45,088: INFO: ------------------------------NEW RUN------------------------------
+2024-06-12 13:46:46,921: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 13:46:51,681: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 13:46:53,836: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 13:46:53,939: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 13:46:53,993: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 13:46:54,037: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 13:52:26,157: INFO: -------------------TRAINING LOSSES-------------------
+2024-06-12 13:52:26,158: INFO: Total loss for G: 18476.509765625
+2024-06-12 13:52:26,158: INFO: L1 loss for G: 18464.01171875
+2024-06-12 13:52:48,364: INFO: Total loss for R: 0.0
+2024-06-12 13:54:01,343: INFO: ------------------------VALIDATION------------------------
+2024-06-12 13:54:01,344: INFO: Validation G total loss: 19018.185546875
+2024-06-12 13:54:01,344: INFO: Validation G L1 loss: 19005.689453125
+2024-06-12 13:54:01,344: INFO: Validation G SSIM loss: 9.984074722524383e-07
+2024-06-12 13:54:01,344: INFO: Validation G PSNR loss: -45.7873420715332
+2024-06-12 13:54:01,344: INFO: Validation G NCC loss mean: 0.9247811382015546
+2024-06-12 13:54:01,344: INFO: Validation G NCC loss std: 0.12990236109603298
+2024-06-12 13:54:01,344: INFO: Validation D real loss: 0.24991022050380707
+2024-06-12 13:54:01,344: INFO: Validation D fake loss: 0.24997009336948395
+2024-06-12 13:54:01,345: INFO: Validation R total loss: 2.1050374243714032e-07
+2024-06-12 13:57:27,834: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-12 13:57:27,834: INFO: Validation G total loss: 19664.259765625
+2024-06-12 13:57:27,835: INFO: Validation G L1 loss: 19651.7578125
+2024-06-12 13:57:27,835: INFO: Validation G SSIM loss: 1.5898168612693553e-06
+2024-06-12 13:57:27,835: INFO: Validation G PSNR loss: -45.809993743896484
+2024-06-12 13:57:27,835: INFO: Validation G NCC loss mean: 0.9303333081801732
+2024-06-12 13:57:27,835: INFO: Validation G NCC loss std: 0.11760079832334613
+2024-06-12 13:57:27,835: INFO: Validation D real loss: 0.2498447746038437
+2024-06-12 13:57:27,835: INFO: Validation D fake loss: 0.249873548746109
+2024-06-12 13:57:27,835: INFO: Validation R total loss: 1.396735456182796e-07
+2024-06-12 13:57:27,835: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-12 14:01:58,701: INFO: ------------------------------NEW RUN------------------------------
+2024-06-12 14:02:00,300: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 14:02:04,423: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 14:02:06,435: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 14:02:06,534: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 14:02:06,590: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 14:02:06,635: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 14:10:00,618: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-12 14:10:00,618: INFO: Validation G total loss: 20036.607421875
+2024-06-12 14:10:00,618: INFO: Validation G L1 loss: 20024.1015625
+2024-06-12 14:10:00,618: INFO: Validation G SSIM loss: 1.1168775699843536e-06
+2024-06-12 14:10:00,618: INFO: Validation G PSNR loss: -45.812015533447266
+2024-06-12 14:10:00,618: INFO: Validation G NCC loss mean: 0.9773441368341446
+2024-06-12 14:10:00,618: INFO: Validation G NCC loss std: 0.04182319682403727
+2024-06-12 14:10:00,618: INFO: Validation D real loss: 0.2500513195991516
+2024-06-12 14:10:00,618: INFO: Validation D fake loss: 0.25003674626350403
+2024-06-12 14:10:00,619: INFO: Validation R total loss: 2.354383532576776e-08
+2024-06-12 14:10:00,619: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-12 14:10:09,796: INFO: -------------------TRAINING LOSSES-------------------
+2024-06-12 14:10:09,796: INFO: Total loss for G: 18304.962890625
+2024-06-12 14:10:09,796: INFO: L1 loss for G: 18292.466796875
+2024-06-12 14:10:31,686: INFO: Total loss for R: -2.4437904357910156e-05
+2024-06-12 14:12:33,325: INFO: ------------------------------NEW RUN------------------------------
+2024-06-12 14:12:34,931: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 14:12:39,124: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 14:12:41,085: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 14:12:41,242: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 14:12:41,302: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 14:12:41,344: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 14:20:14,892: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-12 14:20:14,892: INFO: Validation G total loss: 17228.337890625
+2024-06-12 14:20:14,892: INFO: Validation G L1 loss: 17215.791015625
+2024-06-12 14:20:14,892: INFO: Validation G SSIM loss: 5.156551310392388e-07
+2024-06-12 14:20:14,892: INFO: Validation G PSNR loss: -45.604820251464844
+2024-06-12 14:20:14,892: INFO: Validation G NCC loss mean: 0.9777434289455413
+2024-06-12 14:20:14,892: INFO: Validation G NCC loss std: 0.026178114745493235
+2024-06-12 14:20:14,892: INFO: Validation D real loss: 0.24976572394371033
+2024-06-12 14:20:14,893: INFO: Validation D fake loss: 0.24947123229503632
+2024-06-12 14:20:14,893: INFO: Validation R total loss: 2.086162531611535e-08
+2024-06-12 14:20:14,893: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-12 14:20:24,136: INFO: -------------------TRAINING LOSSES-------------------
+2024-06-12 14:20:24,136: INFO: Total loss for G: 20343.171875
+2024-06-12 14:20:24,136: INFO: L1 loss for G: 20330.6640625
+2024-06-12 14:21:19,324: INFO: Total loss for R: 1.9550323486328125e-05
+2024-06-12 14:21:21,793: INFO: ------------------------VALIDATION------------------------
+2024-06-12 14:21:21,793: INFO: Validation G total loss: 24182.890625
+2024-06-12 14:21:21,793: INFO: Validation G L1 loss: 24170.384765625
+2024-06-12 14:21:21,794: INFO: Validation G SSIM loss: 8.055533839979034e-07
+2024-06-12 14:21:21,794: INFO: Validation G PSNR loss: -45.86484146118164
+2024-06-12 14:21:21,794: INFO: Validation G NCC loss mean: 0.9209664821624756
+2024-06-12 14:21:21,794: INFO: Validation G NCC loss std: 0.19387406809574884
+2024-06-12 14:21:21,794: INFO: Validation D real loss: 0.24896672368049622
+2024-06-12 14:21:21,794: INFO: Validation D fake loss: 0.25026220083236694
+2024-06-12 14:21:21,794: INFO: Validation R total loss: 2.6822089438383045e-08
+2024-06-12 14:28:58,235: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-12 14:28:58,235: INFO: Validation G total loss: 19890.306640625
+2024-06-12 14:28:58,235: INFO: Validation G L1 loss: 19877.802734375
+2024-06-12 14:28:58,235: INFO: Validation G SSIM loss: 7.332901930112712e-08
+2024-06-12 14:28:58,236: INFO: Validation G PSNR loss: -45.93280029296875
+2024-06-12 14:28:58,236: INFO: Validation G NCC loss mean: 0.8999863028526306
+2024-06-12 14:28:58,236: INFO: Validation G NCC loss std: 0.1083100632470256
+2024-06-12 14:28:58,236: INFO: Validation D real loss: 0.25276222825050354
+2024-06-12 14:28:58,236: INFO: Validation D fake loss: 0.24983258545398712
+2024-06-12 14:28:58,236: INFO: Validation R total loss: 5.364417887676609e-08
+2024-06-12 14:28:58,236: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-12 14:29:07,657: INFO: -------------------TRAINING LOSSES-------------------
+2024-06-12 14:29:07,658: INFO: Total loss for G: 17552.404296875
+2024-06-12 14:29:07,658: INFO: L1 loss for G: 17539.8984375
+2024-06-12 14:30:02,768: INFO: Total loss for R: 2.9325485229492188e-05
+2024-06-12 14:30:05,750: INFO: ------------------------VALIDATION------------------------
+2024-06-12 14:30:05,750: INFO: Validation G total loss: 22314.52734375
+2024-06-12 14:30:05,750: INFO: Validation G L1 loss: 22302.07421875
+2024-06-12 14:30:05,750: INFO: Validation G SSIM loss: 2.797622471462091e-07
+2024-06-12 14:30:05,751: INFO: Validation G PSNR loss: -46.2454719543457
+2024-06-12 14:30:05,751: INFO: Validation G NCC loss mean: 0.8831184923648834
+2024-06-12 14:30:05,751: INFO: Validation G NCC loss std: 0.13577009363350517
+2024-06-12 14:30:05,751: INFO: Validation D real loss: 0.24926190078258514
+2024-06-12 14:30:05,751: INFO: Validation D fake loss: 0.2509344220161438
+2024-06-12 14:30:05,751: INFO: Validation R total loss: 1.0728835775353218e-07
+2024-06-12 14:37:45,061: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-12 14:37:45,061: INFO: Validation G total loss: 16389.810546875
+2024-06-12 14:37:45,061: INFO: Validation G L1 loss: 16377.3251953125
+2024-06-12 14:37:45,062: INFO: Validation G SSIM loss: 5.766723347733205e-07
+2024-06-12 14:37:45,062: INFO: Validation G PSNR loss: -45.486087799072266
+2024-06-12 14:37:45,062: INFO: Validation G NCC loss mean: 0.9150277197360992
+2024-06-12 14:37:45,062: INFO: Validation G NCC loss std: 0.11705385552596385
+2024-06-12 14:37:45,062: INFO: Validation D real loss: 0.24982938170433044
+2024-06-12 14:37:45,062: INFO: Validation D fake loss: 0.24975934624671936
+2024-06-12 14:37:45,062: INFO: Validation R total loss: 1.2814999195143173e-07
+2024-06-12 14:37:45,062: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-12 14:37:54,388: INFO: -------------------TRAINING LOSSES-------------------
+2024-06-12 14:37:54,389: INFO: Total loss for G: 17541.73046875
+2024-06-12 14:37:54,389: INFO: L1 loss for G: 17529.23046875
+2024-06-12 14:38:48,852: INFO: Total loss for R: -3.904104232788086e-05
+2024-06-12 14:38:51,371: INFO: ------------------------VALIDATION------------------------
+2024-06-12 14:38:51,372: INFO: Validation G total loss: 19468.470703125
+2024-06-12 14:38:51,372: INFO: Validation G L1 loss: 19455.98046875
+2024-06-12 14:38:51,372: INFO: Validation G SSIM loss: 5.476206297316821e-06
+2024-06-12 14:38:51,372: INFO: Validation G PSNR loss: -45.48600387573242
+2024-06-12 14:38:51,372: INFO: Validation G NCC loss mean: 0.8989997565746307
+2024-06-12 14:38:51,372: INFO: Validation G NCC loss std: 0.18763936932485104
+2024-06-12 14:38:51,372: INFO: Validation D real loss: 0.25184914469718933
+2024-06-12 14:38:51,372: INFO: Validation D fake loss: 0.24999384582042694
+2024-06-12 14:38:51,372: INFO: Validation R total loss: 4.17232506322307e-08
+2024-06-12 14:46:30,484: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-12 14:46:30,484: INFO: Validation G total loss: 18658.818359375
+2024-06-12 14:46:30,484: INFO: Validation G L1 loss: 18646.294921875
+2024-06-12 14:46:30,484: INFO: Validation G SSIM loss: 5.879386435481138e-07
+2024-06-12 14:46:30,484: INFO: Validation G PSNR loss: -45.609500885009766
+2024-06-12 14:46:30,484: INFO: Validation G NCC loss mean: 0.9364446461200714
+2024-06-12 14:46:30,484: INFO: Validation G NCC loss std: 0.10261379101324926
+2024-06-12 14:46:30,484: INFO: Validation D real loss: 0.25173258781433105
+2024-06-12 14:46:30,484: INFO: Validation D fake loss: 0.250046044588089
+2024-06-12 14:46:30,484: INFO: Validation R total loss: 6.258487417198921e-08
+2024-06-12 14:46:30,484: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-12 14:46:39,866: INFO: -------------------TRAINING LOSSES-------------------
+2024-06-12 14:46:39,867: INFO: Total loss for G: 19173.0390625
+2024-06-12 14:46:39,867: INFO: L1 loss for G: 19160.5390625
+2024-06-12 14:47:34,907: INFO: Total loss for R: 1.9550323486328125e-05
+2024-06-12 14:47:37,941: INFO: ------------------------VALIDATION------------------------
+2024-06-12 14:47:37,941: INFO: Validation G total loss: 21352.318359375
+2024-06-12 14:47:37,941: INFO: Validation G L1 loss: 21339.796875
+2024-06-12 14:47:37,941: INFO: Validation G SSIM loss: 3.2145976547326427e-07
+2024-06-12 14:47:37,941: INFO: Validation G PSNR loss: -46.05449295043945
+2024-06-12 14:47:37,941: INFO: Validation G NCC loss mean: 0.8819333434104919
+2024-06-12 14:47:37,941: INFO: Validation G NCC loss std: 0.1434699064225554
+2024-06-12 14:47:37,941: INFO: Validation D real loss: 0.24905291199684143
+2024-06-12 14:47:37,941: INFO: Validation D fake loss: 0.2504638731479645
+2024-06-12 14:47:37,942: INFO: Validation R total loss: 8.940697071579962e-09
+2024-06-12 14:47:40,508: ERROR: Error loading image /home/hkhz/remote_mnt/patches/stained_patches/stained_patch_11776_37376.jpg or /home/hkhz/remote_mnt/patches/not_stained_patches/not_stained_patch_11776_37376.jpg: Failed to read RGB image: /home/hkhz/remote_mnt/patches/stained_patches/stained_patch_11776_37376.jpg or /home/hkhz/remote_mnt/patches/not_stained_patches/not_stained_patch_11776_37376.jpg
+2024-06-12 14:49:14,988: INFO: ------------------------------NEW RUN------------------------------
+2024-06-12 14:49:15,313: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 14:49:41,794: INFO: ------------------------------NEW RUN------------------------------
+2024-06-12 14:49:42,168: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 14:49:43,114: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 14:49:43,539: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 14:49:43,571: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 14:49:43,584: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 14:49:43,599: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 14:57:23,145: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-12 14:57:23,146: INFO: Validation G total loss: 1266.5963134765625
+2024-06-12 14:57:23,146: INFO: Validation G L1 loss: 1254.0731201171875
+2024-06-12 14:57:23,146: INFO: Validation G SSIM loss: 1.0961408634102554e-06
+2024-06-12 14:57:23,146: INFO: Validation G PSNR loss: -43.992427825927734
+2024-06-12 14:57:23,146: INFO: Validation G NCC loss mean: 0.9148464024066925
+2024-06-12 14:57:23,146: INFO: Validation G NCC loss std: 0.12716766986902378
+2024-06-12 14:57:23,146: INFO: Validation D real loss: 0.25004613399505615
+2024-06-12 14:57:23,146: INFO: Validation D fake loss: 0.248938649892807
+2024-06-12 14:57:23,146: INFO: Validation R total loss: 6.258487417198921e-08
+2024-06-12 14:57:23,146: INFO: ------------------------MID-ROUND VALIDATION------------------------
+2024-06-12 14:57:32,491: INFO: -------------------TRAINING LOSSES-------------------
+2024-06-12 14:57:32,492: INFO: Total loss for G: 1725.3126220703125
+2024-06-12 14:57:32,492: INFO: L1 loss for G: 1712.8170166015625
+2024-06-12 14:58:27,936: INFO: Total loss for R: 0.0
+2024-06-12 14:58:30,901: INFO: ------------------------VALIDATION------------------------
+2024-06-12 14:58:30,901: INFO: Validation G total loss: 1555.1995849609375
+2024-06-12 14:58:30,901: INFO: Validation G L1 loss: 1542.7213134765625
+2024-06-12 14:58:30,901: INFO: Validation G SSIM loss: 2.468834736646386e-06
+2024-06-12 14:58:30,901: INFO: Validation G PSNR loss: -44.238807678222656
+2024-06-12 14:58:30,902: INFO: Validation G NCC loss mean: 0.8929479062557221
+2024-06-12 14:58:30,902: INFO: Validation G NCC loss std: 0.12206458532121248
+2024-06-12 14:58:30,902: INFO: Validation D real loss: 0.2500353455543518
+2024-06-12 14:58:30,902: INFO: Validation D fake loss: 0.24899108707904816
+2024-06-12 14:58:30,902: INFO: Validation R total loss: 4.5895575340182404e-07
+2024-06-12 15:05:27,251: ERROR: Error loading image /home/hkhz/remote_mnt/patches/stained_patches/stained_patch_17920_39424.jpg or /home/hkhz/remote_mnt/patches/not_stained_patches/not_stained_patch_17920_39424.jpg: Failed to read RGB image: /home/hkhz/remote_mnt/patches/stained_patches/stained_patch_17920_39424.jpg or /home/hkhz/remote_mnt/patches/not_stained_patches/not_stained_patch_17920_39424.jpg
+2024-06-12 15:06:38,549: INFO: ------------------------------NEW RUN------------------------------
+2024-06-12 15:06:38,901: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 15:06:39,893: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 15:06:40,364: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 15:06:40,396: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
+2024-06-12 15:06:40,407: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8500000002 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8500000002
+2024-06-12 15:06:40,421: WARNING: Missing path_rgb: /home/hkhz/remote_mnt/patches/stained_patches/.fuse_hidden00002b8400000001 or path_not_stained: /home/hkhz/remote_mnt/patches/not_stained_patches/not_.fuse_hidden00002b8400000001
