@@ -480,13 +480,13 @@ def G_train_step(input_image, target, epoch):
     # ensure shuffling in multiprocessing
     #train_sampler.set_epoch(epoch)
     model_G.train()
-    model_D.eval()
+    model_D.train()
     model_R.eval()
     G_optimizer.zero_grad()
     #with autocast():
     #print("ENTERING GAN --------")
     G_outputs = model_G(input_image)
-    print("G_check: ", G_outputs.min(), G_outputs.mean(), G_outputs.max())
+    #print("G_check: ", G_outputs.min(), G_outputs.mean(), G_outputs.max())
     #print("------- GAN FINISHED -------")
     assert not torch.isnan(G_outputs).any(), "Tensor contains NaN."
 #print("after model G : ", torch.cuda.memory_allocated())
@@ -515,6 +515,21 @@ def G_train_step(input_image, target, epoch):
     #print("after input del : ", torch.cuda.memory_allocated())
     
     G_total_loss, G_dis_loss, G_l1_loss = loss_G(D_fake_output, G_outputs, target_transformed, tc, epoch)
+    
+    print(f"Epoch: {epoch}, G_total_loss: {G_total_loss.item()}, G_dis_loss: {G_dis_loss.item()}, G_l1_loss: {G_l1_loss.item()}")
+    for name, param in model_G.named_parameters():
+        if param.grad is not None:
+            print(f"Before backward - Grad for {name}: {param.grad.norm().item()}")
+        else:
+            print(f"Before backward - No grad for {name}")
+    for name, param in model_D.named_parameters():
+        if not param.requires_grad:
+            print(f"No grad for {name}")
+            
+    for name, param in model_D.named_parameters():
+        if param.grad is None:
+            print(f"Before backward - No grad for {name}")
+    
     G_total_loss.backward()
     G_optimizer.step()
     #scaler.update()
@@ -538,7 +553,10 @@ def G_test_step(input_image, target, epoch):
     with torch.no_grad():
         D_fake_output = model_D(G_outputs)
     G_total_loss, G_dis_loss, G_l1_loss = loss_G(D_fake_output, G_outputs, target, tc, epoch)
-    print("G_test: ", G_outputs.shape, "----", target.shape)
+    #
+    # 
+    # 
+    # print("G_test: ", G_outputs.shape, "----", target.shape)
     G_ssim = compute_ssim(G_outputs, target)
     G_psnr = compute_psnr(G_outputs,target)
    # print("+++", target_clipped_splitted.shape, G_output_clipped_splitted.shape)
@@ -550,7 +568,7 @@ def G_test_step(input_image, target, epoch):
 def D_train_step(input_image, target,epoch):
    # train_sampler.set_epoch(epoch)
     model_D.train()
-    model_G.eval()
+    model_G.train()
     input_image, target = input_image.to(device), target.to(device)
     D_optimizer.zero_grad()
     with torch.no_grad():
@@ -659,7 +677,7 @@ for epoch in range(epoch_begin, tc.N_epoch):
             
             for j in range(NumGen):
                 targets, input_images, paths = next(train_loader)
-                print("Shapes: ", targets.shape, input_images.shape)
+                #print("Shapes: ", targets.shape, input_images.shape)
                 input_images = input_images.to(device)
                 targets = targets.to(device)
                 #print("----", (targets[0,:,:,:].permute(1,2,0).detach().cpu().numpy()<0).any())

@@ -2,24 +2,95 @@ import torch
 import torch.nn.functional as F
 import numpy as np
 #
+import lpips
+from DISTS_pytorch import DISTS
 
+
+# suppose we have a tensor and we want to get patches from it
+def get_patches(img, patch_size):
+    img = img.unsqueeze(0)
+    img = torch.clamp(img, 0, 1)
+    img = (img - 0.5) * 2
+    #print("//: ", img.shape)
+    #print("---", img.size(1))
+    patches = img.unfold(2, patch_size, patch_size).unfold(3, patch_size, patch_size)
+    patches = patches.contiguous().view(-1, img.size(1), patch_size, patch_size)
+    return patches
+
+# Function to compute average LPIPS loss over patches for a single image
+def compute_image_lpips_loss(img0, img1, patch_size, loss_fn):
+    patches0 = get_patches(img0, patch_size)
+    patches1 = get_patches(img1, patch_size)
+
+    lpips_losses = []
+    for i in range(patches0.size(0)):
+        patch0 = patches0[i].unsqueeze(0)
+        patch1 = patches1[i].unsqueeze(0)
+        loss = loss_fn(patch0, patch1)
+        #sprint("Loss lpips: ", loss)
+        lpips_losses.append(loss.item())
+
+    avg_loss = sum(lpips_losses) / len(lpips_losses)
+    return avg_loss
+
+# Function to compute the batch mean LPIPS loss
+def compute_batch_lpips_loss(batch_img0, batch_img1, patch_size, model):
+    """
+    computes for a batch for each image calculates ths mean of distances of corresponding patches
+    then sums them up with those of other batches and returns and average value
+    """
+    
+    batch_size = batch_img0.size(0)
+    image_losses = []
+    #loss_fn = lpips.LPIPS(net=net, spatial=True).to(batch_img0.device)
+    
+    for b in range(batch_size):
+        img0 = batch_img0[b]
+        img1 = batch_img1[b]
+        avg_image_loss = compute_image_lpips_loss(img0, img1, patch_size, model)
+        image_losses.append(avg_image_loss)
+    
+    avg_batch_loss = sum(image_losses) / len(image_losses)
+    return avg_batch_loss
+
+#DISTS loss
+
+def dist_train(img1, img2):
+    """
+        dists loss for training
+    """
+    D = DISTS().to(img1.device)
+    img1 = torch.clamp(img1, 0, 1)
+    img2 = torch.clamp(img2, 0, 1)
+    dists_loss = D(img1, img2, require_grad=True, batch_average=True)
+    return dists_loss
+
+def dist_test(img1, img2):
+    """
+        dists loss for testing
+    """
+    D = DISTS()
+    img1 = torch.clamp(img1, 0, 1)
+    img2 = torch.clamp(img2, 0, 1)
+    dists_loss = D(img1, img2)
+    return dists_loss
 
 def total_variation_loss(img):
     """
-    Compute the Total Variation Loss for each image in the batch individually.
+    Compute the Total Variation Loss for the batch.
     
     Parameters:
     img (torch.Tensor): The input tensor containing images. Shape [batch_size, channels, height, width]
     
     Returns:
-    torch.Tensor: Total Variation Loss for each image in the batch. Shape [batch_size]
+    torch.Tensor: Total Variation Loss for the batch. Shape []
     """
     # Calculate the differences of neighboring pixel-values
     pixel_dif1 = img[:, :, 1:, :] - img[:, :, :-1, :]  # Difference across height
     pixel_dif2 = img[:, :, :, 1:] - img[:, :, :, :-1]  # Difference across width
     
-    # Calculate the absolute differences and sum them over channels, height, and width for each image
-    loss = torch.sum(torch.abs(pixel_dif1), dim=(1, 2, 3)) + torch.sum(torch.abs(pixel_dif2), dim=(1, 2, 3))
+    # Calculate the absolute differences and sum them over batch, channels, height, and width
+    loss = torch.sum(torch.abs(pixel_dif1)) + torch.sum(torch.abs(pixel_dif2))
     
     return loss
 
@@ -51,8 +122,8 @@ class Grad:
         else:
             assert self.penalty == 'l2', 'penalty can only be l1 or l2. Got: %s' % self.penalty
             dif = [f * f for f in self._diffs(y_pred)]
-            
-        df = [torch.mean(f.view(f.size(0), -1), dim=-1) for f in dif]
+        #print("dif: ", dif[0].shape)
+        df = [torch.mean(f.reshape(f.size(0), -1), dim=1) for f in dif]
         grad = torch.sum(torch.stack(df), dim=0) / len(df)
 
         if self.loss_mult is not None:
@@ -60,6 +131,18 @@ class Grad:
 
         return grad
 
+class ExponentialMovingAverage:
+    def __init__(self, alpha = 0.1):
+        self.alpha = alpha
+        self.value = None
+
+    def update(self, new_value):
+        if self.value == None:
+            self.value = new_value
+        else:
+            self.value = self.alpha*new_value + (1-self.alpha)*self.value
+        return self.value
+    
 class NCC:
     """
     Local (over window) normalized cross-correlation loss.
@@ -71,7 +154,7 @@ class NCC:
 
     def ncc(self, Ii, Ji):
         # get dimension of volume
-        # assumes Ii, Ji are sized [batch_size, *vol_shape, nb_feats]
+        # assumes Ii, Ji are sized [batch_size, *vol_shape, nb_feats] in my case it is [B, nb_features, *vol_shape]
         ndims = Ii.dim() - 2
         #print("Ii:-------------------", Ii.dim())
         assert ndims in [1, 2, 3], f"volumes should be 1 to 3 dimensions. found: {ndims}"
@@ -92,19 +175,20 @@ class NCC:
        # print(I2.shape, J2.shape, IJ.shape)
         # compute filters
         in_ch = Ji.size(1)
-        sum_filt = torch.ones([in_ch, 1, *self.win]).to(Ii.device)
+        sum_filt = torch.ones([1, in_ch, *self.win]).to(Ii.device)
         strides = [1]*ndims
         #print(in_ch, sum_filt.shape, strides)
         #if ndims > 1:
           #  strides = [1] * (ndims + 2)
 
         # compute local sums via convolution
+        #print("kernel: ", sum_filt, "dilation: ", 1)
         padding = 'same'
-        I_sum = conv_fn(Ii, sum_filt, stride=strides, padding=padding, groups=in_ch)
-        J_sum = conv_fn(Ji, sum_filt, stride=strides, padding=padding, groups=in_ch)
-        I2_sum = conv_fn(I2, sum_filt, stride=strides, padding=padding, groups=in_ch)
-        J2_sum = conv_fn(J2, sum_filt, stride=strides, padding=padding, groups=in_ch)
-        IJ_sum = conv_fn(IJ, sum_filt, stride=strides, padding=padding, groups=in_ch)
+        I_sum = conv_fn(Ii, sum_filt, stride=strides, padding=padding)
+        J_sum = conv_fn(Ji, sum_filt, stride=strides, padding=padding)
+        I2_sum = conv_fn(I2, sum_filt, stride=strides, padding=padding)
+        J2_sum = conv_fn(J2, sum_filt, stride=strides, padding=padding)
+        IJ_sum = conv_fn(IJ, sum_filt, stride=strides, padding=padding)
 
         # compute cross-correlation
         win_size = np.prod(self.win) * in_ch
@@ -139,12 +223,13 @@ def huber_reverse_loss(pred, label, delta=0.2, adaptive=True):
         delta = delta * torch.std(label)  # batch-adaptive
     loss = torch.mean(
         (diff <= delta).float() * diff +
-        (diff > delta).float() * ((diff**2 /2+ (delta**2)/2)/delta))
-    
+        (diff > delta).float() * (diff**2 / 2 + delta**2 / 2) / delta
+    )
     return loss
+
 #def loss_G(D_fake_output, G_outputs, target_transformed, train_config, cur_epoch):
 
-def loss_G(D_fake_output, G_output, target, train_config, cur_epoch=None):
+def loss_G(D_fake_output, G_output, target, train_config, cur_epoch=None, option = 'dists'):
     
     if train_config.is_training and train_config.case_filtering \
             and cur_epoch >= train_config.case_filtering_starting_epoch:
@@ -174,13 +259,105 @@ def loss_G(D_fake_output, G_output, target, train_config, cur_epoch=None):
                     
         
                 
-    G_berhu_loss = huber_reverse_loss(pred=G_output, label=target)
-    G_tv_loss = torch.mean(total_variation_loss(G_output)/(train_config.image_size **2))
+    G_berhu_loss = huber_reverse_loss(pred=G_output, label=target) # l1 loss
+    G_tv_loss = torch.mean(total_variation_loss(G_output))/(train_config.image_size **2)
     G_dis_loss = torch.mean((1-D_fake_output)**2)
     #print("------------- ", G_berhu_loss, G_tv_loss, G_dis_loss)
     G_total_loss = G_berhu_loss +0.02* G_tv_loss + train_config.lamda * G_dis_loss
 
     return G_total_loss, G_dis_loss, G_berhu_loss
+
+
+def loss_G_new(D_fake_output, G_output, target, train_config, cur_epoch=None, ema = None):
+    
+    if train_config.is_training and train_config.case_filtering \
+            and cur_epoch >= train_config.case_filtering_starting_epoch:
+        assert cur_epoch is not None
+        print("CASE FILTERING")
+        if train_config.case_filtering_metric == 'ncc':
+            min_ncc_threshold = train_config.case_filtering_cur_mean - \
+                                train_config.case_filtering_nsigma * train_config.case_filtering_cur_stdev
+            target_clipped = torch.clamp(target, 0, 1)
+            G_output_clipped = torch.clamp(G_output, 0, 1)
+            if train_config.case_filtering_x_subdivision == 1 and train_config.case_filtering_y_subdivision == 1:
+                cur_ncc = NCC(win=20, eps=1e-3) 
+                with torch.no_grad():
+                    cur_ncc = cur_ncc.ncc(target_clipped, G_output_clipped).detach() 
+                cur_mask = (cur_ncc > min_ncc_threshold).int()
+                train_config.epoch_filtering_ratio.append(1 - cur_mask.float().mean().item())
+                
+                cur_index = torch.nonzero(cur_mask, as_tuple=False).squeeze()
+
+# Gather elements along the 0th dimension using the indices
+                G_output = torch.index_select(G_output, 0, cur_index)
+                target = torch.index_select(target, 0, cur_index)
+                D_fake_output = torch.index_select(D_fake_output, 0, cur_index)
+
+                if 'loss_mask' in train_config and train_config['loss_mask']:
+                    loss_mask_from_R = torch.index_select(loss_mask_from_R, 0, cur_index)
+                    
+        
+    if cur_epoch >1:            
+        G_berhu_loss = huber_reverse_loss(pred=G_output, label=target) # l1 loss
+    else:
+        ncc = NCC(win=20, eps=1e-3) 
+        with torch.no_grad():
+            G_berhu_loss = ncc.ncc(target_clipped, G_output_clipped).detach() 
+        G_berhu_loss = ema.update(G_berhu_loss)
+        
+    G_tv_loss = torch.mean(total_variation_loss(G_output))/(train_config.image_size **2)
+    G_dis_loss = torch.mean((1-D_fake_output)**2)
+    #print("------------- ", G_berhu_loss, G_tv_loss, G_dis_loss)
+    G_total_loss = G_berhu_loss +0.02* G_tv_loss + train_config.lamda * G_dis_loss
+
+    return G_total_loss, G_dis_loss, G_berhu_loss
+
+def loss_G_perceptual(D_fake_output, G_output, target, train_config, model_perc,cur_epoch=None, option = 'lpips'):
+    
+    if train_config.is_training and train_config.case_filtering \
+            and cur_epoch >= train_config.case_filtering_starting_epoch:
+        assert cur_epoch is not None
+        print("CASE FILTERING")
+        if train_config.case_filtering_metric == 'ncc':
+            min_ncc_threshold = train_config.case_filtering_cur_mean - \
+                                train_config.case_filtering_nsigma * train_config.case_filtering_cur_stdev
+            target_clipped = torch.clamp(target, 0, 1)
+            G_output_clipped = torch.clamp(G_output, 0, 1)
+            if train_config.case_filtering_x_subdivision == 1 and train_config.case_filtering_y_subdivision == 1:
+                cur_ncc = NCC(win=20, eps=1e-3) 
+                with torch.no_grad():
+                    cur_ncc = cur_ncc.ncc(target_clipped, G_output_clipped).detach() 
+                cur_mask = (cur_ncc > min_ncc_threshold).int()
+                train_config.epoch_filtering_ratio.append(1 - cur_mask.float().mean().item())
+                
+                cur_index = torch.nonzero(cur_mask, as_tuple=False).squeeze()
+
+# Gather elements along the 0th dimension using the indices
+                G_output = torch.index_select(G_output, 0, cur_index)
+                target = torch.index_select(target, 0, cur_index)
+                D_fake_output = torch.index_select(D_fake_output, 0, cur_index)
+
+                if 'loss_mask' in train_config and train_config['loss_mask']:
+                    loss_mask_from_R = torch.index_select(loss_mask_from_R, 0, cur_index)
+                    
+   # print("G: ", G_output.shape)
+    if cur_epoch ==0:            
+        print("perceptual")
+        if option == 'dists':
+            G_berhu_loss = dist_train(G_output, target)
+        elif option == 'lpips':
+            G_berhu_loss = compute_batch_lpips_loss(G_output, target, 64, model_perc)
+    else:
+        G_berhu_loss = huber_reverse_loss(pred=G_output, label=target) # l1 loss
+        
+    G_tv_loss = torch.mean(total_variation_loss(G_output))/(train_config.image_size **2)
+    G_dis_loss = torch.mean((1-D_fake_output)**2)
+    #print("------------- ", G_berhu_loss, G_tv_loss, G_dis_loss)
+    G_total_loss = G_berhu_loss +0.02* G_tv_loss + train_config.lamda * G_dis_loss
+
+    return G_total_loss, G_dis_loss, G_berhu_loss
+
+
 
 def loss_R_no_gt(R_outputs, fixed, training_config):
     if training_config.dvf_thresholding or training_config.dvf_clipping:
@@ -196,16 +373,49 @@ def loss_R_no_gt(R_outputs, fixed, training_config):
         moving_transformed_clipped = torch.clamp(moving_transformed, 0,1)
         fixed_clipped = torch.clamp(fixed, 0, 1)
         ncc = NCC(win = 20, eps = 1e-3)
-        R_structure_loss = torch.mean(ncc.loss(fixed_clipped, moving_transformed_clipped))
+        print(fixed_clipped.shape, moving_transformed_clipped.shape)
+        R_structure_loss = torch.mean(ncc.loss(y_true=fixed_clipped, y_pred = moving_transformed_clipped))
         
         
     R_flow_tv_loss = 0
     if training_config.lambda_r_tv>0:
         grad = Grad('l2')
+        #print("flow: ", flow_pred.shape)
+        flow_p = flow_pred.permute(0,2,3,1)
+        R_flow_tv_loss = torch.mean(grad.loss(None, flow_p))
         
-        R_flow_tv_loss = torch.mean(grad.loss(None, flow_pred))
+    R_total_loss = R_structure_loss+ training_config.lambda_r_tv*R_flow_tv_loss
+    return R_total_loss, R_structure_loss
+
+def loss_R_no_gt_perceptual(R_outputs, fixed, training_config,curr_epoch, model):
+    if training_config.dvf_thresholding or training_config.dvf_clipping:
+        moving_transformed, flow_pred, _ = R_outputs
+    else:
+        moving_transformed, flow_pred = R_outputs
+    
+    if curr_epoch>0:
+        if training_config.R_loss_type == 'berhu':
+            R_structure_loss = huber_reverse_loss(moving_transformed, fixed)
+            
+        else:
+            assert training_config.R_loss_type == 'ncc'
+            moving_transformed_clipped = torch.clamp(moving_transformed, 0,1)
+            fixed_clipped = torch.clamp(fixed, 0, 1)
+            ncc = NCC(win = 20, eps = 1e-3)
+            print(fixed_clipped.shape, moving_transformed_clipped.shape)
+            R_structure_loss = torch.mean(ncc.loss(y_true=fixed_clipped, y_pred = moving_transformed_clipped))
+    else:
+        R_structure_loss = compute_batch_lpips_loss(R_outputs, fixed, 64, model)
         
-    R_total_loss = R_structure_loss+ training_config.lambda_r_tv*R_structure_loss
+        
+    R_flow_tv_loss = 0
+    if training_config.lambda_r_tv>0:
+        grad = Grad('l2')
+        #print("flow: ", flow_pred.shape)
+        flow_p = flow_pred.permute(0,2,3,1)
+        R_flow_tv_loss = torch.mean(grad.loss(None, flow_p))
+        
+    R_total_loss = R_structure_loss+ training_config.lambda_r_tv*R_flow_tv_loss
     return R_total_loss, R_structure_loss
         
 def split_tensor(inp, x_split_times, y_split_times):
@@ -592,7 +802,7 @@ import torch.nn.functional as F
 
 def affine_transformation_loss(output, target, transformation_matrix, lambda_smooth=0.01, lambda_trans=0.001):
     # Content loss (MSE or L1)
-    print("Output: ", output)
+   # print("Output: ", output)
     content_loss = F.mse_loss(output, target)
     
     # Identity matrix for comparison

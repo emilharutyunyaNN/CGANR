@@ -39,8 +39,8 @@ class discriminator_base(nn.Module):
         super(discriminator_base, self).__init__()
         self.conv = ConvStack(input_size[0],filter_num[0], stack_num=stack_num_down, activation=activation,
                    batch_norm=False).to(torch.device(rank))
-        self.conv_left = [UNET_left(filter_num[i-1],filter_num[i], rank, kernel_size=3,stack_num=stack_num_down, activation=activation, pool=False,
-                        batch_norm=False).to(torch.device(rank)) for i in range(1, len(filter_num))]
+        self.conv_left = nn.ModuleList([UNET_left(filter_num[i-1],filter_num[i], rank, kernel_size=3,stack_num=stack_num_down, activation=activation, pool=False,
+                        batch_norm=False).to(torch.device(rank)) for i in range(1, len(filter_num))])
         #self.avg = nn.AdaptiveAvgPool2d((1,1)).to(torch.device(rank))
         self.final_dense = DenseLayer(input_features=filter_num[-1], units=1, activation=None).to(torch.device(rank))
         self.inter_dense = DenseLayer(input_features=filter_num[-1], units=filter_num[-1], activation='LeakyReLU').to(torch.device(rank))
@@ -93,6 +93,9 @@ class discriminator_2d(nn.Module):
     
 import torch
 import torch.nn as nn
+
+
+
 
 # Assuming the necessary classes and functions are imported or defined in your script.
 # Since the imports are specific to your environment, they are assumed to be correct here.

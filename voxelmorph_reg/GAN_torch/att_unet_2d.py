@@ -64,7 +64,8 @@ class att_unet_2d_base(nn.Module):
         
         super(att_unet_2d_base,self).__init__()
         self.act_fn = getattr(nn, activation)()
-        
+        print("----->", input_tensor, filter_num,rank, stack_num_down, stack_num_up,
+                     activation, atten_activation, attention, batch_norm, pool, unpool)
         self.attention = attention
         self.atten_activation = atten_activation
         self.batch_norm = batch_norm
@@ -73,13 +74,13 @@ class att_unet_2d_base(nn.Module):
         self.input = input_tensor
         self.cnv_no_bck = ConvStack(input_tensor[0],filter_num[0], stack_num=stack_num_down, activation=activation, 
                        batch_norm=batch_norm).to(torch.device(rank))
-        self.left_list = [UNET_left(filter_num[i-1],filter_num[i], stack_num=stack_num_down, activation=activation, pool=pool, 
-                          batch_norm=batch_norm).to(torch.device(rank)) for i in range(1,len(filter_num))]
+        self.left_list = nn.ModuleList([UNET_left(filter_num[i-1],filter_num[i], stack_num=stack_num_down, activation=activation, pool=pool, 
+                          batch_norm=batch_norm).to(torch.device(rank)) for i in range(1,len(filter_num))])
         rev_filter = filter_num[::-1]
         
-        self.right_list = [UNET_att_right(rev_filter[i-1],rev_filter[i], rev_filter[i],att_channel_out=rev_filter[i]//2,rank =rank,kernel_size=3,stack_num=stack_num_up,
+        self.right_list =nn.ModuleList([UNET_att_right(rev_filter[i-1],rev_filter[i], rev_filter[i],att_channel_out=rev_filter[i]//2,rank =rank,kernel_size=3,stack_num=stack_num_up,
                         activation=activation, atten_activation=atten_activation, attention=attention,
-                        unpool=unpool, batch_norm=batch_norm).to(torch.device(rank)) for i in range(1, len(rev_filter))]
+                        unpool=unpool, batch_norm=batch_norm).to(torch.device(rank)) for i in range(1, len(rev_filter))])
         
         self.filter_num = filter_num
         self.unpool = unpool
@@ -94,6 +95,17 @@ class att_unet_2d_base(nn.Module):
         #print("input to unet: ", x.shape)
         depth_ = len(self.filter_num)
         X_skip = []
+        #print("-------Weights------ ", "\n")
+       # print([(name, param.grad) for (name, param) in self.cnv_no_bck.named_parameters()])
+        #print("------- ATTENTION RIGHT -------")
+        #right = [b.named_parameters() for b in self.right_list]
+        #for r in right:
+         #   print([(name, param.grad) for (name, param) in  r] )
+          #  break
+        #print("------- LEFT -------")
+       # left = [b.named_parameters() for b in self.left_list]
+        #for l in left:
+        #    print([(name, param.grad) for (name, param) in  l] )
         if self.backbone is None:
             #print("here")
             #print("---------- INSIDE G UNET ------- ")

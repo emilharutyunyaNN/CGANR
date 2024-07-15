@@ -1,5 +1,6 @@
 
 import os
+import cv2
 import numpy as np
 import random
 from scipy.io import loadmat
@@ -102,6 +103,14 @@ def generate_patch(file, image_size, is_mat = True, inpnorm = 'norm_by_mean_std'
                 return
         else:
             # handle other file types if needed
+            try:
+                image = cv2.cvtColor(cv2.imread(file.replace("target", "input"), cv2.IMREAD_COLOR), cv2.COLOR_BGR2RGB).astype(np.float32)/255.0
+                label = cv2.cvtColor(cv2.imread(file, cv2.IMREAD_COLOR), cv2.COLOR_BGR2RGB).astype(np.float32)/255.0
+                #print(image.shape)
+            except Exception as e:
+                print(f"Error loading {file}: {e}")
+                return
+                
             pass
 
         if inpnorm == 'norm_by_specified_value':
@@ -113,9 +122,9 @@ def generate_patch(file, image_size, is_mat = True, inpnorm = 'norm_by_mean_std'
             #print(np.mean(image), np.std(image))
             #print("done")
            # print(np.min(image))
-            print("image: ", np.min(image), np.mean(image), np.max(image), np.std(image))
+            #print("image: ", np.min(image), np.mean(image), np.max(image), np.std(image))
             image = (image - np.mean(image)) / (np.std(image) + 1e-5)
-            print("image post std: ", np.min(image), np.mean(image), np.max(image))
+            #print("image post std: ", np.min(image), np.mean(image), np.max(image))
            # print(np.min(image))
             pass
         crop_edge = 30
@@ -146,10 +155,10 @@ def generate_patch(file, image_size, is_mat = True, inpnorm = 'norm_by_mean_std'
             x += stride
         #print(f"Generated {patch_count} patches from image {file}")
 
-def generate_patch_wrapper(path, image_size):
-            def generator():
-                yield from generate_patch(path, image_size)
-            return generator
+def generate_patch_wrapper(path, image_size, is_mat):
+    def generator():
+        yield from generate_patch(path, image_size, is_mat)
+    return generator
         
 def regular_generator(ex):
     def generator():
@@ -195,11 +204,12 @@ class TransformImageBatchLoader:
 
         grad_list = []
         for batch_paths in file_path_batches():
-            datasets = [Dataset.from_generator(generate_patch_wrapper(path, self.image_size), features=features, streaming=True) for path in batch_paths]
+            datasets = [Dataset.from_generator(generate_patch_wrapper(path, self.image_size, self.is_mat), features=features, streaming=True) for path in batch_paths]
             grad_list.extend(datasets)
             if reshuffle:
                 random.shuffle(grad_list)
             interleaved_dataset = interleave_datasets(grad_list, probabilities=[1/len(grad_list)]*len(grad_list), stopping_strategy="all_exhausted")
+            #for batch in interleave_datasets.iter(batch_size = 4)
 
             all_examples = []
             for example in interleaved_dataset:
@@ -312,6 +322,13 @@ import glob
 # Load training images
 training_imgs = glob.glob("/home/hkhz/daihui/Training/target/*.mat")
 valid_imgs = glob.glob("/home/hkhz/daihui/Validation/target/*.mat")
+
+training_imgs = glob.glob("/home/hkhz/remote_mnt/data/Training/target/*.jpg")
+valid_imgs = glob.glob("/home/hkhz/remote_mnt/data/Validation/target/*.jpg")
+
+tc.is_mat = False
+vc.is_mat = False
+
 
 train_dataset_iter = TransformImageBatchLoader(training_imgs, tc, tc.num_slices, is_testing=False,
                                                n_parallel_calls=tc.n_threads, q_limit=tc.q_limit,

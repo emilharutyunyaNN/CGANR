@@ -4,6 +4,8 @@ from GAN_torch.losses_for_gan import *
 import torch
 import glob
 torch.cuda.empty_cache()
+import sys
+
 import torch.nn as nn
 import torch.multiprocessing as mp
 from torch.utils.data.distributed import DistributedSampler
@@ -31,28 +33,13 @@ scaler = GradScaler()
 from sklearn.model_selection import train_test_split
 #multiprocessing.set_start_method('spawn', force=True)
 # Define device
-from dataloader.batch_utils_v4 import *
+from dataloader.batch_utils_v6 import *
 import matplotlib.pyplot as plt
 device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
 print(device)
 import tracemalloc
 
-def start_tracing():
-    tracemalloc.start()
 
-def stop_tracing():
-    snapshot = tracemalloc.take_snapshot()
-    top_stats = snapshot.statistics('lineno')
-
-    print("[top 10 memory usage]")
-    for stat in top_stats[:10]:
-        print(stat)
-
-def print_memory_usage_by_function():
-    snapshot = tracemalloc.take_snapshot()
-    stats = snapshot.statistics('traceback')
-    for stat in stats[:10]:
-        print(stat)
 
 import os
 import cv2
@@ -106,16 +93,20 @@ def init_parameters():
     assert not (tc.prev_checkpoint_path
                 and (tc.G_warmstart_checkpoint or tc.D_warmstart_checkpoint or tc.R_warmstart_checkpoint))
 
-    tc.image_path = "/home/hkhz/daihui/Training/target/*.mat" # path for training data 
-    vc.image_path = "/home/hkhz/daihui/Validation/target/*.mat" # path for validation data
+    #tc.image_path = "/home/hkhz/daihui/Training/target/*.mat" # path for training data 
+    #vc.image_path = "/home/hkhz/daihui/Validation/target/*.mat" # path for validation data
 
+    tc.image_path = "/home/hkhz/daihui/Training/target_training/*.jpg"
+    vc.image_path = "/home/hkhz/daihui/Validation/target_validation/*.jpg"
+    
     def convert_inp_path_from_target(inp_path: str):
         return inp_path.replace('target', 'input')
 
     tc.convert_inp_path_from_target = convert_inp_path_from_target
     vc.convert_inp_path_from_target = convert_inp_path_from_target
 
-    tc.is_mat, vc.is_mat = True, True  # True for .mat, False for .npy
+    tc.is_mat, vc.is_mat =False, False #True, True  # True for .mat, False for .npy
+    #tc.is_mat,vc.is_mat = False, False
     tc.data_inpnorm, vc.data_inpnorm = 'norm_by_mean_std', 'norm_by_mean_std'
     tc.channel_start_index, vc.channel_start_index = 0, 0
     tc.channel_end_index, vc.channel_end_index = 3, 3  # exclusive
@@ -134,7 +125,8 @@ def init_parameters():
     tc.nf_dec, vc.nf_dec = [32, 32, 32, 32, 32, 16, 16], [32, 32, 32, 32, 32, 16, 16]  # for aligner
     tc.R_loss_type = 'ncc'
     tc.lambda_r_tv = 1.0  # .1    # tv of predicted flow
-    tc.gauss_kernel_size = 79
+    tc.gauss_kernel_size = 80
+    tc.n_threads, vc.n_threads= 2, 2
     tc.dvf_clipping = True  # clip DVF to [mu-sigma*dvf_clipping_nsigma, mu+sigma*dvf_clipping_nsigma]
     tc.dvf_clipping_nsigma = 3
     tc.dvf_thresholding = True  # clip DVF to [-dvf_thresholding_distance, dvf_thresholding_distance]
@@ -239,7 +231,7 @@ def run_validation(vc, cur_iter, iterator_valid_bl, D_test_step,G_test_step, R_t
     valid_G_total_loss_mean = np.mean(np.array([t.cpu().numpy() for t in valid_G_total_loss_list]))
     valid_G_l1_loss_mean = np.mean(np.array([t.cpu().numpy() for t in valid_G_l1_loss_list]))
     valid_G_ssim_mean = np.mean(np.array([t.cpu().numpy() for t in valid_G_ssim_list]))
-    print("PSNR: ", valid_G_psnr_list)
+    #print("PSNR: ", valid_G_psnr_list)
     valid_G_psnr_mean = np.mean(np.array([t.cpu().numpy() for t in valid_G_psnr_list]))
     valid_G_ncc_mean = np.mean(np.array(valid_G_ncc_list))
     valid_G_ncc_std = np.std(np.array(valid_G_ncc_list))
@@ -258,6 +250,7 @@ if __name__ == "__main__":
     tc,vc = init_parameters()
     train_images = glob.glob(tc.image_path)
     valid_images = glob.glob(vc.image_path)
+    print("---", train_images)
     random.shuffle(train_images)
     random.shuffle(valid_images)
     
@@ -268,8 +261,8 @@ if __name__ == "__main__":
                                               n_parallel_calls=vc.n_threads, q_limit=vc.q_limit,
                                               n_epoch=vc.n_shuffle_epoch)
 
-    train_loader = iter(train_bl.dataset_generator)
-    valid_loader = iter(valid_bl.dataset_generator)
+    train_loader = iter(train_bl)
+    valid_loader = iter(valid_bl)
     
     filters = [32,64,128,256, 512]
     #ddp_setup(rank, world_size)
@@ -325,71 +318,56 @@ if __name__ == "__main__":
     R_optimizer = torch.optim.Adam(model_R.parameters(),lr=1e-4)
 
     def G_train_step(input_image, target, epoch):
-        #print("fore input: ", torch.cuda.memory_allocated())
         input_image = input_image.to(device)
         target = target.to(device)
-    # print("after input : ", torch.cuda.memory_allocated())
-        #print("input: ", input_image.shape)
-        #print("target: ", target.shape)
-        # ensure shuffling in multiprocessing
-        #train_sampler.set_epoch(epoch)
+        
         model_G.train()
-        model_D.eval()
+        model_D.train()
         model_R.eval()
+        
         G_optimizer.zero_grad()
-        #with autocast():
-        for inp in input_image:
-            print("inp check: ", inp.min(), inp.mean(), inp.max())
+        
         G_outputs = model_G(input_image)
-        os.makedirs("./voxelmorph_reg/G", exist_ok=True)
-        i = 0
-        for G in G_outputs:
-            i+=1
-            plt.imsave(f"./voxelmorph_reg/G/G_{i}.jpg", np.clip(G.permute(1,2,0).detach().cpu().numpy(), 0, 1))
-            print("G check: ", G.min(), G.mean(), G.max())
-        j = 0
-        for tgt in target:
-            j+=1
-            plt.imsave(f"./voxelmorph_reg/G/tgt_{j}.jpg", np.clip(tgt.permute(1,2,0).detach().cpu().numpy(), 0, 1))
-            print("G check: ", G.min(), G.mean(), G.max())
-        #print("G_train: ", G_outputs.shape, input_image.shape, target.shape)
+        
+        # Save generated and target images for debugging
+        """ os.makedirs("./voxelmorph_reg/G", exist_ok=True)
+        for i, G in enumerate(G_outputs):
+            plt.imsave(f"./voxelmorph_reg/G/G_{i+1}.jpg", np.clip(G.permute(1, 2, 0).detach().cpu().numpy(), 0, 1))
+        for j, tgt in enumerate(target):
+            plt.imsave(f"./voxelmorph_reg/G/tgt_{j+1}.jpg", np.clip(tgt.permute(1, 2, 0).detach().cpu().numpy(), 0, 1))
+        """
         assert not torch.isnan(G_outputs).any(), "Tensor contains NaN."
-    #print("after model G : ", torch.cuda.memory_allocated())
-    #print("shape G: ",G_outputs.shape)
-    #print("shape target: ", target.shape)
-        with torch.no_grad():
-            D_fake_output = model_D(G_outputs)
-            
-        if epoch>0:
+
+        #with torch.no_grad():
+        D_fake_output = model_D(G_outputs)
+        
+        if epoch > 0:
             start = time.perf_counter()
             time.sleep(1)
-            with torch.no_grad(): 
-                # No gradients for target transformation
-            # print("-----", target.shape, G_outputs.shape)
-                target_transformed, _ , _= model_R(target, G_outputs)
-                assert not torch.isnan(target_transformed).any(), "Tensor contains NaN."
+            
+            target_transformed, _, _ = model_R(target, G_outputs)
+            assert not torch.isnan(target_transformed).any(), "Tensor contains NaN."
             end = time.perf_counter()
             elapsed = end - start
         else:
             target_transformed = target
-    # print("fore input del : ", torch.cuda.memory_allocated())
-        
-        
-        #print("after input del : ", torch.cuda.memory_allocated())
         
         G_total_loss, G_dis_loss, G_l1_loss = loss_G(D_fake_output, G_outputs, target_transformed, tc, epoch)
-        G_total_loss.backward()
+        #print(f"Epoch: {epoch}, G_total_loss: {G_total_loss.item()}, G_dis_loss: {G_dis_loss.item()}, G_l1_loss: {G_l1_loss.item()}")
+        for name, param in model_G.named_parameters():
+            if not param.requires_grad:
+                print(f"Parameter {name} does not require gradients.")
+                
         for param in model_G.parameters():
             if param.grad is None:
                 param.grad = torch.zeros_like(param)
+        G_total_loss.backward()
+       
+        
         G_optimizer.step()
-        #scaler.update()
-        #del input_image 
-        #del target
-        #gc.collect()
-    # torch.cuda.empty_cache()
-        #return G_total_loss, G_dis_loss, G_l1_loss
+        
         return G_total_loss, G_dis_loss, G_l1_loss, G_outputs, target_transformed
+
     def G_test_step(input_image, target, epoch):
         input_image, target = input_image.to(device), target.to(device)
 
@@ -408,11 +386,11 @@ if __name__ == "__main__":
         with torch.no_grad():
             D_fake_output = model_D(G_outputs)
         G_total_loss, G_dis_loss, G_l1_loss = loss_G(D_fake_output, G_outputs, target, tc, epoch)
-        G_ssim = compute_ssim(G_outputs, target)
+        G_ssim = compute_ssim(G_outputs, target) #TODO: check if correct
         G_psnr = compute_psnr(G_outputs,target)
-        print("PSNR: ", G_psnr)
+        #print("PSNR: ", G_psnr)
     # print("+++", target_clipped_splitted.shape, G_output_clipped_splitted.shape)
-        G_ncc = torch.mean(NCC(win = 20, eps = 1e-3).ncc(target_clipped_splitted, G_output_clipped_splitted))
+        G_ncc = torch.mean(NCC(win = 20, eps = 1e-3).ncc(target_clipped_splitted, G_output_clipped_splitted))# TODO: check if correct
         return G_total_loss, G_dis_loss, G_l1_loss, G_ssim, G_psnr, G_ncc
 
 
@@ -420,7 +398,7 @@ if __name__ == "__main__":
     def D_train_step(input_image, target,epoch):
     # train_sampler.set_epoch(epoch)
         model_D.train()
-        model_G.eval()
+        model_G.train()
         input_image, target = input_image.to(device), target.to(device)
         D_optimizer.zero_grad()
         with torch.no_grad():
@@ -431,15 +409,13 @@ if __name__ == "__main__":
         D_total_loss, D_real_loss, D_fake_loss = loss_D(D_real_output, D_fake_output)
         
         D_total_loss.backward()
-        for param in model_D.parameters():
-            if param.grad is None:
-                param.grad = torch.zeros_like(param)
+        
         D_optimizer.step()
     
     
         return D_total_loss.item(), D_real_loss.item(), D_fake_loss.item(), G_outputs
 
-
+    #CORRECT
     def D_test_step(input_image, target):
         model_G.eval()
         model_D.eval()
@@ -456,18 +432,21 @@ if __name__ == "__main__":
     # train_sampler.set_epoch(epoch)
         input_image, target = input_image.to(device), target.to(device)
         model_R.train()
-        model_G.eval()
+        model_G.train()
         R_optimizer.zero_grad()
         with torch.no_grad():
             G_outputs = model_G(input_image)
         
-        R_outputs = model_R(G_outputs, target)
+        R_outputs = model_R(target, G_outputs)
+        #print("-----", R_outputs[0].shape)
+        #img = R_outputs[0][0,:,:,:].permute(1,2,0).detach().clone().cpu().numpy() 
+        #plt.imsave(f"./voxelmorph_reg/R/epoch_{epoch}_round_{i}.jpg",np.clip(img, 0, 1))
         R_total_loss, R_berhu_loss = loss_R_no_gt(R_outputs, G_outputs, tc)
-
+        print("R losses: ", R_total_loss, R_berhu_loss)
         R_total_loss.backward()
         R_optimizer.step()
     
-        return R_total_loss, R_berhu_loss, R_outputs
+        return R_total_loss, R_berhu_loss, R_outputs[0]
 
     def R_test_step(input_image, target):
         model_G.eval()
@@ -475,7 +454,7 @@ if __name__ == "__main__":
         input_image, target = input_image.to(device), target.to(device)
         with torch.no_grad():
             G_outputs = model_G(input_image)
-            R_outputs = model_R( G_outputs, target)
+            R_outputs = model_R(target, G_outputs)
         R_total_loss, R_berhu_loss = loss_R_no_gt(R_outputs, G_outputs, tc)
         return R_total_loss, R_berhu_loss, R_outputs
 
@@ -496,8 +475,9 @@ if __name__ == "__main__":
 
     print("Training from iteration: ", iter_D_count)
 
-    #iter_D_count = 100
+   
     for epoch in range(epoch_begin, tc.N_epoch):
+        
 
         print(f'Current iter_D_count: {iter_D_count}')
 
@@ -521,6 +501,7 @@ if __name__ == "__main__":
             #num_checkpoint_D=100
             else:
                 print("Train G Case Filtering False for epoch {}". format(epoch))
+            num_checkpoint_D = 100
             for i in tqdm(range(num_checkpoint_D)):
                 start = time.perf_counter()
                 time.sleep(1)
@@ -545,14 +526,15 @@ if __name__ == "__main__":
                     train_G_total_loss_list.append(train_G_total_loss)
                     train_G_l1_loss_list.append(train_G_l1_loss)
                 
-                if i%100 ==0:
-                    print("**: ", targets[0,:,:,:].shape)
+                if i%25 ==0:
+                    os.makedirs(f"./voxelmorph_reg/output_image/iter_{i}", exist_ok = True)
+                    #print("**: ", targets[0,:,:,:].shape)
                     #print(train_G_output[0,:,:,:].shape)
                     #print("----", (targets[0,:,:,:].permute(1,2,0).detach().cpu().numpy()<0).any())
-                    plt.imsave(f"./voxelmorph_reg/output_image/train_epoch={epoch}_sample={i}_output_G.jpg", np.clip(train_G_output[0,:,:,:].permute(1,2,0).detach().cpu().numpy(), 0, 1))
-                    plt.imsave(f"./voxelmorph_reg/output_image/train_epoch={epoch}_sample={i}_output_R.jpg", np.clip(train_R_output[0,:,:,:].permute(1,2,0).detach().cpu().numpy(), 0, 1))
-                    plt.imsave(f"./voxelmorph_reg/output_image/train_epoch={epoch}_sample={i}_target.jpg", targets[0,:,:,:].permute(1,2,0).detach().cpu().numpy())
-                    plt.imsave(f"./voxelmorph_reg/output_image/train_epoch={epoch}_sample={i}_input0.jpg", -input_images[0,0,:,:].detach().cpu().numpy(), cmap = 'gray')
+                    plt.imsave(f"./voxelmorph_reg/output_image/iter_{i}/train_epoch={epoch}_sample_output_G.jpg", np.clip(train_G_output[0,:,:,:].permute(1,2,0).detach().clone().cpu().numpy(), 0, 1))
+                    plt.imsave(f"./voxelmorph_reg/output_image/iter_{i}/train_epoch={epoch}_sample_output_R.jpg", np.clip(train_R_output[0,:,:,:].permute(1,2,0).detach().clone().cpu().numpy(), 0, 1))
+                    plt.imsave(f"./voxelmorph_reg/output_image/iter_{i}/train_epoch={epoch}_sample_target.jpg", targets[0,:,:,:].permute(1,2,0).detach().clone().cpu().numpy())
+                    plt.imsave(f"./voxelmorph_reg/output_image/iter_{i}/train_epoch={epoch}_sampleinput0.jpg", -input_images[0,0,:,:].detach().clone().cpu().numpy(), cmap = 'gray')
                 #print("training fore: ", torch.cuda.memory_allocated())
                 #train_y, train_x = next(train_loader)
                 data_d = next(train_loader)
@@ -622,10 +604,10 @@ if __name__ == "__main__":
                     #if min_loss - valid_G_l1_loss_mean > tc.min_del or valid_G_psnr_mean > max_psnr \
                     #        or tc.save_every_epoch:
                     #    # tol = 0  # refresh early stopping patience
-                    #   torch.save(model_G.state_dict,tc.model_path + f'/model_G_iter={iter_D_count}.h5')
-                    #  torch.save(model_D.state_dict,tc.model_path + f'/model_D_iter={iter_D_count}.h5')
-                    torch.save(model_R.state_dict, tc.model_path + f'/model_R_iter={iter_D_count}.h5')
-
+                    #torch.save(model_G.state_dict,tc.model_path + f'/model_G_iter={iter_D_count}.h5')
+                    #torch.save(model_D.state_dict,tc.model_path + f'/model_D_iter={iter_D_count}.h5')
+                    #..save(model_R.state_dict, tc.model_path + f'/model_R_iter={iter_D_count}.h5')
+                print("validation done")
                     # if min_loss - valid_G_l1_loss_mean > tc.min_del:
                         #    print('Validation loss is improved from {} to {}'.format(min_loss, valid_G_l1_loss_mean))
                         #   min_loss = valid_G_l1_loss_mean  # update the loss record
@@ -642,13 +624,14 @@ if __name__ == "__main__":
         #train_G_total_loss_mean = np.mean(np.array([ t.detach().cpu().numpy() for t in train_G_total_loss_list]))
         #train_G_l1_loss_mean = np.mean(np.array([ t.detach().cpu().numpy() for t in train_G_l1_loss_list]))
     # print("Training losses")
-    # logger.info("-------------------TRAINING LOSSES-------------------")
+    # logger.info("-------------------TRAINING LOSSES-------------------")"""
+        print("first done")
         """print("train_G_total_loss_mean: " , train_G_total_loss_mean)
         logger.info(f"Total loss for G: {train_G_total_loss_mean}")
         print("train_G_l1_loss_mean: " , train_G_l1_loss_mean)
         logger.info(f"L1 loss for G: { train_G_l1_loss_mean}")"""
         print('training R ...')
-        #num_checkpoint_R = 50
+        num_checkpoint_R = 100
         for i in tqdm(range(num_checkpoint_R)):
             start = time.perf_counter()
             time.sleep(1)
@@ -657,6 +640,9 @@ if __name__ == "__main__":
             train_x = data_R['input']
             train_y = data_R['target']
             train_R_total_loss, _, train_R_output = R_train_step(train_x, train_y)
+            # TRAIN R Check
+            #os.makedirs("./voxelmorph_reg/R", exist_ok= True)
+            #plt.imsave(f"./voxelmorph_reg/R/epoch_{epoch}_round_{i}.jpg",np.clip(train_R_output[0,:,:,:].permute(1,2,0).detach().cpu().numpy(), 0, 1))
             #wtr.check_stop()
             train_R_total_loss_list.append(train_R_total_loss)
             end = time.perf_counter() 
@@ -713,3 +699,10 @@ if __name__ == "__main__":
         logger.info(f"Validation D fake loss: {valid_D_fake_loss_mean}")
         print("valid_R_total_loss_mean: " , valid_R_total_loss_mean)
         logger.info(f"Validation R total loss: {valid_R_total_loss_mean}")
+        
+        torch.save(model_G.state_dict,tc.model_path + f'/model_G_latest.h5')
+        torch.save(model_D.state_dict,tc.model_path + f'/model_D_latest.h5')
+        torch.save(model_R.state_dict,tc.model_path + f'/model_R_latest.h5')
+        torch.save(G_optimizer.state_dict(), os.path.join(tc.model_path, 'optimizer_G_latest.pth'))
+        torch.save(D_optimizer.state_dict(), os.path.join(tc.model_path, 'optimizer_D_latest.pth'))
+        torch.save(R_optimizer.state_dict(), os.path.join(tc.model_path, 'optimizer_R_latest.pth'))

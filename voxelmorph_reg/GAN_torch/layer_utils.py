@@ -41,6 +41,7 @@ class DecodeLayer(nn.Module):
                 
     def forward(self, x):
         if self.unpool:
+           # print("-up-")
             #print("using upsample ")
             x = self.up(x)
             #print("after upsample: ",x.shape)
@@ -160,6 +161,8 @@ class AttentionGate(nn.Module):
        # if self.psi_f.bias is not None:
         #    nn.init.zeros_(self.psi_f.bias)
     def forward(self,x,g):
+       
+        
         theta = self.theta_att(x)
         #print("theta: ", theta.shape)
         #print("shape g : ", g.shape)
@@ -192,12 +195,13 @@ class ConvStack(nn.Module):
         ##print("channel in: ", channel_in)
         #print("channel in: ", channel_in)
         
-        
+        #print("-------", channel_in, channel_out, kernel_size, stack_num, activation, batch_norm,dilation_rate)
         self.bias_flag = not batch_norm
         self.batch_norm = batch_norm
         if activation == 'ReLU':
             self.activation = nn.ReLU()
         elif activation == 'LeakyReLU':
+           # print("**")
             self.activation = nn.LeakyReLU()
         else:
             self.activation = getattr(nn, activation)()
@@ -237,6 +241,8 @@ class ConvStack(nn.Module):
         return nn.Sequential(*layers)
 
     def forward(self, x):
+        #print("----layer utils ----")
+        #sprint([(name, param.grad) for (name, param) in self.conv_layers.named_parameters()])
         return self.conv_layers(x)
 
 

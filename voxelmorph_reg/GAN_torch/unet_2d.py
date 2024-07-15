@@ -23,6 +23,7 @@ class UNET_left(nn.Module):
             
         
     def forward(self, x):
+        #print((name, param.grad) for (name, param) in self.enc.)
         x = self.enc(x)
         #print("done")
         #print(x.shape)

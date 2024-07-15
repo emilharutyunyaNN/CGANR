@@ -73,12 +73,13 @@ class ConvLayer(nn.Module):
 
     def forward(self, x):
         x = self.conv(x)
+        x = nn.LeakyReLU(0.2)(x)
         return x
     
 import torch.nn.functional as F
 
 class GaussianBlurLayer(nn.Module):
-    def __init__(self, channel, kernel_size=79):
+    def __init__(self, channel, kernel_size=80):
         super(GaussianBlurLayer, self).__init__()
 
         sigma = kernel_size // 2
@@ -95,7 +96,7 @@ class GaussianBlurLayer(nn.Module):
 
         self.groups = channel
         self.conv = nn.Conv2d(in_channels=channel, out_channels=channel, kernel_size=kernel_size,
-                              padding=kernel_size//2, dilation=1, groups=self.groups, bias=False)
+                              padding='same', dilation=1, groups=self.groups, bias=False)
         
         # Assign the Gaussian kernel weights and set them to be non-trainable
         self.conv.weight.data = kernel_weights
@@ -146,7 +147,13 @@ class ConvBlock(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size=3, stride=1, padding=1):
         super(ConvBlock, self).__init__()
         self.conv = nn.Conv2d(in_channels, out_channels, kernel_size, stride, padding)
-        self.activation = nn.ReLU()
+        self.activation = nn.LeakyReLU(0.2)
+        nn.init.kaiming_normal_(self.conv.weight, mode='fan_in', nonlinearity='relu')
+
+        # Optional: Initialize bias to zero if there is a bias
+        if self.conv.bias is not None:
+            nn.init.constant_(self.conv.bias, 0)
+
 
     def forward(self, x):
         x = self.conv(x)
@@ -167,7 +174,7 @@ class UNet(nn.Module):
         in_channels = src_feats + tgt_feats
         for out_channels in enc_nf:
             self.encoders.append(ConvBlock(in_channels, out_channels))  # Normal convolution
-            self.encoders_.append(ConvBlock(out_channels, out_channels, stride=2))  # Downsampling convolution
+            self.encoders_.append(ConvBlock(in_channels=out_channels, out_channels=out_channels, stride=2))  # Downsampling convolution
             in_channels = out_channels
 
         # Decoder path
@@ -188,6 +195,7 @@ class UNet(nn.Module):
            # print("**")
             in_channels = dec_nf[i]
         
+        print("final layers: ", dec_nf[len(enc_nf)],dec_nf[len(enc_nf)+1])
         self.final_conv1 = ConvBlock(in_channels, dec_nf[len(enc_nf)])
         self.final_conv2 = ConvBlock(dec_nf[len(enc_nf)] ,dec_nf[len(enc_nf)+1])
             
@@ -227,32 +235,6 @@ class UNet(nn.Module):
         x = self.final_conv2(x)
         return x
 
-"""def main():
-    # Image dimensions and model parameters
-    vol_size = (256, 256)  # Example volume size
-    enc_nf = [16, 32, 32, 32]  # Encoder filters
-    dec_nf = [32, 32, 32, 32, 32, 32, 32]  # Decoder filters
-    src_feats = 3  # Number of source features (e.g., RGB channels)
-    tgt_feats = 3  # Number of target features (e.g., RGB channels)
-
-    # Create the model
-    model = UNet(vol_size=(256, 256), enc_nf=enc_nf, dec_nf=dec_nf, src_feats=src_feats, tgt_feats=tgt_feats)
-
-    # Generate dummy source and target images
-    src = torch.randn(1, src_feats, *vol_size)  # Batch size of 1
-    tgt = torch.randn(1, tgt_feats, *vol_size)  # Batch size of 1
-
-    # Apply the model
-    output = model(src, tgt)
-
-    # Visualize the source, target, and output images
-    #visualize(src[0], "Source Image")
-    #visualize(tgt[0], "Target Image")
-   # visualize(output[0], "Output Image")
-
-if __name__ == "__main__":
-    main()"""
-    
     
 class Aligner_unet_cvpr2018_vJX(nn.Module):
     def __init__(self, vol_size, enc_nf, dec_nf, indexing='ij', flow_only=False, gauss_kernal_size=79,
@@ -295,39 +277,48 @@ class Aligner_unet_cvpr2018_vJX(nn.Module):
                 train_loss_mask = F.pad(train_loss_mask, paddings, "constant", 0)
         x = self.unet_model(src, tgt)
         flow = self.conv(x)
+        #print("flow pre clip: ", flow)
         #print("flow:", flow.shape)
         flow_before_clipping = flow
         if self.flow_clipping:
             assert self.flow_clipping_nsigma is not None
             flow_mean = torch.mean(flow, dim=[2, 3], keepdim=True)
            # print("flow:", flow.shape)
+           # print("flow mean: ", flow_mean.shape, flow_mean)
             flow_std = torch.std(flow, dim=[2, 3], keepdim=True, unbiased=False)
            # print("flow:", flow.shape)
+            #print("flow std: ", flow_std.shape, flow_std)
             clip_min = (flow_mean - self.flow_clipping_nsigma * flow_std)
             #print("flow:", flow.shape)
             clip_max = (flow_mean + self.flow_clipping_nsigma * flow_std)
-           # print("flow:", flow.shape)
+            #print("Clip: ", clip_min, clip_max)
+           ## print("flow:", flow.shape)
             if self.flow_thresholding:
-                clip_min = torch.max(clip_min, torch.tensor(-self.flow_thresh_dis).to(clip_min.device))
-                clip_max = torch.min(clip_max, torch.tensor(self.flow_thresh_dis).to(clip_max.device))
+                flow_thresh_dis_tensor = torch.tensor(self.flow_thresh_dis, dtype=clip_min.dtype, device=clip_min.device)
+                clip_min = torch.max(clip_min, flow_thresh_dis_tensor)
+                clip_max = torch.min(clip_max, flow_thresh_dis_tensor)
+            #print("Clip: ", clip_min, clip_max)
             flow = torch.clamp(flow, min=clip_min, max=clip_max)
             #print("flow:", flow.shape)
         elif self.flow_thresholding:
             flow = torch.clamp(flow, -self.flow_thersh_dis, self.flow_thersh_dis)
         #print("flow:", flow.shape)   
         flow = self.gauss(flow)
-        #print("flow after gauss: ", flow.shape)
+       #print("flow after gauss: ", flow.shape)
         if self.loss_mask:
             moving_for_warp = torch.cat([src, train_loss_mask], dim=1)
         else:
             moving_for_warp = src
             
-       # print("moving_warp shape: ", moving_for_warp.shape)
+        #print("moving_warp shape: ", moving_for_warp.shape, flow.shape)
         
         if not self.flow_only:
-            moving_transformed = self.transformer([moving_for_warp, flow])
+            
+
+            moving_transformed, flow = self.transformer([moving_for_warp, flow]) # applies the dvf to the image 
             #print("mv", moving_transformed.shape)
-            moving_transformed = moving_transformed.permute(0,3,1,2)
+            #moving_transformed = moving_transformed.permute(0,3,1,2)
+            #print("flow dim: ", flow.shape)
             if self.flow_clipping or self.flow_thresholding:
                 return moving_transformed, flow, flow_before_clipping
             else:
