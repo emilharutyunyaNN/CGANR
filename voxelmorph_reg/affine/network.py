@@ -6,10 +6,80 @@ import sys
 # sys.path.append(aligners_path)
 
 from aligners.layers import SpatialTransformer
-from GAN_torch.losses_for_gan import NCC
+#from GAN_torch.losses_for_gan import NCC
 
 # dataloader_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
 # sys.path.append(dataloader_path)
+import math
+import torch.nn.functional as F
+import numpy as np
+from IQA_pytorch import DISTS
+
+
+class NCC:
+    """
+    Local (over window) normalized cross correlation loss.
+    """
+
+    def __init__(self, win=None ,eps = 1e-3):
+        self.win = win
+        self.eps = eps
+    def loss(self, y_true, y_pred):
+
+        Ii = y_true
+        Ji = y_pred
+
+        # get dimension of volume
+        # assumes Ii, Ji are sized [batch_size, *vol_shape, nb_feats]
+        ndims = len(list(Ii.size())) - 2
+        assert ndims in [1, 2, 3], "volumes should be 1 to 3 dimensions. found: %d" % ndims
+
+        # set window size
+        win = [20] * ndims if self.win is None else self.win
+
+        # compute filters
+        sum_filt = torch.ones([1, 1, *win]).to(y_true.device)
+
+        pad_no = math.floor(win[0] / 2)
+
+        if ndims == 1:
+            stride = (1)
+            padding = (pad_no)
+        elif ndims == 2:
+            stride = (1, 1)
+            padding = (pad_no, pad_no)
+        else:
+            stride = (1, 1, 1)
+            padding = (pad_no, pad_no, pad_no)
+
+        # get convolution function
+        conv_fn = getattr(F, 'conv%dd' % ndims)
+
+        # compute CC squares
+        I2 = Ii * Ii
+        J2 = Ji * Ji
+        IJ = Ii * Ji
+
+        I_sum = conv_fn(Ii, sum_filt, stride=stride, padding=padding)
+        J_sum = conv_fn(Ji, sum_filt, stride=stride, padding=padding)
+        I2_sum = conv_fn(I2, sum_filt, stride=stride, padding=padding)
+        J2_sum = conv_fn(J2, sum_filt, stride=stride, padding=padding)
+        IJ_sum = conv_fn(IJ, sum_filt, stride=stride, padding=padding)
+
+        win_size = np.prod(win)
+        u_I = I_sum / win_size
+        u_J = J_sum / win_size
+
+        cross = IJ_sum - u_J * I_sum - u_I * J_sum + u_I * u_J * win_size
+        cross = torch.maximum(cross, torch.tensor(self.eps).to(cross.device))
+        I_var = I2_sum - 2 * u_I * I_sum + u_I * u_I * win_size
+        I_var = torch.maximum(I_var, torch.tensor(self.eps).to(I_var.device))
+        J_var = J2_sum - 2 * u_J * J_sum + u_J * u_J * win_size
+        J_var = torch.maximum(J_var, torch.tensor(self.eps).to(J_var.device))
+
+        cc = cross * cross / (I_var * J_var + 1e-5)
+        
+        return 1-torch.mean(cc.view(cc.size(0), -1), dim=-1)
 
 
 class ConvBlock(nn.Module):
@@ -76,18 +146,21 @@ class AffineCNN(nn.Module):     #in_shape=[H,W]
     def apply_transform(self, src, trg, img):
         with torch.no_grad():
             params = self.register(src, trg)
-            return self.spatial_transformer(img, params)[0]
+            return self.spatial(img, params)[0]
 
-def loss_net(moved_out, fixed):
+def loss_net(moved_out, fixed, model, train = True):
     #print(moved_out.shape, fixed.shape)
     mse_loss = nn.MSELoss()
     l2_loss = mse_loss(moved_out, fixed)
     moving_transformed_clipped = torch.clamp(moved_out, 0,1)
     fixed_clipped = torch.clamp(fixed, 0, 1)
-    ncc = NCC(win = 20, eps = 1e-3)
-    R_structure_loss = torch.mean(ncc.loss(y_true=fixed_clipped, y_pred = moving_transformed_clipped))      
+    #ncc = NCC(eps = 1e-3)
+    if train:
+        R_structure_loss = model(moving_transformed_clipped, fixed_clipped, as_loss = True)
+    else:
+        R_structure_loss = model(moving_transformed_clipped, fixed_clipped, as_loss = False)      
         
-    total_loss = 1.0 * l2_loss + 1.0 * R_structure_loss
+    total_loss = 2.0 * l2_loss + 1.0 * R_structure_loss
     
     return total_loss, l2_loss, R_structure_loss
 

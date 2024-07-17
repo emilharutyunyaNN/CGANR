@@ -131,8 +131,7 @@ class InterleavedHDF5Dataset(IterableDataset):
         #self.dataset = Dataset.from_list(self.paths)
         print(f"Total paths found: {len(self.paths)}")
         
-        if self.config.is_training:
-            random.shuffle(self.paths)
+        
         self.path_iter = cycle(self.paths)
 
     def __len__(self):

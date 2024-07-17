@@ -437,15 +437,15 @@ def affine_transform(img, theta, size=None):
     Returns transformed image tensor.
     """
     B, C, H, W = img.shape
-    print("affine input: ", B, C, H, W)
+    #ssprint("affine input: ", B, C, H, W)
 
     # Generate grid of coordinates
     if size is None:
         size = (H, W)
-    grid = F.affine_grid(theta, [B, C, *size], align_corners=True)
+    grid = F.affine_grid(theta, [B, C, *size], align_corners=False)
 
     # Apply affine transformation to image
-    transformed_img = F.grid_sample(img, grid, align_corners=True)
+    transformed_img = F.grid_sample(img, grid, align_corners=False)
 
     return transformed_img
 """  

@@ -118,19 +118,19 @@ class SpatialTransformer(nn.Module):
         vol_new = F.grid_sample(vol, sampling_grid, mode='bilinear', padding_mode='border', align_corners=True)
 
         # Save the old volume before transformation
-        vol_old = vol.squeeze(0).permute(1, 2, 0).detach().clone().cpu().numpy().astype(np.float32)
-        vol_old_clipped = np.clip(vol_old, 0, 1)
+        #vol_old = vol.squeeze(0).permute(1, 2, 0).detach().clone().cpu().numpy().astype(np.float32)
+        #vol_old_clipped = np.clip(vol_old, 0, 1)
        # print(vol_old.shape)
-        if self.is_affine:
-            vol_old_clipped = vol_old_clipped.squeeze()
-            plt.imsave(f"./voxelmorph_reg/vol_old.jpg", vol_old_clipped, cmap = 'gray')
+        #if self.is_affine:
+          #  vol_old_clipped = vol_old_clipped.squeeze()
+           # plt.imsave(f"./voxelmorph_reg/vol_old.jpg", vol_old_clipped, cmap = 'gray')
 
         # Save the new volume after transformation
         vol_new = vol_new.squeeze(0)
-        vol_new_clipped = np.clip(vol_new.permute(1, 2, 0).detach().clone().cpu().numpy().astype(np.float32), 0, 1)
-        if self.is_affine:
-            vol_new_clipped = vol_new_clipped.squeeze()
-            plt.imsave(f"./voxelmorph_reg/vol_new.jpg", vol_new_clipped, cmap = 'gray')
+        #vol_new_clipped = np.clip(vol_new.permute(1, 2, 0).detach().clone().cpu().numpy().astype(np.float32), 0, 1)
+        #f self.is_affine:
+         #   vol_new_clipped = vol_new_clipped.squeeze()
+          #  plt.imsave(f"./voxelmorph_reg/vol_new.jpg", vol_new_clipped, cmap = 'gray')
 
         # Plot overlapping images for comparison
         """plt.close()

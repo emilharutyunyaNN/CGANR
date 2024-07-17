@@ -1,20 +1,35 @@
 import torch
 import torch.nn.functional as F
 import numpy as np
+import math
 #
+import os
 import lpips
-from DISTS_pytorch import DISTS
+#from DISTS_pytorch import DISTS
+
+import matplotlib.pyplot as plt
+from torchvision.utils import save_image
+
+
+def save_tensor_as_image(tensor, filename):
+    # Normalize the tensor to [0, 1] for visualization
+    tensor = (tensor - tensor.min()) / (tensor.max() - tensor.min())
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    save_image(tensor, filename)
+
 
 
 # suppose we have a tensor and we want to get patches from it
 def get_patches(img, patch_size):
-    img = img.unsqueeze(0)
-    img = torch.clamp(img, 0, 1)
-    img = (img - 0.5) * 2
+    img_new = img.unsqueeze(0)
+    img_new =img_new/ img_new.max()
+    img_new = 2*img_new - 1
+    img_new = torch.clamp(img_new, -1, 1)
+    #img = (img - 0.5) * 2
     #print("//: ", img.shape)
     #print("---", img.size(1))
-    patches = img.unfold(2, patch_size, patch_size).unfold(3, patch_size, patch_size)
-    patches = patches.contiguous().view(-1, img.size(1), patch_size, patch_size)
+    patches = img_new.unfold(2, patch_size, patch_size).unfold(3, patch_size, patch_size)
+    patches = patches.contiguous().view(-1, img_new.size(1), patch_size, patch_size)
     return patches
 
 # Function to compute average LPIPS loss over patches for a single image
@@ -55,24 +70,25 @@ def compute_batch_lpips_loss(batch_img0, batch_img1, patch_size, model):
 
 #DISTS loss
 
-def dist_train(img1, img2):
+def dist_train(img1, img2,mod):
     """
         dists loss for training
     """
-    D = DISTS().to(img1.device)
+    #D = DISTS().to(img1.device)
     img1 = torch.clamp(img1, 0, 1)
     img2 = torch.clamp(img2, 0, 1)
-    dists_loss = D(img1, img2, require_grad=True, batch_average=True)
+    dists_loss = mod(img1, img2, require_grad=True, batch_average=True)
     return dists_loss
 
-def dist_test(img1, img2):
+def dist_test(img1, img2, mod):
     """
         dists loss for testing
     """
-    D = DISTS()
+   # D = DISTS().to(img1.device)
+    mod.eval()
     img1 = torch.clamp(img1, 0, 1)
     img2 = torch.clamp(img2, 0, 1)
-    dists_loss = D(img1, img2)
+    dists_loss = mod(img1, img2)
     return dists_loss
 
 def total_variation_loss(img):
@@ -137,16 +153,16 @@ class ExponentialMovingAverage:
         self.value = None
 
     def update(self, new_value):
+        #print("value: ", self.value, "new: ", new_value)
         if self.value == None:
             self.value = new_value
         else:
             self.value = self.alpha*new_value + (1-self.alpha)*self.value
         return self.value
     
-class NCC:
-    """
-    Local (over window) normalized cross-correlation loss.
-    """
+"""class NCC:
+    
+    
 
     def __init__(self, win=None, eps=1e-5):
         self.win = win
@@ -183,13 +199,16 @@ class NCC:
 
         # compute local sums via convolution
         #print("kernel: ", sum_filt, "dilation: ", 1)
-        padding = 'same'
+        padding = [w // 2 for w in self.win]
+        #print(padding, strides, sum_filt)
         I_sum = conv_fn(Ii, sum_filt, stride=strides, padding=padding)
         J_sum = conv_fn(Ji, sum_filt, stride=strides, padding=padding)
         I2_sum = conv_fn(I2, sum_filt, stride=strides, padding=padding)
         J2_sum = conv_fn(J2, sum_filt, stride=strides, padding=padding)
         IJ_sum = conv_fn(IJ, sum_filt, stride=strides, padding=padding)
 
+
+        
         # compute cross-correlation
         win_size = np.prod(self.win) * in_ch
         u_I = I_sum / win_size
@@ -209,6 +228,163 @@ class NCC:
 
     def loss(self, y_true, y_pred):
         return 1 - self.ncc(y_true, y_pred)
+"""
+class NCC:
+    """
+    Local (over window) normalized cross correlation loss.
+    """
+
+    def __init__(self, win=None ,eps = 1e-3):
+        self.win = win
+        self.eps = eps
+    def loss(self, y_true, y_pred):
+
+        Ii = y_true
+        Ji = y_pred
+
+        # get dimension of volume
+        # assumes Ii, Ji are sized [batch_size, *vol_shape, nb_feats]
+        ndims = len(list(Ii.size())) - 2
+        assert ndims in [1, 2, 3], "volumes should be 1 to 3 dimensions. found: %d" % ndims
+
+        # set window size
+        win = [20] * ndims if self.win is None else self.win
+
+        # compute filters
+        sum_filt = torch.ones([1, 3, *win]).to(y_true.device)
+
+        pad_no = math.floor(win[0] / 2)
+
+        if ndims == 1:
+            stride = (1)
+            padding = (pad_no)
+        elif ndims == 2:
+            stride = (1, 1)
+            padding = (pad_no, pad_no)
+        else:
+            stride = (1, 1, 1)
+            padding = (pad_no, pad_no, pad_no)
+
+        # get convolution function
+        conv_fn = getattr(F, 'conv%dd' % ndims)
+
+        # compute CC squares
+        I2 = Ii * Ii
+        J2 = Ji * Ji
+        IJ = Ii * Ji
+
+        I_sum = conv_fn(Ii, sum_filt, stride=stride, padding=padding)
+        J_sum = conv_fn(Ji, sum_filt, stride=stride, padding=padding)
+        I2_sum = conv_fn(I2, sum_filt, stride=stride, padding=padding)
+        J2_sum = conv_fn(J2, sum_filt, stride=stride, padding=padding)
+        IJ_sum = conv_fn(IJ, sum_filt, stride=stride, padding=padding)
+
+        win_size = np.prod(win)
+        u_I = I_sum / win_size
+        u_J = J_sum / win_size
+
+        cross = IJ_sum - u_J * I_sum - u_I * J_sum + u_I * u_J * win_size
+        cross = torch.maximum(cross, torch.tensor(self.eps).to(cross.device))
+        I_var = I2_sum - 2 * u_I * I_sum + u_I * u_I * win_size
+        I_var = torch.maximum(I_var, torch.tensor(self.eps).to(I_var.device))
+        J_var = J2_sum - 2 * u_J * J_sum + u_J * u_J * win_size
+        J_var = torch.maximum(J_var, torch.tensor(self.eps).to(J_var.device))
+
+        cc = cross * cross / (I_var * J_var + 1e-5)
+        
+        return 1-torch.mean(cc.view(cc.size(0), -1), dim=-1)
+
+import torch
+import torch.nn.functional as F
+import numpy as np
+
+"""class NCC:
+    
+
+    def __init__(self, win=None, eps=1e-5):
+        self.win = win
+        self.eps = eps
+
+    def same_padding(self, input_size, kernel_size, stride):
+        # Calculate padding size for 'same' padding
+        if input_size % stride == 0:
+            pad_total = max(kernel_size - stride, 0)
+        else:
+            pad_total = max(kernel_size - (input_size % stride), 0)
+        pad_before = pad_total // 2
+        pad_after = pad_total - pad_before
+        return pad_before, pad_after
+
+    def conv_with_same_padding(self, input, weight, stride, padding):
+        # Manually calculate padding for each dimension
+        padding = []
+        for d in range(len(input.shape) - 2):  # Exclude batch and channel dimensions
+            pad_before, pad_after = self.same_padding(input.shape[d + 2], weight.shape[d + 2], stride[d])
+            padding = [pad_before, pad_after] + padding
+
+        padding = tuple(padding)
+        return F.pad(input, padding, mode='constant', value=0), padding
+
+    def ncc(self, Ii, Ji):
+        # Get dimension of volume
+        ndims = Ii.dim() - 2
+        assert ndims in [1, 2, 3], f"volumes should be 1 to 3 dimensions. found: {ndims}"
+
+        # Set window size
+        if self.win is None:
+            self.win = [9] * ndims
+        elif not isinstance(self.win, list):
+            self.win = [self.win] * ndims
+
+        # Get convolution function
+        conv_fn = getattr(F, 'conv%dd' % ndims)
+
+        # Compute CC squares
+        I2 = Ii * Ii
+        J2 = Ji * Ji
+        IJ = Ii * Ji
+
+        # Compute filters
+        in_ch = Ji.size(1)
+        sum_filt = torch.ones([1, in_ch, *self.win]).to(Ii.device)
+        strides = [1] * ndims
+
+        # Compute local sums via convolution with 'same' padding
+        I_sum, padding = self.conv_with_same_padding(Ii, sum_filt, strides, 'same')
+        I_sum = conv_fn(I_sum, sum_filt, stride=strides, padding=0)
+
+        J_sum, _ = self.conv_with_same_padding(Ji, sum_filt, strides, 'same')
+        J_sum = conv_fn(J_sum, sum_filt, stride=strides, padding=0)
+
+        I2_sum, _ = self.conv_with_same_padding(I2, sum_filt, strides, 'same')
+        I2_sum = conv_fn(I2_sum, sum_filt, stride=strides, padding=0)
+
+        J2_sum, _ = self.conv_with_same_padding(J2, sum_filt, strides, 'same')
+        J2_sum = conv_fn(J2_sum, sum_filt, stride=strides, padding=0)
+
+        IJ_sum, _ = self.conv_with_same_padding(IJ, sum_filt, strides, 'same')
+        IJ_sum = conv_fn(IJ_sum, sum_filt, stride=strides, padding=0)
+
+        # Compute cross-correlation
+        win_size = np.prod(self.win) * in_ch
+        u_I = I_sum / win_size
+        u_J = J_sum / win_size
+
+        cross = IJ_sum - u_J * I_sum - u_I * J_sum + u_I * u_J * win_size
+        cross = torch.maximum(cross, torch.tensor(self.eps).to(cross.device))
+        I_var = I2_sum - 2 * u_I * I_sum + u_I * u_I * win_size
+        I_var = torch.maximum(I_var, torch.tensor(self.eps).to(I_var.device))
+        J_var = J2_sum - 2 * u_J * J_sum + u_J * u_J * win_size
+        J_var = torch.maximum(J_var, torch.tensor(self.eps).to(J_var.device))
+
+        cc = (cross / I_var) * (cross / J_var)
+
+        # Return mean cc for each entry in batch
+        return torch.mean(cc.view(cc.size(0), -1), dim=-1)
+
+    def loss(self, y_true, y_pred):
+        return 1 - self.ncc(y_true, y_pred)"""
+
 def loss_D(D_real_output, D_fake_output):
     D_fake_loss = torch.mean(D_fake_output ** 2)
     D_real_loss = torch.mean((1 - D_real_output) ** 2)
@@ -281,8 +457,8 @@ def loss_G_new(D_fake_output, G_output, target, train_config, cur_epoch=None, em
             G_output_clipped = torch.clamp(G_output, 0, 1)
             if train_config.case_filtering_x_subdivision == 1 and train_config.case_filtering_y_subdivision == 1:
                 cur_ncc = NCC(win=20, eps=1e-3) 
-                with torch.no_grad():
-                    cur_ncc = cur_ncc.ncc(target_clipped, G_output_clipped).detach() 
+                #with torch.no_grad():
+                cur_ncc = torch.mean(cur_ncc.ncc(target_clipped, G_output_clipped).detach().clone())
                 cur_mask = (cur_ncc > min_ncc_threshold).int()
                 train_config.epoch_filtering_ratio.append(1 - cur_mask.float().mean().item())
                 
@@ -300,19 +476,28 @@ def loss_G_new(D_fake_output, G_output, target, train_config, cur_epoch=None, em
     if cur_epoch >1:            
         G_berhu_loss = huber_reverse_loss(pred=G_output, label=target) # l1 loss
     else:
-        ncc = NCC(win=20, eps=1e-3) 
+        curr_ncc = NCC(win=20, eps=1e-5) 
+        #target_clipped = torch.clamp(target, 0, 1)
+        #G_output_clipped = torch.clamp(G_output, 0, 1)
         with torch.no_grad():
-            G_berhu_loss = ncc.ncc(target_clipped, G_output_clipped).detach() 
-        G_berhu_loss = ema.update(G_berhu_loss)
-        
+        #target_norm = target/target.max()
+        #G_output_norm = G_output/G_output.max()
+            G_berhu_loss = torch.mean(curr_ncc.ncc(G_output, target))
+        #G_berhu_loss = compute_ssim(G_output, target).detach().clone()
+   
+        #G_berhu_loss = ema.update(G_berhu_loss.detach().clone())
+        #sG_berhu_loss = huber_reverse_loss(pred=G_output, label=target)
+    #print("----", G_berhu_loss)
+    #save_tensor_as_image(G_output, os.path.join('./voxelmorph/loss', f'G_output_epoch_{cur_epoch}.png'))
+    #save_tensor_as_image(G_output_clipped, os.path.join('./voxelmorph/loss', f'G_output_clipped_epoch_{cur_epoch}.png'))
     G_tv_loss = torch.mean(total_variation_loss(G_output))/(train_config.image_size **2)
     G_dis_loss = torch.mean((1-D_fake_output)**2)
     #print("------------- ", G_berhu_loss, G_tv_loss, G_dis_loss)
     G_total_loss = G_berhu_loss +0.02* G_tv_loss + train_config.lamda * G_dis_loss
 
     return G_total_loss, G_dis_loss, G_berhu_loss
-
-def loss_G_perceptual(D_fake_output, G_output, target, train_config, model_perc,cur_epoch=None, option = 'lpips'):
+from torchmetrics import MultiScaleStructuralSimilarityIndexMeasure
+def loss_G_perceptual(D_fake_output, G_output, target, train_config, model_perc,cur_epoch=None, option = 'dists', train = True):
     
     if train_config.is_training and train_config.case_filtering \
             and cur_epoch >= train_config.case_filtering_starting_epoch:
@@ -326,7 +511,7 @@ def loss_G_perceptual(D_fake_output, G_output, target, train_config, model_perc,
             if train_config.case_filtering_x_subdivision == 1 and train_config.case_filtering_y_subdivision == 1:
                 cur_ncc = NCC(win=20, eps=1e-3) 
                 with torch.no_grad():
-                    cur_ncc = cur_ncc.ncc(target_clipped, G_output_clipped).detach() 
+                    cur_ncc = cur_ncc.ncc(target_clipped, G_output_clipped)
                 cur_mask = (cur_ncc > min_ncc_threshold).int()
                 train_config.epoch_filtering_ratio.append(1 - cur_mask.float().mean().item())
                 
@@ -342,11 +527,63 @@ def loss_G_perceptual(D_fake_output, G_output, target, train_config, model_perc,
                     
    # print("G: ", G_output.shape)
     if cur_epoch ==0:            
-        print("perceptual")
-        if option == 'dists':
-            G_berhu_loss = dist_train(G_output, target)
+       # print("perceptual")
+        if option == 'dists' and train:
+            G_berhu_loss = dist_train(G_output, target, model_perc)
+        elif option == 'dists' and not train:
+            G_berhu_loss = dist_test(G_output, target, model_perc)
         elif option == 'lpips':
+            #print("**")
             G_berhu_loss = compute_batch_lpips_loss(G_output, target, 64, model_perc)
+    else:
+        G_berhu_loss = huber_reverse_loss(pred=G_output, label=target) # l1 loss
+        
+    G_tv_loss = torch.mean(total_variation_loss(G_output))/(train_config.image_size **2)
+    G_dis_loss = torch.mean((1-D_fake_output)**2)
+    #print("------------- ", G_berhu_loss, G_tv_loss, G_dis_loss)
+    G_total_loss = G_berhu_loss +0.02* G_tv_loss + train_config.lamda * G_dis_loss
+
+    return G_total_loss, G_dis_loss, G_berhu_loss
+
+
+def loss_G_perceptual_all(D_fake_output, G_output, target, train_config, model_perc,cur_epoch=None,train = True):
+    
+    if train_config.is_training and train_config.case_filtering \
+            and cur_epoch >= train_config.case_filtering_starting_epoch:
+        assert cur_epoch is not None
+        print("CASE FILTERING")
+        if train_config.case_filtering_metric == 'ncc':
+            min_ncc_threshold = train_config.case_filtering_cur_mean - \
+                                train_config.case_filtering_nsigma * train_config.case_filtering_cur_stdev
+            target_clipped = torch.clamp(target, 0, 1)
+            G_output_clipped = torch.clamp(G_output, 0, 1)
+            if train_config.case_filtering_x_subdivision == 1 and train_config.case_filtering_y_subdivision == 1:
+                cur_ncc = NCC(win=20, eps=1e-3) 
+                with torch.no_grad():
+                    cur_ncc = cur_ncc.ncc(target_clipped, G_output_clipped)
+                cur_mask = (cur_ncc > min_ncc_threshold).int()
+                train_config.epoch_filtering_ratio.append(1 - cur_mask.float().mean().item())
+                
+                cur_index = torch.nonzero(cur_mask, as_tuple=False).squeeze()
+
+# Gather elements along the 0th dimension using the indices
+                G_output = torch.index_select(G_output, 0, cur_index)
+                target = torch.index_select(target, 0, cur_index)
+                D_fake_output = torch.index_select(D_fake_output, 0, cur_index)
+
+                if 'loss_mask' in train_config and train_config['loss_mask']:
+                    loss_mask_from_R = torch.index_select(loss_mask_from_R, 0, cur_index)
+                    
+   # print("G: ", G_output.shape)
+    if cur_epoch ==0:            
+       # print("perceptual")
+        target_clipped = torch.clamp(target, 0,1)
+        G_output_clipped = torch.clamp(G_output, 0, 1)
+        #print(G_output_clipped.device, target_clipped.device)
+        if train:
+            G_berhu_loss = model_perc(G_output_clipped,target_clipped, as_loss = True)
+        else:
+            G_berhu_loss = model_perc(G_output_clipped,target_clipped, as_loss = False)
     else:
         G_berhu_loss = huber_reverse_loss(pred=G_output, label=target) # l1 loss
         
@@ -372,7 +609,7 @@ def loss_R_no_gt(R_outputs, fixed, training_config):
         assert training_config.R_loss_type == 'ncc'
         moving_transformed_clipped = torch.clamp(moving_transformed, 0,1)
         fixed_clipped = torch.clamp(fixed, 0, 1)
-        ncc = NCC(win = 20, eps = 1e-3)
+        ncc = NCC(eps = 1e-3)
         print(fixed_clipped.shape, moving_transformed_clipped.shape)
         R_structure_loss = torch.mean(ncc.loss(y_true=fixed_clipped, y_pred = moving_transformed_clipped))
         
@@ -387,7 +624,7 @@ def loss_R_no_gt(R_outputs, fixed, training_config):
     R_total_loss = R_structure_loss+ training_config.lambda_r_tv*R_flow_tv_loss
     return R_total_loss, R_structure_loss
 
-def loss_R_no_gt_perceptual(R_outputs, fixed, training_config,curr_epoch, model):
+def loss_R_no_gt_perceptual(R_outputs, fixed, training_config,curr_epoch, model, train = True):
     if training_config.dvf_thresholding or training_config.dvf_clipping:
         moving_transformed, flow_pred, _ = R_outputs
     else:
@@ -401,12 +638,16 @@ def loss_R_no_gt_perceptual(R_outputs, fixed, training_config,curr_epoch, model)
             assert training_config.R_loss_type == 'ncc'
             moving_transformed_clipped = torch.clamp(moving_transformed, 0,1)
             fixed_clipped = torch.clamp(fixed, 0, 1)
-            ncc = NCC(win = 20, eps = 1e-3)
+            ncc = NCC(eps = 1e-3)
             print(fixed_clipped.shape, moving_transformed_clipped.shape)
             R_structure_loss = torch.mean(ncc.loss(y_true=fixed_clipped, y_pred = moving_transformed_clipped))
     else:
-        R_structure_loss = compute_batch_lpips_loss(R_outputs, fixed, 64, model)
-        
+       # print(R_outputs.shape, fixed.shape)
+        if train:
+            R_structure_loss = 1 - model(moving_transformed, fixed, as_loss = True)
+        else:
+            R_structure_loss = 1 - model(moving_transformed, fixed, as_loss = False)
+            
         
     R_flow_tv_loss = 0
     if training_config.lambda_r_tv>0:
@@ -474,6 +715,10 @@ import torch
 import torch.nn.functional as F
 from torch import Tensor
 
+import torch
+import torch.nn.functional as F
+from torch import Tensor
+from typing import List, Optional, Tuple, Union
 
 def _fspecial_gauss_1d(size: int, sigma: float) -> Tensor:
     r"""Create 1-D gauss kernel
@@ -490,7 +735,6 @@ def _fspecial_gauss_1d(size: int, sigma: float) -> Tensor:
     g /= g.sum()
 
     return g.unsqueeze(0).unsqueeze(0)
-
 
 def gaussian_filter(input: Tensor, win: Tensor) -> Tensor:
     r""" Blur input with 1-D kernel
@@ -520,7 +764,6 @@ def gaussian_filter(input: Tensor, win: Tensor) -> Tensor:
 
     return out
 
-
 def _ssim(
     X: Tensor,
     Y: Tensor,
@@ -542,7 +785,6 @@ def _ssim(
         Tuple[torch.Tensor, torch.Tensor]: ssim results.
     """
     K1, K2 = K
-    # batch, channel, [depth,] height, width = X.shape
     compensation = 1.0
 
     C1 = (K1 * data_range) ** 2
@@ -561,18 +803,17 @@ def _ssim(
     sigma2_sq = compensation * (gaussian_filter(Y * Y, win) - mu2_sq)
     sigma12 = compensation * (gaussian_filter(X * Y, win) - mu1_mu2)
 
-    cs_map = (2 * sigma12 + C2) / (sigma1_sq + sigma2_sq + C2)  # set alpha=beta=gamma=1
+    cs_map = (2 * sigma12 + C2) / (sigma1_sq + sigma2_sq + C2)
     ssim_map = ((2 * mu1_mu2 + C1) / (mu1_sq + mu2_sq + C1)) * cs_map
 
     ssim_per_channel = torch.flatten(ssim_map, 2).mean(-1)
     cs = torch.flatten(cs_map, 2).mean(-1)
     return ssim_per_channel, cs
 
-
 def ssim(
     X: Tensor,
     Y: Tensor,
-    data_range: float = 255,
+    data_range: float = 1.0,
     size_average: bool = True,
     win_size: int = 11,
     win_sigma: float = 1.5,
@@ -605,9 +846,6 @@ def ssim(
     if len(X.shape) not in (4, 5):
         raise ValueError(f"Input images should be 4-d or 5-d tensors, but got {X.shape}")
 
-    #if not X.type() == Y.type():
-    #    raise ValueError(f"Input images should have the same dtype, but got {X.type()} and {Y.type()}.")
-
     if win is not None:  # set win_size
         win_size = win.shape[-1]
 
@@ -625,177 +863,7 @@ def ssim(
     if size_average:
         return ssim_per_channel.mean()
     else:
-        return ssim_per_channel.mean(1)
-
-
-def ms_ssim(
-    X: Tensor,
-    Y: Tensor,
-    data_range: float = 255,
-    size_average: bool = True,
-    win_size: int = 11,
-    win_sigma: float = 1.5,
-    win: Optional[Tensor] = None,
-    weights: Optional[List[float]] = None,
-    K: Union[Tuple[float, float], List[float]] = (0.01, 0.03)
-) -> Tensor:
-    r""" interface of ms-ssim
-    Args:
-        X (torch.Tensor): a batch of images, (N,C,[T,]H,W)
-        Y (torch.Tensor): a batch of images, (N,C,[T,]H,W)
-        data_range (float or int, optional): value range of input images. (usually 1.0 or 255)
-        size_average (bool, optional): if size_average=True, ssim of all images will be averaged as a scalar
-        win_size: (int, optional): the size of gauss kernel
-        win_sigma: (float, optional): sigma of normal distribution
-        win (torch.Tensor, optional): 1-D gauss kernel. if None, a new kernel will be created according to win_size and win_sigma
-        weights (list, optional): weights for different levels
-        K (list or tuple, optional): scalar constants (K1, K2). Try a larger K2 constant (e.g. 0.4) if you get a negative or NaN results.
-    Returns:
-        torch.Tensor: ms-ssim results
-    """
-    if not X.shape == Y.shape:
-        raise ValueError(f"Input images should have the same dimensions, but got {X.shape} and {Y.shape}.")
-
-    for d in range(len(X.shape) - 1, 1, -1):
-        X = X.squeeze(dim=d)
-        Y = Y.squeeze(dim=d)
-
-    #if not X.type() == Y.type():
-    #    raise ValueError(f"Input images should have the same dtype, but got {X.type()} and {Y.type()}.")
-
-    if len(X.shape) == 4:
-        avg_pool = F.avg_pool2d
-    elif len(X.shape) == 5:
-        avg_pool = F.avg_pool3d
-    else:
-        raise ValueError(f"Input images should be 4-d or 5-d tensors, but got {X.shape}")
-
-    if win is not None:  # set win_size
-        win_size = win.shape[-1]
-
-    if not (win_size % 2 == 1):
-        raise ValueError("Window size should be odd.")
-
-    smaller_side = min(X.shape[-2:])
-    assert smaller_side > (win_size - 1) * (
-        2 ** 4
-    ), "Image size should be larger than %d due to the 4 downsamplings in ms-ssim" % ((win_size - 1) * (2 ** 4))
-
-    if weights is None:
-        weights = [0.0448, 0.2856, 0.3001, 0.2363, 0.1333]
-    weights_tensor = X.new_tensor(weights)
-
-    if win is None:
-        win = _fspecial_gauss_1d(win_size, win_sigma)
-        win = win.repeat([X.shape[1]] + [1] * (len(X.shape) - 1))
-
-    levels = weights_tensor.shape[0]
-    mcs = []
-    for i in range(levels):
-        ssim_per_channel, cs = _ssim(X, Y, win=win, data_range=data_range, size_average=False, K=K)
-
-        if i < levels - 1:
-            mcs.append(torch.relu(cs))
-            padding = [s % 2 for s in X.shape[2:]]
-            X = avg_pool(X, kernel_size=2, padding=padding)
-            Y = avg_pool(Y, kernel_size=2, padding=padding)
-
-    ssim_per_channel = torch.relu(ssim_per_channel)  # type: ignore  # (batch, channel)
-    mcs_and_ssim = torch.stack(mcs + [ssim_per_channel], dim=0)  # (level, batch, channel)
-    ms_ssim_val = torch.prod(mcs_and_ssim ** weights_tensor.view(-1, 1, 1), dim=0)
-
-    if size_average:
-        return ms_ssim_val.mean()
-    else:
-        return ms_ssim_val.mean(1)
-
-
-class SSIM(torch.nn.Module):
-    def __init__(
-        self,
-        data_range: float = 255,
-        size_average: bool = True,
-        win_size: int = 11,
-        win_sigma: float = 1.5,
-        channel: int = 3,
-        spatial_dims: int = 2,
-        K: Union[Tuple[float, float], List[float]] = (0.01, 0.03),
-        nonnegative_ssim: bool = False,
-    ) -> None:
-        r""" class for ssim
-        Args:
-            data_range (float or int, optional): value range of input images. (usually 1.0 or 255)
-            size_average (bool, optional): if size_average=True, ssim of all images will be averaged as a scalar
-            win_size: (int, optional): the size of gauss kernel
-            win_sigma: (float, optional): sigma of normal distribution
-            channel (int, optional): input channels (default: 3)
-            K (list or tuple, optional): scalar constants (K1, K2). Try a larger K2 constant (e.g. 0.4) if you get a negative or NaN results.
-            nonnegative_ssim (bool, optional): force the ssim response to be nonnegative with relu.
-        """
-
-        super(SSIM, self).__init__()
-        self.win_size = win_size
-        self.win = _fspecial_gauss_1d(win_size, win_sigma).repeat([channel, 1] + [1] * spatial_dims)
-        self.size_average = size_average
-        self.data_range = data_range
-        self.K = K
-        self.nonnegative_ssim = nonnegative_ssim
-
-    def forward(self, X: Tensor, Y: Tensor) -> Tensor:
-        return ssim(
-            X,
-            Y,
-            data_range=self.data_range,
-            size_average=self.size_average,
-            win=self.win,
-            K=self.K,
-            nonnegative_ssim=self.nonnegative_ssim,
-        )
-
-
-class MS_SSIM(torch.nn.Module):
-    def __init__(
-        self,
-        data_range: float = 255,
-        size_average: bool = True,
-        win_size: int = 11,
-        win_sigma: float = 1.5,
-        channel: int = 3,
-        spatial_dims: int = 2,
-        weights: Optional[List[float]] = None,
-        K: Union[Tuple[float, float], List[float]] = (0.01, 0.03),
-    ) -> None:
-        r""" class for ms-ssim
-        Args:
-            data_range (float or int, optional): value range of input images. (usually 1.0 or 255)
-            size_average (bool, optional): if size_average=True, ssim of all images will be averaged as a scalar
-            win_size: (int, optional): the size of gauss kernel
-            win_sigma: (float, optional): sigma of normal distribution
-            channel (int, optional): input channels (default: 3)
-            weights (list, optional): weights for different levels
-            K (list or tuple, optional): scalar constants (K1, K2). Try a larger K2 constant (e.g. 0.4) if you get a negative or NaN results.
-        """
-
-        super(MS_SSIM, self).__init__()
-        self.win_size = win_size
-        self.win = _fspecial_gauss_1d(win_size, win_sigma).repeat([channel, 1] + [1] * spatial_dims)
-        self.size_average = size_average
-        self.data_range = data_range
-        self.weights = weights
-        self.K = K
-
-    def forward(self, X: Tensor, Y: Tensor) -> Tensor:
-        return ms_ssim(
-            X,
-            Y,
-            data_range=self.data_range,
-            size_average=self.size_average,
-            win=self.win,
-            weights=self.weights,
-            K=self.K,
-        )
-        
-        
+        return ssim_per_channel.mean(1)        
 #loss for affine
 import torch
 import torch.nn.functional as F
@@ -819,3 +887,6 @@ def affine_transformation_loss(output, target, transformation_matrix, lambda_smo
     # Total loss
     total_loss = content_loss + lambda_smooth * smoothness_loss + translation_penalty
     return total_loss
+
+
+

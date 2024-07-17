@@ -47,8 +47,8 @@ import tracemalloc
 import psutil
 import lpips
 from DISTS_pytorch import DISTS
-loss_fn = lpips.LPIPS(net='alex', spatial=False).to(device)
-
+loss_fn = lpips.LPIPS(net='alex', spatial=False, use_dropout=False).to(device)
+loss_fn.eval()
 ##### MEMORY OPERATIONS #######
 def print_memory_usage():
     process = psutil.Process(os.getpid())
@@ -194,7 +194,7 @@ def init_parameters():
     
 
 
-def run_validation(vc, epoch, iterator_valid_bl, D_test_step,G_test_step, R_test_step, use_tqdm = True):
+def run_validation(vc, epoch, iterator_valid_bl, D_test_step,G_test_step, R_test_step, ema, use_tqdm = True):
     valid_G_total_loss_list, valid_G_l1_loss_list, valid_G_ssim_list, valid_G_psnr_list, valid_G_ncc_list, \
     valid_D_real_loss_list, valid_D_fake_loss_list, valid_R_total_loss_list = [], [], [], [], [], [], [], []
     valid_idx_iterator = tqdm(range(vc.q_limit)) if use_tqdm else range(vc.q_limit)
@@ -210,9 +210,9 @@ def run_validation(vc, epoch, iterator_valid_bl, D_test_step,G_test_step, R_test
         # = data_v['input']
         # = data_v['target']  
         valid_G_total_loss, valid_G_dis_loss, valid_G_l1_loss, valid_G_ssim, valid_G_psnr, valid_G_ncc = G_test_step(
-            valid_x, valid_y, 3)
+            valid_x, valid_y, epoch, ema)
         valid_D_total_loss, valid_D_real_loss, valid_D_fake_loss, valid_G_output = D_test_step(valid_x, valid_y)
-        valid_R_total_loss, _, valid_R_output = R_test_step(valid_x, valid_y, epoch, loss_fn)
+        valid_R_total_loss, _, valid_R_output = R_test_step(valid_x, valid_y)
         #print("R test: ", valid_R_total_loss)
         #print("done")
         #if i < 5:
@@ -346,12 +346,14 @@ if __name__ == "__main__":
         unet_half_res=False
     )
     model_R.to(device)"""
+    ema = ExponentialMovingAverage(alpha=0.01)
+    
 
     G_optimizer = torch.optim.Adam(model_G.parameters(),lr=1e-4)
     D_optimizer = torch.optim.Adam(model_D.parameters(),lr=1e-5)
     R_optimizer = torch.optim.Adam(model_R.parameters(),lr=1e-4)
 
-    def G_train_step(input_image, target, epoch):
+    def G_train_step(input_image, target, epoch, ema):
         input_image = input_image.to(device)
         target = target.to(device)
         
@@ -386,10 +388,10 @@ if __name__ == "__main__":
         else:
             target_transformed = target
         
-        G_total_loss, G_dis_loss, G_l1_loss = loss_G_perceptual(D_fake_output, G_outputs, target_transformed, tc,loss_fn, epoch)
+        G_total_loss, G_dis_loss, G_l1_loss = loss_G_new(D_fake_output, G_outputs, target_transformed,tc, epoch, ema)
         #print(f"Epoch: {epoch}, G_total_loss: {G_total_loss.item()}, G_dis_loss: {G_dis_loss.item()}, G_l1_loss: {G_l1_loss.item()}")
         
-        print("loss G: ", G_total_loss, G_l1_loss)
+        #print("loss G: ", G_total_loss, G_l1_loss)
         for name, param in model_G.named_parameters():
             if not param.requires_grad:
                 print(f"Parameter {name} does not require gradients.")
@@ -404,7 +406,7 @@ if __name__ == "__main__":
         
         return G_total_loss, G_dis_loss, G_l1_loss, G_outputs, target_transformed
 
-    def G_test_step(input_image, target, epoch):
+    def G_test_step(input_image, target, epoch, ema):
         input_image, target = input_image.to(device), target.to(device)
 
         model_G.eval()
@@ -421,7 +423,7 @@ if __name__ == "__main__":
         #print("G_train: ", G_output_clipped_splitted.shape, target_clipped_splitted.shape)
         with torch.no_grad():
             D_fake_output = model_D(G_outputs)
-        G_total_loss, G_dis_loss, G_l1_loss = loss_G_perceptual(D_fake_output, G_outputs, target, tc,loss_fn, epoch)
+        G_total_loss, G_dis_loss, G_l1_loss = loss_G_new(D_fake_output, G_outputs, target, tc, epoch, ema)
         G_ssim = compute_ssim(G_outputs, target) #TODO: check if correct
         G_psnr = compute_psnr(G_outputs,target)
         #print("PSNR: ", G_psnr)
@@ -464,7 +466,7 @@ if __name__ == "__main__":
         
         return D_total_loss, D_real_loss, D_fake_loss, G_outputs
 
-    def R_train_step(input_image, target, ep, model):
+    def R_train_step(input_image, target):
     # train_sampler.set_epoch(epoch)
         input_image, target = input_image.to(device), target.to(device)
         model_R.train()
@@ -477,21 +479,21 @@ if __name__ == "__main__":
         #print("-----", R_outputs[0].shape)
         #img = R_outputs[0][0,:,:,:].permute(1,2,0).detach().clone().cpu().numpy() 
         #plt.imsave(f"./voxelmorph_reg/R/epoch_{epoch}_round_{i}.jpg",np.clip(img, 0, 1))
-        R_total_loss, R_berhu_loss = loss_R_no_gt_perceptual(R_outputs, G_outputs, tc, ep, model)
+        R_total_loss, R_berhu_loss = loss_R_no_gt(R_outputs, G_outputs, tc)
         #print("R losses: ", R_total_loss, R_berhu_loss)
         R_total_loss.backward()
         R_optimizer.step()
     
         return R_total_loss, R_berhu_loss, R_outputs[0]
 
-    def R_test_step(input_image, target, ep, model):
+    def R_test_step(input_image, target):
         model_G.eval()
         model_R.eval()
         input_image, target = input_image.to(device), target.to(device)
         with torch.no_grad():
             G_outputs = model_G(input_image)
             R_outputs = model_R(target, G_outputs)
-        R_total_loss, R_berhu_loss = loss_R_no_gt_perceptual(R_outputs, G_outputs, tc, ep, model)
+        R_total_loss, R_berhu_loss = loss_R_no_gt(R_outputs, G_outputs, tc)
         return R_total_loss, R_berhu_loss, R_outputs
 
     min_loss = 1e8
@@ -540,7 +542,7 @@ if __name__ == "__main__":
             #num_checkpoint_D=100
             else:
                 print("Train G Case Filtering False for epoch {}". format(epoch))
-            #num_checkpoint_D = 50
+            num_checkpoint_D = 500
             for i in tqdm(range(num_checkpoint_D)):
                 #start = time.perf_counter()
                 #time.sleep(1)
@@ -561,7 +563,7 @@ if __name__ == "__main__":
                     #train_G_total_loss, train_G_dis_loss, train_G_l1_loss, train_G_output, train_R_output = G_train_step(
                     #input_images, targets, epoch)
                     train_G_total_loss, train_G_dis_loss, train_G_l1_loss, train_G_output, train_R_output = G_train_step(
-                    input_images, targets, epoch)
+                    input_images, targets, epoch, ema)
                     train_G_total_loss_list.append(train_G_total_loss)
                     train_G_l1_loss_list.append(train_G_l1_loss)
                 
@@ -596,7 +598,7 @@ if __name__ == "__main__":
                     valid_G_total_loss_mean, valid_G_l1_loss_mean, valid_G_ssim_mean, valid_G_psnr_mean, \
                         valid_G_ncc_mean, valid_G_ncc_std, valid_D_real_loss_mean, valid_D_fake_loss_mean, \
                         valid_R_total_loss_mean = run_validation(vc, epoch, valid_loader, D_test_step,
-                                                                G_test_step, R_test_step, use_tqdm=False) 
+                                                                G_test_step, R_test_step, ema, use_tqdm=False) 
                     
                     train_G_total_loss_mean = np.mean(np.array([ t.detach().cpu().numpy() for t in train_G_total_loss_list]))
                     train_G_l1_loss_mean = np.mean(np.array([ t.detach().cpu().numpy() for t in train_G_l1_loss_list]))
@@ -670,7 +672,7 @@ if __name__ == "__main__":
         print("train_G_l1_loss_mean: " , train_G_l1_loss_mean)
         logger.info(f"L1 loss for G: { train_G_l1_loss_mean}")"""
         print('training R ...')
-        #num_checkpoint_R = 50
+        num_checkpoint_R = 500
         for i in tqdm(range(num_checkpoint_R)):
             #start = time.perf_counter()
             #time.sleep(1)
@@ -678,7 +680,7 @@ if __name__ == "__main__":
             train_x, train_y = next(train_loader)
             # = data_R['input']
             # = data_R['target']
-            train_R_total_loss, _, train_R_output = R_train_step(train_x, train_y, epoch, loss_fn)
+            train_R_total_loss, _, train_R_output = R_train_step(train_x, train_y)
             # TRAIN R Check
             #os.makedirs("./voxelmorph_reg/R", exist_ok= True)
             #plt.imsave(f"./voxelmorph_reg/R/epoch_{epoch}_round_{i}.jpg",np.clip(train_R_output[0,:,:,:].permute(1,2,0).detach().cpu().numpy(), 0, 1))
@@ -699,7 +701,7 @@ if __name__ == "__main__":
         valid_G_total_loss_mean, valid_G_l1_loss_mean, valid_G_ssim_mean, valid_G_psnr_mean, \
             valid_G_ncc_mean, valid_G_ncc_std, valid_D_real_loss_mean, valid_D_fake_loss_mean, \
             valid_R_total_loss_mean = \
-            run_validation(vc, epoch, valid_loader, D_test_step, G_test_step, R_test_step)
+            run_validation(vc, epoch, valid_loader, D_test_step, G_test_step, R_test_step, ema)
         
         train_R_total_loss_mean = np.mean(np.array([ t.detach().cpu().numpy() for t in train_R_total_loss_list]))
         train_G_total_loss_mean = np.mean(np.array([ t.detach().cpu().numpy() for t in train_G_total_loss_list]))

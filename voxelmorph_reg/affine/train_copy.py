@@ -9,8 +9,9 @@ from torch.cuda.amp import autocast, GradScaler
 from network import AffineCNN, loss_net
 from aligners.layers import SpatialTransformer
 from GAN_torch.losses_for_gan import NCC
-
-device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
+from IQA_pytorch import DISTS
+device = torch.cuda.device("cuda:1" if torch.cuda.is_available() else "cpu")
+D = DISTS(channels=1).to(device)
 
 class CustomImageDataset(Dataset):
     def __init__(self, dir1, dir2, transform=None):
@@ -50,9 +51,9 @@ dataset = CustomImageDataset(not_stained_dir, stained_dir)
 
 train_dataset_iter = DataLoader(dataset, batch_size=4, shuffle=True, num_workers=4)  # Reduced batch size for memory
 
-n_epochs = 50
+n_epochs = 100
 model = AffineCNN((2048, 2048)).to(device)
-optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
+optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
 scaler = GradScaler()
 
 # Create directory for saving models
@@ -73,7 +74,7 @@ for epoch in range(n_epochs):
 
         with autocast():  # Use mixed precision
             moved_img, aff = model(src, tgt)
-            loss, l2, ncc = loss_net(moved_img, tgt)
+            loss, l2, ncc = loss_net(moved_img, tgt, D)
 
         scaler.scale(loss).backward()
         scaler.step(optimizer)
@@ -116,7 +117,7 @@ for _ in range(eval_steps):
 
     with torch.no_grad():
         moved_img, aff = model(src, tgt)
-    loss, l2, ncc = loss_net(moved_img, tgt)
+    loss, l2, ncc = loss_net(moved_img, tgt, D, False)
     loss_eval_list.append(loss.item())
     l2_eval_list.append(l2.item())
     ncc_eval_list.append(ncc.item())
@@ -149,4 +150,4 @@ plt.legend()
 
 plt.tight_layout()
 plt.show()
-plt.savefig("./affine/losses.jpg")
+plt.savefig("./losses.jpg")

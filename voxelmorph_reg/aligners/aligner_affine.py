@@ -1,7 +1,13 @@
 from stn_affine import spatial_transform_network, affine_transform
 #from utils import affine_to_shift, batch_affine_to_shift
 #from layers import SpatialTransformer
+import torch.nn.init as init
 
+def kaiming_normal_init(m):
+    if isinstance(m, nn.Conv1d) or isinstance(m, nn.Conv2d) or isinstance(m, nn.Conv3d):
+        init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='leaky_relu')
+        if m.bias is not None:
+            init.constant_(m.bias, 0)
 
 """
 currently affine_transform is used as a combination of torch library methods to apply the affine 
@@ -16,110 +22,7 @@ import torch.nn.functional as F
 ########################################################
 # Helper functions
 ########################################################
-def conv_block(x_in, nf, strides=1):
-    """
-    Specific convolution module including convolution followed by leakyrelu.
-    This block assumes the input is in the format (batch, channels, [depth,] height, width).
-    """
-    ndims = len(x_in.shape) - 2
-    assert ndims in [1, 2, 3], f"ndims should be one of 1, 2, or 3. Found: {ndims}"
 
-    # Select the appropriate Convolutional layer based on the number of dimensions
-    if ndims == 1:
-        Conv = nn.Conv1d
-    elif ndims == 2:
-        Conv = nn.Conv2d
-    elif ndims == 3:
-        Conv = nn.Conv3d
-
-    # Apply convolution
-    conv_layer = Conv(in_channels=x_in.shape[1], out_channels=nf, kernel_size=3, padding='same',
-                      stride=strides, bias=False)  # Assuming no bias to match 'he_normal'
-    x_out = conv_layer(x_in)
-
-    # Apply LeakyReLU activation
-    x_out = F.leaky_relu(x_out, negative_slope=0.2)
-
-    return x_out
-
-
-def conv_block_v2(x_in, nf, strides=1):
-    """
-    specific convolution module including convolution followed by leakyrelu
-    """
-    ndims = len(x_in.shape) - 2
-    assert ndims in [1,2,3], f"ndims should be one of 1, 2, or 3. Found: {ndims}"
-    
-    if ndims == 1:
-        Conv1 = nn.Conv1d
-        Conv2 = nn.Conv1d
-    elif ndims == 2:
-        Conv1 = nn.Conv2d
-        Conv2 = nn.Conv1d
-    elif ndims == 3:
-        Conv1 = nn.Conv3d
-        Conv2 = nn.Conv1d
-        
-    conv1_layer = Conv1(x_in.shape[1], nf, kernel_size=3, padding='same',
-                      stride=strides, bias=False)  
-    x_mid = conv1_layer(x_in)
-    x_mid = F.leaky_relu(x_mid, negative_slope=0.2)
-    
-    conv2_layer = Conv2(x_mid.shape[1], nf, kernel_size=3, padding='same',
-                      stride=1, bias=False)
-    x_out = conv2_layer(x_mid)
-    x_out = F.leaky_relu(x_out,negative_slope=0.2)
-
-    return x_out    
-
-
-def conv_block_v2_residual(x_in, nf):
-    """
-    Specific convolution module including convolution followed by leakyrelu.
-    Two 3x3 stride 1 CONV, followed by one 2x2 average pooling.
-    This block assumes the input is in the format (batch, channels, [depth,] height, width).
-    """
-    ndims = len(x_in.shape) - 2
-    assert ndims in [1, 2, 3], f"ndims should be one of 1, 2, or 3. Found: {ndims}"
-
-    # Select the appropriate Convolutional and Pooling layer based on the number of dimensions
-    if ndims == 1:
-        Conv = nn.Conv1d
-        Pool = nn.AvgPool1d
-        pool_size = 2
-    elif ndims == 2:
-        Conv = nn.Conv2d
-        Pool = nn.AvgPool2d
-        pool_size = (2, 2)
-    elif ndims == 3:
-        Conv = nn.Conv3d
-        Pool = nn.AvgPool3d
-        pool_size = (2, 2, 2)
-
-    # First convolution + LeakyReLU
-    conv1 = Conv(in_channels=x_in.shape[1], out_channels=nf, kernel_size=3, padding=1)
-    x_mid = F.leaky_relu(conv1(x_in), negative_slope=0.2)
-
-    # Second convolution
-    conv2 = Conv(in_channels=nf, out_channels=nf, kernel_size=3, padding=1)
-    x_out = conv2(x_mid)
-
-    # Residual connection
-    if x_in.shape[1] != nf:
-        # Adjust x_in if the number of channels is not equal to nf by padding channels
-        padding = (0, 0) * ndims + (0, nf - x_in.shape[1])
-        x_in_padded = F.pad(x_in, padding, "constant", 0)
-    else:
-        x_in_padded = x_in
-
-    x_out = x_out + x_in_padded  # element-wise addition
-    x_out = F.leaky_relu(x_out, negative_slope=0.2)
-
-    # Average pooling
-    pooling = Pool(pool_size)
-    x_out = pooling(x_out)
-
-    return x_out
 #----------------------------------------------------------------------------
 """
 Helping functions for residual affine transformation model
@@ -172,7 +75,7 @@ class ConvBlockV2Residual(nn.Module):
             raise ValueError("dims should be 1, 2, or 3")
 
         self.padding_layer = CustomPad(padding=(0, 0) * dims + (0, self.nf - in_channels), mode='constant', value=0)
-
+        self.apply(kaiming_normal_init)
     def forward(self, x_in):
         #print("x_in type: ", x_in.type())
         x_in = x_in.to(torch.float32)
@@ -397,12 +300,16 @@ class AlignerUNetCVPR2018V4(nn.Module):
         
         # Define the convolution and pooling layers for the affine transformation prediction
         self.flow_conv = nn.Conv2d(in_channels=enc_nf[-1], out_channels=64, kernel_size=3, padding=1, stride=2)
+        nn.init.normal_(self.flow_conv.weight, mean=0.0, std = 1e-5)
+        if self.flow_conv.bias is not None:
+            init.constant_(self.flow_conv.bias, 0)
         pooling_window_size = vol_size[0] // (2 ** (len(enc_nf) + 1))
         self.flow_pool = nn.AvgPool2d((pooling_window_size, pooling_window_size))
         self.flow_fc = nn.Linear(64, 4)
+        #self.flow_fc = nn.Linear(64, 6)
 
     def forward(self, moving, fixed):
-       
+        #print(moving.shape, fixed.shape)
         #print("moving and fixed: ", moving, fixed)
         if self.loss_mask:
             print("****")
@@ -446,6 +353,7 @@ class AlignerUNetCVPR2018V4(nn.Module):
         flow_affine = flow_affine + torch.tensor([1., 0., 0., 0., 1., 0.], device=flow.device)
         #print("flow_affine add: ", flow_affine.shape)
         # Apply affine transformation to moving image
+        #flow_affine = flow.view(flow.shape[0], 2, 3).to(flow.device)
         #print("affine: ", flow_affine)
         if self.loss_mask:
             print("&&&&")

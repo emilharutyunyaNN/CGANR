@@ -71,6 +71,7 @@ class HDF5IterableDataset(IterableDataset):
             input_img = (input_img - input_mean) / input_std
         
         if self.transform:
+            #print("--")
             input_img, target_img = self.transform(input_img, target_img)
         
         return input_img, target_img
@@ -217,7 +218,7 @@ def init_parameters():
 
     return tc, vc
     
-    
+"""   
     
 def main():
     hdf5_path = '/home/hkhz/data_daihui.hdf5'
@@ -255,3 +256,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+"""
